@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ĐỒ ĂN LÀNG ĐẠI HỌC</title>
+    <link rel="stylesheet" href="./styles_News.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="webapp">
+        <header>
+            <div></div>
+            <div class="navbar_Wrapper_fulltab">
+                <button onclick="toggleSidebar()" class="tab_opt">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        <path
+                            d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+                    </svg>
+                </button>
+
+                <div class="navbar_logo_web">
+                    <a href="#">
+                        <img src="../../Image_web_offical/LOGO_OFFICIAL.jpg" alt="logoweb" />
+                    </a>
+                </div>
+
+                <h3 class="navbar_logo_Heading">
+                    Ăn sập làng<br />
+                    Đại học
+                </h3>
+                <div class="navbar_body flex_Search_center">
+                    <div>
+                        <div class="Search_Wrapper flex_Search_center">
+                            <div class="Search_SearchIcon">
+                                <a href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20"
+                                        height="20">
+                                        <path fill="#da9a72"
+                                            d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+                                    </svg>
+                                </a>
+                            </div>
+
+                            <input class="Search_input" spellcheck="false"
+                                placeholder="Tìm kiếm địa điểm món ăn bạn yêu thích" value="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navbar_action">
+                    <div id="navbar_action_portal"></div>
+                    <div class="UpFile">
+                        <button onclick="Open_Post()" class="btn_upfile" style="display: flex">
+                            POST
+                        </button>
+                    </div>
+                    <button onclick="Open_login()" class="login_btn">
+                        Đăng nhập
+                    </button>
+                    <button onclick="Open_Reg()" class="register_btn">
+                        Đăng ký
+                    </button>
+                </div>
+            </div>
+        </header>
+        <!-- xong phan header -->
+        <!-- Modal đăng nhập  -->
+
+        <div class="modal">
+            <div class="body_modal">
+                <p>Đăng nhập vào Làng</p>
+                <div class="input_text_login">
+                    <input type="text" class="box_input_text_account" placeholder="Email address or phone number" />
+                    <input type="text" class="box_input_text_password" placeholder="Password" />
+                    <div class="forgot_password">
+                        <a href="#">Forgotten Password</a>
+                    </div>
+                    <div class="start_opt">
+                        <a href="#"><img src="../../Image_web_offical/fb_icon_login.png" alt="iconFB" /></a>
+                        <a href="#"><img src="../../Image_web_offical/icon_google.jpg" alt="iconGG" /></a>
+                        <a href="While_Login/index-login.html"><button class="start_login">Login</button></a>
+                        <div class="solid_mid"></div>
+                        <button onclick="handleButtonClick()" class="start_create_new_account">
+                            Create New Account
+                        </button>
+                    </div>
+                </div>
+                <button onclick="CLose_login()" class="close_btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+        <!--  ket thúc phan modal đăng nhập  -->
+
+        <!-- Modal đăng ký -->
+        <div class="modal_Reg">
+            <div class="body_modal_Reg">
+                <p>Đăng Ký vào Làng</p>
+                <div class="input_text_Reg">
+                    <input type="text" class="box_input_text_account_Reg" placeholder="Email address or phone number" />
+                    <input type="text" class="box_input_text_password_Reg" placeholder="Please Input Password" />
+                    <input type="text" class="box_input_text_password_Reg" placeholder="Please Input Password Again" />
+
+                    <div class="start_opt_Reg">
+                        <div class="solid_mid_Reg"></div>
+                        <button class="start_create_new_account_Reg">
+                            Resgister
+                        </button>
+                    </div>
+                </div>
+                <button onclick="CLose_Reg()" class="close_btn_Reg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+
+        <!--  ket thúc phan modal đăng ký -->
+
+
+        <!-- bat dau phan modal post -->
+        <div class="modal_Post">
+            <div class="body_modal_Post">
+                <p>Tạo bài viết </p>
+                <div class="Box_Contain_Avatar_And_Name">
+                    <img src="../../Image_web_offical/avatar_user_emtpy.jpg" alt="avatar_user_emtpy">
+                    <p> Nguyên Khang đẹp trai quá đi mà !!</p>
+                </div>
+                <textarea class="box_input_content" placeholder=" Đố thầy biết em đang nghĩ gì  iii  iii   iiii "></textarea>
+                <div class="Add_To_Content">
+                    <p>Thêm vào bài viết của bạn </p>
+                    <a href="#"><i class="fa-solid fa-image" style="color: #cf6d17;"></i></a>
+                    <a href="#"><i class="fa-solid fa-location-dot" style="color: #cf6d17;"></i></a>
+                    <a href=""><i class="fa-solid fa-face-smile" style="color: #cf6d17;"></i></a>
+                </div>
+                <div class="rel_btn_post">
+                    <button class="btn_post_content">Đăng</button>
+                </div>
+                <button onclick="CLose_Post()" class="close_btn_Post">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- ket thuc phan modal post  -->
+        <aside>
+            <div class="box_aside">
+                <a href="#">
+
+                    <button class="Click_ontop">
+                        <i class="fa-sharp fa-solid fa-arrow-up" style="color: #cf7207;"></i>
+                    </button>
+                </a>
+            </div>
+        </aside>
+        <!--  xong phan ben phai -->
+
+        <!-- ===========vertical tab left ==================== -->
+        <div class="nav_left_vert">
+            <ul class="sidebar_vert">
+                <li><a class="active" href="#">Trang chủ</a></li>
+                <li class="type_meal">
+                    <a href="#" class="sub_type_meal">Thể loại món</a>
+                    <ul class="sub_nav">
+                        <li><a href="#"> Đồ chay</a></li>
+                        <li><a href="#"> Ăn chính </a></li>
+                        <li><a href="#"> Ăn vặt </a></li>
+                        <li><a href="#"> Đồ uống </a></li>
+                    </ul>
+                </li>
+                <li><a href="">Tin nổi bật</a></li>
+                <li><a href="#">Bài viết trong ngày</a></li>
+                <li><a href="#">Địa điểm hot </a></li>
+                <li><a href="#">Top xếp hạng</a></li>
+            </ul>
+
+            <script>
+                let sidebarVisible = false;
+
+                function toggleSidebar() {
+                    const sidebar = document.querySelector(".sidebar_vert");
+                    sidebarVisible = !sidebarVisible; // Đảo ngược giá trị của biến trạng thái
+
+                    if (sidebarVisible) {
+                        sidebar.style.display = "flex"; // Hiển thị sidebar nếu đang ẩn
+                    } else {
+                        sidebar.style.display = "none"; // Ẩn sidebar nếu đang hiển thị
+                    }
+                }
+                function CLose_login() {
+                    const sidebar = document.querySelector(".modal");
+                    sidebar.style.display = "none";
+                }
+                function CLose_Reg() {
+                    const sidebar = document.querySelector(".modal_Reg");
+                    sidebar.style.display = "none";
+                }
+                function Open_login() {
+                    const sidebar = document.querySelector(".modal");
+                    sidebar.style.display = "flex";
+                }
+                function Open_Reg() {
+                    const sidebar = document.querySelector(".modal_Reg");
+                    sidebar.style.display = "flex";
+                }
+                function handleButtonClick() {
+                    Open_Reg();
+                    CLose_login();
+                }
+                function Open_Post() {
+                    const sidebar = document.querySelector(".modal_Post");
+                    sidebar.style.display = "flex";
+                }
+                function CLose_Post() {
+                    const sidebar = document.querySelector(".modal_Post");
+                    sidebar.style.display = "none";
+                }
+            </script>
+        </div>
+        <!-- xong phan vertical tab left  -->
+
+        <!--  bat dau phan noi dung tin News -->
+        <div class="container">
+            <div class="newFood" style="margin-top: 10rem;">
+                <h1>
+                    Các Món Ăn Phổ Biến
+                </h1>
+
+                <div class="listNewFood">
+                    <div class="newestfood1">
+                        <img src="../../User_Picture/contain3.jpg" alt="Phở Trang">
+                        <a href="/">Phở Trang Thủ Đức</a>
+                        <p>Số 510, Quốc lộ 13, Phường Hiệp Bình Phước, Thủ Đức</p>
+                        <div class="dongcuoi">
+                            <div class="star-rating">
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"> 5.0 / 5.0 </i>
+                            </div>
+                            <div class="time-ago">
+                                <u>3 giờ trước</u>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="newestfood2">
+                        <img src="../../User_Picture/contain4.jpg" alt="Gà Xối Mỡ Minh Thư">
+                        <a href="/">Gà Xối Mỡ Minh Thư</a>
+                        <p>40A đường số 17, phường Linh Chiểu, Thủ Đức</p>
+                        <div class="dongcuoi">
+                            <div class="star-rating">
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"> 4.9 / 5.0 </i>
+                            </div>
+                            <div class="time-ago">
+                                <u>5 giờ trước</u>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="newestfood3">
+                        <img src="../../User_Picture/contain10.jpg" alt="Mỳ cay Naga Thủ Đức">
+                        <a href="/">Mỳ cay Naga Thủ Đức</a>
+                        <p>2 Hàn Thuyên, Bình Thọ, Thủ Đức</p>
+                        <div class="dongcuoi">
+                            <div class="star-rating">
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"> 4.6 / 5.0 </i>
+                            </div>
+                            <div class="time-ago">
+                                <u>7 giờ trước</u>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="newestfood4">
+                        <img src="../../User_Picture/contain13.jpg" alt="Bún bò Huế Lam Sơn">
+                        <a href="/">Bún bò Huế Lam Sơn</a>
+                        <p>4 Lam Sơn, Trường Thọ, Thủ Đức</p>
+                        <div class="dongcuoi">
+                            <div class="star-rating">
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"> 4.5 / 5.0 </i>
+                            </div>
+                            <div class="time-ago">
+                                <u>8 giờ trước</u>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="newFood" style="margin-top: 3rem;">
+                <h1>
+                    Trải Nghiệm Ẩm Thực
+                </h1>
+
+                <div class="trainghiem">
+                    <div class="trainghiem1">
+                        <div class="left-section">
+                            <img src="../../User_Picture/contain12.jpg" alt="monan" class="monan-avatar">
+                        </div>
+                        <div class="right-section">
+                            <div class="user-info">
+                                <img src="../../User_Picture/avatar_test.jpg" alt="nkhang" class="avatar">
+                                <b>Nguyên Khang</b> 
+                            </div>
+                            <h2>Canteen Đại Học Quốc Tế - Rì viu chân thực</h2>
+                            <p>Khu phố 6, Phường Linh Trung, Quận Thủ Đức, TP. Hồ Chí Minh</p>
+                            <span>
+                                Dù là căn tin của trường đại học nhưng nằm riêng ở ngoài nên các bạn ở trong làng vẫn có thể vô dùng thoải mái nha. Giá ở đây cao hơn các chỗ khác nhưng có máy lạnh và rất nhiều hàng ăn nhỏ ở trong đó nên có rất nhiều món ăn để các bạn lựa chọn nha, lại còn hợp vệ sinh nữa chứ. Đặc biệt các bạn vào đây dùng bữa nhớ xếp hàng tới lượt mình chứ đừng chen lấn nha! 
+                            </span>
+                            <hr>
+                            <div class="comments">
+                                <h2>
+                                    Bình luận:
+                                </h2>
+                                <div class="comment-box">
+                                        <img src="../../User_Picture/avatar_test.jpg" class="avatar">
+                                        <div class="comment-content">
+                                            <textarea placeholder="Write a comment..."></textarea>
+                                            <button><i class="fa-solid fa-circle-arrow-right fa-lg" style="color: #ffb375;"></i></button>
+                                        </div>
+                                </div>
+                                <hr>
+                                <div class="user-block">
+                                    <div class="user-info">
+                                        <img src="../../User_Picture/avatar_test.jpg" alt="vkhang" class="avatar">
+                                        <b>Vỹ Khang</b> 
+                                    </div>
+                                    <div class="user-comment">
+                                        <span>
+                                            Mình từng đi đến đây ăn rồi, rất ngon mà giá cả lại hợp lý, mọi người nên đi ăn thử để trải nghiệm.
+                                        </span>
+                                    </div>
+                                </div>
+                                <button class="morecmt">
+                                    Bấm vào để xem thêm:
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="trainghiem2">
+                        <div class="left-section">
+                            <img src="../../User_Picture/contain10.jpg" alt="monan" class="monan-avatar">
+                        </div>
+                        <div class="right-section">
+                            <div class="user-info">
+                                <img src="../../User_Picture/avatar_test.jpg" alt="nkhang" class="avatar">
+                                <b>Nguyên Khang</b> 
+                            </div>
+                            <h2>Mì cay Naga</h2>
+                            <p>Khu phố 6, Phường Linh Trung, Quận Thủ Đức, TP. Hồ Chí Minh</p>
+                            <span>
+                                Ngon! 
+                            </span>
+                            <hr>
+                            <div class="comments">
+                                <h2>
+                                    Bình luận:
+                                </h2>
+                                <div class="comment-box">
+                                        <img src="../../User_Picture/avatar_test.jpg"" class="avatar">
+                                        <div class="comment-content">
+                                            <textarea placeholder="Write a comment..."></textarea>
+                                            <button><i class="fa-solid fa-circle-arrow-right fa-lg" style="color: #ffb375;"></i></button>
+                                        </div>
+                                </div>
+                                <hr>
+                                <div class="user-block">
+                                    <div class="user-info">
+                                        <img src="../../User_Picture/avatar_test.jpg" alt="vkhang" class="avatar">
+                                        <b>Vỹ Khang</b> 
+                                    </div>
+                                    <div class="user-comment">
+                                        <span>
+                                            Mình từng đi đến đây ăn rồi, rất ngon mà giá cả lại hợp lý, mọi người nên đi ăn thử để trải nghiệm.
+                                        </span>
+                                    </div>
+                                </div>
+                                <button class="morecmt">
+                                    Bấm vào để xem thêm:
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>              
+                </div>
+            </div>
+        </div>
+        <!--Xong phần nội dung tin News-->
+
+         <!-- bat dau phan footer wrapper -->
+        <footer class="footer">
+            <div class="ct_foot">
+                <div class="row">
+                    <div class="collum_foot">
+                        <h4>Trang Chủ</h4>
+                        <ul>
+                            <li><a href="#">Về chúng tôi</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                        </ul>
+                    </div>
+                    <div class="collum_foot">
+                        <h4>Trợ Giúp</h4>
+                        <ul>
+                            <li><a href="#">Hỏi đáp</a></li>
+                            <li><a href="#">Hướng dẫn</a></li>
+                        </ul>
+                    </div>
+                    <div class="collum_foot">
+                        <h4>Liên hệ</h4>
+                        <div class="Online">
+                            <a href="https://www.facebook.com/Ng.Khang3012/"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

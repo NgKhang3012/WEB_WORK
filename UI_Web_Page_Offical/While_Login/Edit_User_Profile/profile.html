@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ĐỒ ĂN LÀNG ĐẠI HỌC </title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+
+<body>
+    <div class="webapp">
+        <div class="header">
+            <div></div>
+            <div class="navbar_Wrapper_fulltab">
+                <button onclick=showSidebar() class="tab_opt">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="45" viewBox="0 -960 960 960" width="45">
+                        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                    </svg>
+                </button>
+
+
+                <div class="navbar_logo_web">
+                    <a href="/">
+                        <img src="logo_temp.png" alt="logoweb">
+                    </a>
+                </div>
+
+                <h3 class="navbar_logo_Heading">Ăn ngập làng<br> Đại học</h3>
+                <div class="navbar_body flex_Search_center">
+                    <div>
+                        <div class="Search_Wrapper flex_Search_center">
+
+                            <div class="Search_SearchIcon"> </div>
+
+
+
+                            <input class="Search_input" spellcheck="false"
+                                placeholder="Tìm kiếm địa điểm món ăn bạn yêu thích" value="">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navbar_action">
+                    <div id="navbar_action_portal"></div>
+                    <div class="UpFile">
+                        <button class="btn_upfile">POST</button>
+                    </div>
+                    <!-- phan thong bao va ICON avatar -->
+                    <div class="notification">
+                        <button onclick=show_notification() class="btn_notification"> <i class="fa-regular fa-bell"></i>
+                        </button>
+                    </div>
+                    <div class="div_avatar">
+                        <button onclick=show_profile_on_avatar() class="btn_avatar"> <i
+                                class="fa-solid fa-user"></i></button>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div> <!-- xong phan header -->
+
+        <Aside>
+            <div class="box_aside">
+
+
+                <button class="Click_ontop"><a href="#"><i class="fa-solid fa-arrow-up"></i></a></button>
+            </div>
+
+
+        </Aside> <!--  xong phan ben phai -->
+
+        <!-- ===========vertical tab left ==================== -->
+        <div class="nav_left_vert">
+            <ul class="sidebar_vert">
+                <li><a href="#">Tin nổi bật</a></li>
+                <li><a href="#">Bài viết trong ngày</a></li>
+                <li><a href="#">Địa điểm hot </a></li>
+                <li><a href="#">Top xếp hạng</a></li>
+                <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="18"
+                            viewBox="0 -960 960 960" width="18">
+                            <path
+                                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                        </svg></a></li>
+            </ul>
+
+            <script>
+                function showSidebar() {
+                    const sidebar = document.querySelector('.sidebar_vert')
+                    sidebar.style.display = 'flex'
+                }
+                function hideSidebar() {
+                    const sidebar = document.querySelector('.sidebar_vert')
+                    sidebar.style.display = 'none'
+                }
+            </script>
+        </div>
+        <!-- xong phan vertical tab left  -->
+
+        <form>
+            <div class="container">
+                <div class="avatar">
+                    <div class="preview-image">
+                        <img src="avatar_test.jpg">
+                    </div>
+                    <div>
+                        <input type="file" id="fileinput" style="display: none;">
+                        <input type="button" class="image-avatar" value="Choose Image"
+                            onclick="document.getElementById('fileinput').click()">
+                    </div>
+                    <div>
+                        <b>
+                            <p class="name">Nguyễn Anh</p>
+                        </b>
+                    </div>
+                    <div>
+                        <p class="email">abc@gmail.com</p>
+                    </div>
+                </div>
+                <div class="account-profile">
+                    <div class="profile-edit">
+                        <div><label>First Name</label></div>
+                        <div><input type="text" placeholder="Anh"></div>
+                        <div><label>Last Name</label></div>
+                        <div><input type="text" placeholder="Nguyễn"></div>
+                        <div><label>Email</label></div>
+                        <div><input type="text" placeholder="abc@gmail.com"></div>
+                        <div><label>Phone Number</label></div>
+                        <div><input type="text" placeholder="0123456789"></div>
+                        <div><label>Gender</label></div>
+                        <div>
+                            <select>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                                <option value="Prefer not to say">Prefer not to say</option>
+                            </select>
+                        </div>
+                        <div><label>Old Password</label></div>
+                        <div><input type="password"></div>
+                        <div><label>New Password</label></div>
+                        <div><input type="password"></div>
+                        <div><label>Comfirm New Password</label></div>
+                        <div><input type="password"></div>
+                        <div class="savediv"><input type="button" class="save" value="Save Change"></div>
+                        <div class="canceldiv"><input type="button" class="cancel" value="Cancel"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!-- bat dau phan footer wrapper -->
+        <footer class="footer">
+            <div class="ct_foot">
+                <div class="row">
+                    <div class="collum_foot">
+                        <h4>Trang Chủ</h4>
+                        <ul>
+                            <li><a href="#">Về chúng tôi</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                        </ul>
+                    </div>
+                    <div class="collum_foot">
+                        <h4>Trợ Giúp</h4>
+                        <ul>
+                            <li><a href="#">Hỏi đáp</a></li>
+                            <li><a href="#">Hướng dẫn</a></li>
+                        </ul>
+                    </div>
+                    <div class="collum_foot">
+                        <h4>Liên hệ</h4>
+                        <div class="Online">
+                            <a href="https://www.facebook.com/Ng.Khang3012/"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

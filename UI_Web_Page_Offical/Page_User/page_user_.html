@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ĐỒ ĂN LÀNG ĐẠI HỌC</title>
+    <link rel="stylesheet" href="./styles_page_user.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="webapp">
+        <header>
+            <div></div>
+            <div class="navbar_Wrapper_fulltab">
+                <button onclick="toggleSidebar()" class="tab_opt">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        <path
+                            d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+                    </svg>
+                </button>
+
+                <div class="navbar_logo_web">
+                    <a href="#">
+                        <img src="../Image_web_offical/LOGO_OFFICIAL.jpg" alt="logoweb" />
+                    </a>
+                </div>
+
+                <h3 class="navbar_logo_Heading">
+                    Ăn sập làng<br />
+                    Đại học
+                </h3>
+                <div class="navbar_body flex_Search_center">
+                    <div>
+                        <div class="Search_Wrapper flex_Search_center">
+                            <div class="Search_SearchIcon">
+                                <a href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20"
+                                        height="20">
+                                        <path fill="#da9a72"
+                                            d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+                                    </svg>
+                                </a>
+                            </div>
+
+                            <input class="Search_input" spellcheck="false"
+                                placeholder="Tìm kiếm địa điểm món ăn bạn yêu thích" value="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navbar_action">
+                    <div id="navbar_action_portal"></div>
+                    <div class="UpFile">
+                        <button onclick="Open_Post()" class="btn_upfile" style="display: flex">
+                            POST
+                        </button>
+                    </div>
+                    
+
+                    <!-- phan thong bao va ICON avatar -->
+                    <div class="notification">
+                        <button onclick=show_notification() class="btn_notification"> <i class="fa-regular fa-bell"></i>
+                        </button>
+                    </div>
+                    <div class="div_avatar">
+                        <button onclick=show_profile_on_avatar() class="btn_avatar"> <i
+                                class="fa-solid fa-user"></i></button>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <!-- xong phan header -->
+        <!-- bat dau phan modal post -->
+        <div class="modal_Post">
+            <div class="body_modal_Post">
+                <p>Tạo bài viết </p>
+                <div class="Box_Contain_Avatar_And_Name">
+                    <img src="../Image_web_offical/avatar_user_emtpy.jpg" alt="avatar_user_emtpy">
+                    <p> Nguyên Khang đẹp</p>
+                </div>
+                <textarea class="box_input_content"
+                    placeholder=" Hãy viết cảm nghĩ của bạn "></textarea>
+                <div class="Add_To_Content">
+                    <p>Thêm vào bài viết của bạn </p>
+                    <a href="#"><i class="fa-solid fa-image" style="color: #cf6d17;"></i></a>
+                    <a href="#"><i class="fa-solid fa-location-dot" style="color: #cf6d17;"></i></a>
+                    <a href=""><i class="fa-solid fa-face-smile" style="color: #cf6d17;"></i></a>
+                </div>
+                <div class="rel_btn_post">
+                    <button class="btn_post_content">Đăng</button>
+                </div>
+                <button onclick="CLose_Post()" class="close_btn_Post">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- ket thuc phan modal post  -->
+        <aside>
+            <div class="box_aside">
+                <a href="#">
+
+                    <button class="Click_ontop">
+                        <i class="fa-sharp fa-solid fa-arrow-up" style="color: #cf7207;"></i>
+                    </button>
+                </a>
+            </div>
+        </aside>
+        <!--  xong phan ben phai -->
+
+          <!-- ===========vertical tab left ==================== -->
+          <div class="nav_left_vert">
+            <ul class="sidebar_vert">
+                <li><a class="active" href="#">Trang chủ</a></li>
+                <li class="type_meal">
+                    <a href="#" class="sub_type_meal">Thể loại món</a>
+                    <ul class="sub_nav">
+                        <li><a href="#"> Đồ chay</a></li>
+                        <li><a href="#"> Ăn chính </a></li>
+                        <li><a href="#"> Ăn vặt </a></li>
+                        <li><a href="#"> Đồ uống </a></li>
+                    </ul>
+                </li>
+                <li><a href="">Tin nổi bật</a></li>
+                <li><a href="#">Bài viết trong ngày</a></li>
+                <li><a href="#">Địa điểm hot </a></li>
+                <li><a href="#">Top xếp hạng</a></li>
+            </ul>
+
+            <script>
+                let sidebarVisible = false;
+
+                function toggleSidebar() {
+                    const sidebar = document.querySelector(".sidebar_vert");
+                    sidebarVisible = !sidebarVisible; // Đảo ngược giá trị của biến trạng thái
+
+                    if (sidebarVisible) {
+                        sidebar.style.display = "flex"; // Hiển thị sidebar nếu đang ẩn
+                    } else {
+                        sidebar.style.display = "none"; // Ẩn sidebar nếu đang hiển thị
+                    }
+                }
+                function CLose_login() {
+                    const sidebar = document.querySelector(".modal");
+                    sidebar.style.display = "none";
+                }
+                function CLose_Reg() {
+                    const sidebar = document.querySelector(".modal_Reg");
+                    sidebar.style.display = "none";
+                }
+                function Open_login() {
+                    const sidebar = document.querySelector(".modal");
+                    sidebar.style.display = "flex";
+                }
+                function Open_Reg() {
+                    const sidebar = document.querySelector(".modal_Reg");
+                    sidebar.style.display = "flex";
+                }
+                function handleButtonClick() {
+                    Open_Reg();
+                    CLose_login();
+                }
+                function Open_Post() {
+                    const sidebar = document.querySelector(".modal_Post");
+                    sidebar.style.display = "flex";
+                }
+                function CLose_Post() {
+                    const sidebar = document.querySelector(".modal_Post");
+                    sidebar.style.display = "none";
+                }
+            </script>
+        </div>
+        <!-- xong phan vertical tab left  -->
+
+        <!-- Bat dau phan noi dung-->
+        <div class="container">
+            <div class="container-left">
+                <div class="post-item">
+                    <div class="author">
+                        <div class="avatar-img"><a href="#"><img src="../User_Picture/avatar_test.jpg" alt="Avatar"></a></div>
+                        <div class="summary-post">
+                            <div class="author-name"><a href="#">
+                                    <p>Nguyễn A</p>
+                                </a></div>
+                            <div class="time-post">17:35 ngày 29/3/2022</div>
+                        </div>
+                    </div>
+                    <div class="img-dishes">
+                        <img src="../User_Picture/image_dishes.jpg  " alt="Mì cay Naga">
+                    </div>
+                    <div class="rating-content">
+                        <i class="icon-star"></i>
+                        <span><b>4.2</b></span>
+                        <span><b>/5.0</b></span>
+                    </div>
+                    <div class="post-content">
+                        <div class="title-content">
+                            <h1>Mì cay Naga Thủ Đức</h1>
+                        </div>
+                        <div class="content">
+                            Theo quan điểm của mình, quán có không gian rộng lớn, gồm 2 khu vực chính là khu ghế ngồi và
+                            khu ngồi bệt. Giữa mỗi bàn ngồi sẽ được bố trí vách ngăn để đảm bảo không gian riêng tư cho
+                            thực khách. Naga sử dụng mì Koreno nên sợi mì sẽ to tròn, dai và ngon hơn. Nước dùng sẽ được
+                            quán chế biến theo công thức riêng với 7 cấp độ cay. Nếu bạn nào không ăn được cay có thể
+                            gọi cấp độ 0 nhé. Các loại topping của quán như: hải sản, bò, gà, nấm,…đều là tươi ngon và
+                            được chế biến cẩn thận.
+                        </div>
+                        <div class="comment">
+                            <div class="likeandcomment">
+                                <span class="like">
+                                    <i class="icon-like"></i>
+                                    15 người yêu thích
+                                </span>
+                                <b class="slcomment">1 Bình luận</b>
+                            </div>
+                            <div class="user-comment">
+                                <div class="avatar-user"><a href="#"><img src="../User_Picture/avatar_test.jpg" alt="Avatar"></a></div>
+                                <div class="write-comment"> 
+                                    <textarea class="write" placeholder="Viết bình luận"
+                                        oninput="autoGrow(this)"></textarea>
+                                    <script>
+                                        function autoGrow(element) {
+                                            element.style.height = "5px";
+                                            element.style.height = (element.scrollHeight) + "px";
+                                        }
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="list-comment">
+                                <div class="comment-1">
+                                    <div class="avatar-comment"><a href="#"><img src="../User_Picture/avatar_test.jpg" alt="Avatar"></a>
+                                    </div>
+                                    <div class="summary-comment">
+                                        <div class="comment-name">
+                                            <a href="#">Nguyễn B</a>
+                                            <p>12:35 ngày 30/3/2022</p>
+                                        </div>
+                                        <div class="content-comment">Quá tuyệt vời</div>
+                                        <div class="reply-comment">Trả lời</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-right">
+                <div class="author-box">
+                    <div class="author-info">
+                        <div class="avatar-img"><a href="#"><img src="../User_Picture/avatar_test.jpg" alt="Avatar"></a></div>
+                        <div class="author-name"><a href="#">
+                                <p>Nguyễn A</p>
+                            </a></div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="activity">
+                        <div class="sl-baiviet">
+                            <div class="sl">14</div>
+                            <div class="label">Bài viết</div>
+                        </div>
+                        <div class="sl-nguoitheodoi">
+                            <div class="sl">4</div>
+                            <div class="label">Người theo dõi</div>
+                        </div>
+                        <div class="sl-dangtheodoi">
+                            <div class="sl">0</div>
+                            <div class="label">Đang theo dõi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Xong phan noi dung-->
+        <!-- bat dau phan footer wrapper -->
+        <footer class="footer">
+            <div class="ct_foot">
+                <div class="row">
+                    <div class="collum_foot">
+                        <h4>Trang Chủ</h4>
+                        <ul>
+                            <li><a href="#">Về chúng tôi</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                        </ul>
+                    </div>
+                    <div class="collum_foot">
+                        <h4>Trợ Giúp</h4>
+                        <ul>
+                            <li><a href="#">Hỏi đáp</a></li>
+                            <li><a href="#">Hướng dẫn</a></li>
+                        </ul>
+                    </div>
+                    <div class="collum_foot">
+                        <h4>Liên hệ</h4>
+                        <div class="Online">
+                            <a href="https://www.facebook.com/Ng.Khang3012/"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
