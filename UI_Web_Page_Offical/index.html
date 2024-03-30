@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ĐỒ ĂN LÀNG ĐẠI HỌC</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -28,7 +28,7 @@
 
                 <div class="navbar_logo_web">
                     <a href="#">
-                        <img src="Image_web_offical/LOGO_OFFICIAL.jpg" alt="logoweb" />
+                        <img src="/static/Image_web_offical/LOGO_OFFICIAL.jpg" alt="logoweb" />
                     </a>
                 </div>
 
@@ -77,22 +77,23 @@
         <div class="modal">
             <div class="body_modal">
                 <p>Đăng nhập vào Làng</p>
-                <div class="input_text_login">
-                    <input type="text" class="box_input_text_account" placeholder="Email address or phone number" />
-                    <input type="text" class="box_input_text_password" placeholder="Password" />
+                <form class="input_text_login" method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="input-login-account" class="box_input_text_account" placeholder="Email address or phone number" />
+                    <input type="text" name="input-login-password" class="box_input_text_password" placeholder="Password" />
                     <div class="forgot_password">
                         <a href="#">Forgotten Password</a>
                     </div>
                     <div class="start_opt">
-                        <a href="#"><img src="Image_web_offical/fb_icon_login.png" alt="iconFB" /></a>
-                        <a href="#"><img src="Image_web_offical/icon_google.jpg" alt="iconGG" /></a>
-                        <a href="While_Login/index-login.html"><button class="start_login">Login</button></a>
+                        <a href="#"><img src="/static/Image_web_offical/fb_icon_login.png" alt="iconFB" /></a>
+                        <a href="#"><img src="/static/Image_web_offical/icon_google.jpg" alt="iconGG" /></a>
+                        <button type="submit" class="start_login" name="button-login">Login</button>
                         <div class="solid_mid"></div>
                         <button onclick="handleButtonClick()" class="start_create_new_account">
                             Create New Account
                         </button>
                     </div>
-                </div>
+                </form>
                 <button onclick="CLose_login()" class="close_btn">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
@@ -104,18 +105,17 @@
         <div class="modal_Reg">
             <div class="body_modal_Reg">
                 <p>Đăng Ký vào Làng</p>
-                <div class="input_text_Reg">
-                    <input type="text" class="box_input_text_account_Reg" placeholder="Email address or phone number" />
-                    <input type="text" class="box_input_text_password_Reg" placeholder="Please Input Password" />
-                    <input type="text" class="box_input_text_password_Reg" placeholder="Please Input Password Again" />
+                <form class="input_text_Reg" method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="input-reg-account" class="box_input_text_account_Reg" placeholder="Email address or phone number" />
+                    <input type="text" name="input-reg-password" class="box_input_text_password_Reg" placeholder="Please Input Password" />
+                    <input type="text" name="input-reg-repassword" class="box_input_text_password_Reg" placeholder="Please Input Password Again" />
 
                     <div class="start_opt_Reg">
                         <div class="solid_mid_Reg"></div>
-                        <button class="start_create_new_account_Reg">
-                            Resgister
-                        </button>
+                        <button type="submit" class="start_create_new_account_Reg" name="button-reg">Resgister</button>
                     </div>
-                </div>
+                </form>
                 <button onclick="CLose_Reg()" class="close_btn_Reg">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
@@ -130,7 +130,7 @@
             <div class="body_modal_Post">
                 <p>Tạo bài viết </p>
                 <div class="Box_Contain_Avatar_And_Name">
-                    <img src="./Image_web_offical/avatar_user_emtpy.jpg" alt="avatar_user_emtpy">
+                    <img src="/static/Image_web_offical/avatar_user_emtpy.jpg" alt="avatar_user_emtpy">
                     <p> Nguyên Khang đẹp trai quá đi mà !!</p>
                 </div>
                 <textarea class="box_input_content" placeholder=" Hãy viết suy nghĩ của bạn"></textarea>
@@ -231,7 +231,7 @@
             <div class="row1">
                 <div class="hot_contain">
                     <a href="Bài_Đăng/index.html">
-                        <img src="User_Picture//hotcontain.jpg" alt="Gà rán siêu ngon" />
+                        <img src="/static/User_Picture/hotcontain.jpg" alt="Gà rán siêu ngon" />
                         <div class="text_overlay">
                             <b>Gà rán siêu ngon</b>
                         </div>
@@ -239,7 +239,7 @@
                 </div>
                 <div class="hot_contain1">
                     <a href="Bài_Đăng/index.html">
-                        <img src="User_Picture/contain1.jpg" alt="Nem nướng nha trang" />
+                        <img src="/static/User_Picture/contain1.jpg" alt="Nem nướng nha trang" />
                         <div class="text_overlay">
                             <b>Nem nướng Nha Trang</b>
                         </div>
@@ -248,34 +248,34 @@
             </div>
             <div class="other_contain">
                 <div>
-                    <img src="User_Picture//contain2.jpg" alt="Bánh Mì Thổ Nhỹ Kỳ Kebab" />
+                    <img src="/static/User_Picture/contain2.jpg" alt="Bánh Mì Thổ Nhỹ Kỳ Kebab" />
                     <a href="Bài_Đăng/index.html">Bánh Mì Thổ Nhỹ Kỳ Kebab</a>
                     <p>309/93 Võ Văn Ngân, P. Linh Chiểu, Thủ Đức</p>
                 </div>
                 <div>
-                    <img src="User_Picture//contain3.jpg" alt="Phở Trang" />
+                    <img src="/static/User_Picture/contain3.jpg" alt="Phở Trang" />
                     <a href="Bài_Đăng/index.html">Phở Trang Thủ Đức</a>
                     <p>
                         Số 510, Quốc lộ 13, Phường Hiệp Bình Phước, Thủ Đức
                     </p>
                 </div>
                 <div>
-                    <img src="User_Picture//contain4.jpg" alt="Gà Xối Mỡ Minh Thư" />
+                    <img src="/static/User_Picture/contain4.jpg" alt="Gà Xối Mỡ Minh Thư" />
                     <a href="Bài_Đăng/index.html">Gà Xối Mỡ Minh Thư</a>
                     <p>40A đường số 17, phường Linh Chiểu, Thủ Đức</p>
                 </div>
                 <div>
-                    <img src="User_Picture//contain5.jpg" alt="Quán Bà 5 Cua" />
+                    <img src="/static/User_Picture/contain5.jpg" alt="Quán Bà 5 Cua" />
                     <a href="Bài_Đăng/index.html">Quán Bà 5 Cua</a>
                     <p>Đường Phạm Văn Đồng, Thủ Đức</p>
                 </div>
                 <div>
-                    <img src="User_Picture//contain6.jpg" alt="Buffet BBQ 99K Sáu Béo" />
+                    <img src="/static/User_Picture/contain6.jpg" alt="Buffet BBQ 99K Sáu Béo" />
                     <a href="Bài_Đăng/index.html">Buffet BBQ 99K Sáu Béo</a>
                     <p>Số 39B, Đường Phạm Văn Đồng, Thủ Đức</p>
                 </div>
                 <div>
-                    <img src="User_Picture//contain7.jpg"
+                    <img src="/static/User_Picture/contain7.jpg"
                         alt="Chinku- Nướng Không Khói, Nhà hàng quán ăn ngon Thủ Đức" />
                     <a href="Bài_Đăng/index.html">Chinku- Nướng Không Khói, Nhà hàng quán ăn ngon Thủ
                         Đức</a>
@@ -285,32 +285,32 @@
                     </p>
                 </div>
                 <div>
-                    <img src="User_Picture//contain8.jpg" alt="Phá Lấu" />
+                    <img src="/static/User_Picture/contain8.jpg" alt="Phá Lấu" />
                     <a href="Bài_Đăng/index.html">Phá Lấu </a>
                     <p>296 Linh Đông, P. Linh Đông, Thủ Đức</p>
                 </div>
                 <div>
-                    <img src="User_Picture//contain9.jpg" alt="Hải sản Giang Ghẹ Phường Bình Thọ" />
+                    <img src="/static/User_Picture/contain9.jpg" alt="Hải sản Giang Ghẹ Phường Bình Thọ" />
                     <a href="Bài_Đăng/index.html">Hải sản Giang Ghẹ Phường Bình Thọ</a>
                     <p>40 Đặng Văn Bi, Bình Thọ, Thủ Đức</p>
                 </div>
                 <div>
-                    <img src="User_Picture//contain10.jpg" alt="Mỳ cay Naga Thủ Đức" />
+                    <img src="/static/User_Picture/contain10.jpg" alt="Mỳ cay Naga Thủ Đức" />
                     <a href="Bài_Đăng/index.html">Mỳ cay Naga Thủ Đức</a>
                     <p>2 Hàn Thuyên, Bình Thọ, Thủ Đức</p>
                 </div>
                 <div>
-                    <img src="User_Picture//contain11.jpg" alt="Buffet Đại Dương Phường Linh Chiểu" />
+                    <img src="/static/User_Picture/contain11.jpg" alt="Buffet Đại Dương Phường Linh Chiểu" />
                     <a href="Bài_Đăng/index.html">Buffet Đại Dương Phường Linh Chiểu</a>
                     <p>1088 Đ. Kha Vạn Cân, Linh Chiểu, Thủ Đức</p>
                 </div>
                 <div>
-                    <img src="User_Picture//contain12.jpg" alt="Hủ tiếu Nam Vang Mười Đoàn Phường Trường Thọ" />
+                    <img src="/static/User_Picture/contain12.jpg" alt="Hủ tiếu Nam Vang Mười Đoàn Phường Trường Thọ" />
                     <a href="Bài_Đăng/index.html">Hủ tiếu Nam Vang Mười Đoàn Phường Trường Thọ</a>
                     <p>49 Đặng Văn Bi, Trường Thọ, Thủ Đức</p>
                 </div>
                 <div>
-                    <img src="User_Picture//contain13.jpg" alt="Bún bò Huế Lam Sơn" />
+                    <img src="/static/User_Picture/contain13.jpg" alt="Bún bò Huế Lam Sơn" />
                     <a href="Bài_Đăng/index.html">Bún bò Huế Lam Sơn</a>
                     <p>4 Lam Sơn, Trường Thọ, Thủ Đức</p>
                 </div>
