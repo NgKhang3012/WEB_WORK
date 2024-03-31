@@ -129,7 +129,7 @@ body {
 }
 
 .Search_SearchIcon {
-    background-image: url('search-icon.webp');
+    background-image: url('/static/User_Picture/search-icon.webp');
     background-color: #fff;
     background-position: 50%;
     background-repeat: no-repeat;

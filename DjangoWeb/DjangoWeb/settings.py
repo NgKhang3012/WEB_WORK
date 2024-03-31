@@ -118,6 +118,7 @@ USE_TZ = True
 # Đường dẫn đến thư mục chứa các tệp tĩnh như CSS, JavaScript, vv.
 STATICFILES_DIRS = [
     'D:\\WEB_WORK\\UI_Web_Page_Offical',
+    'D:\\WEB_WORK\\UI_Web_Page_Offical\\While_Login',
 ]
 
 # URL mà các tệp tĩnh sẽ được phục vụ từ

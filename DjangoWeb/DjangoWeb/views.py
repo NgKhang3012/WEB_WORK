@@ -12,7 +12,7 @@ def index(request):
             user = authenticate(request, username=email_or_phone, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('index')  # Redirect to the same page after login
+                return redirect('whilelogin')  # Redirect to the same page after login
             else:
                 return render(request, 'index.html', {'error_message': 'Invalid email/phone number or password'})
         elif 'button-reg' in request.POST:
@@ -23,6 +23,9 @@ def index(request):
                 return render(request, 'index.html', {'error_message': 'Passwords do not match'})
             user = User.objects.create_user(email_or_phone, email_or_phone, password)
             user.save()
-            return redirect('index')
+            return redirect('whilelogin')
     else:
         return render(request, 'index.html')
+
+def whilelogin(request):
+    return render(request,'While_Login/index-login.html')
