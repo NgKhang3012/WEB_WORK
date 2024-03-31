@@ -3,8 +3,20 @@ from .forms import RegistrationForm, LoginForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
+from DjangoApp.models import *
+from django.utils import timezone
+
+def your_view(request):
+    current_time = timezone.now()
+    other_context_data = {
+        'current_time': current_time
+    }
+    return render(request, 'Search/search.html', other_context_data)
 
 def search(request):
+    if request.method == "POST":
+        searched = request.POST["searched"]
+        keys = Post.objects.filter(title = searched)
     return render(request, 'Search/search.html')
 
 def index(request):
