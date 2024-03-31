@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 
+def search(request):
+    return render(request, 'Search/search.html')
+
 def index(request):
     if request.method == 'POST':
         if 'button-login' in request.POST:

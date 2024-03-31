@@ -119,6 +119,7 @@ USE_TZ = True
 STATICFILES_DIRS = [
     'D:\\WEB_WORK\\UI_Web_Page_Offical',
     'D:\\WEB_WORK\\UI_Web_Page_Offical\\While_Login',
+    'D:\\WEB_WORK\\UI_Web_Page_Offical\\Search',
 ]
 
 # URL mà các tệp tĩnh sẽ được phục vụ từ

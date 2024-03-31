@@ -1,0 +1,1362 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+:root {
+    --grey_background: rgba(217, 208, 203, 0.92);
+    --orange-primary : rgba(236, 201, 162, 0.4) ;
+    --color-page: rgba(236, 201, 162, 0.4) ;
+    --orange_icon : #cf6d17;
+}
+
+html {
+  
+    -webkit-text-size-adjust: 100%;
+    font-size: 70%;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+}
+
+.webapp {
+    background-color:var(--color-page);
+    margin: 0;
+}
+
+body {
+
+    display: block;
+    min-height: 100vh;
+    background: #e7e2de;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow-y: scroll;
+}
+
+
+.navbar_Wrapper_fulltab {
+    width: 100%;
+    padding: 0px 30px;
+    position: fixed;
+    z-index: 1;
+    align-items: center;
+    font-size: 1.4rem;
+    display: flex;
+    border-bottom: 2px solid #f0852d;
+    background-color: #fff;
+    --height: 80px;
+    height: var(--height);
+}
+
+.navbar_logo_web {
+    height: var(--height);
+    width: var(--height);
+    display: flex;
+    align-items: center;
+
+}
+
+.navbar_logo_web a {
+    margin-left: 5px;
+    display: block;
+    position: relative;
+}
+
+.navbar_logo_web img {
+    position: absolute;
+    top: -32px;
+    left: 13px;
+    height: 70px;
+    width: auto;
+    /* border: 3px solid rgb(247, 195, 122); */
+    border-radius: 16px;
+}
+
+
+.navbar_logo_Heading {
+    color: #000;
+    margin: 10px;
+    font-weight: 700;
+    margin-left: 16px;
+    font-size: 2rem;
+    display: flex;
+
+}
+
+@media (max-width:1210px) {
+    .navbar_logo_Heading {
+        display: none;
+    }
+}
+
+@media (max-width:700px) {
+    .container {
+        display: none;
+    }
+
+}
+
+@media (max-width:510px) {
+    .sidebar_vert {
+        width: 100%;
+    }
+
+}
+
+@media (max-width:800px) {
+
+    .navbar_logo_web img {
+        display: none;
+    }
+}
+
+.navbar_body {
+    flex: 1 1;
+}
+
+.flex_Search_center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+
+.Search_Wrapper {
+    border: 2px solid #f7c37a;
+    border-radius: 20px;
+    flex: 1 1;
+    height: 40px;
+    padding: 0 16px 0 8px;
+    transition: border-color .2s ease-in-out;
+    width: 420px;
+}
+
+.flex_Search_center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.Search_SearchIcon {
+    background-color: #fff;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    border-radius: 50%;
+    height: 32px;
+    opacity: .7;
+    transition: opacity 0.5s ease-in-out;
+    width: 30px;
+}
+
+.Search_SearchIcon svg {
+    background-size: contain;
+    background-position: center;
+    background-color: transparent;
+    margin-top: 6px;
+    width: 20px;
+    height: 20px;
+}
+
+.Search_SearchIcon svg:hover {
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 2px;
+    /*  thu cai kinh lup lai nho 1 siu 1px */
+
+}
+
+.Search_input {
+    flex: 1 1;
+    border: none;
+    /* de mat cai khung  */
+    caret-color: #444;
+    height: 100%;
+    outline: none;
+    /*  bo cai khung den khi nhap vao gõ */
+    padding: 0 4px;
+}
+
+.navbar_action {
+    flex: 1 1;
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button {
+    border: none;
+    box-shadow: none;
+    color: inherit;
+    display: block;
+    outline: none;
+    padding: 0;
+
+}
+
+.login_btn {
+    font-weight: 500;
+    cursor: pointer;
+    background: linear-gradient(to right bottom, #0d4b99, #87aad6);
+    border-radius: 80px;
+    color: #fff;
+    margin-right: 30px;
+    font-size: 1.4rem;
+    padding: 9px 20px;
+}
+
+.register_btn {
+    font-weight: 500;
+
+    cursor: pointer;
+    background: linear-gradient(to right bottom, #c4520a, #da9a72);
+    border-radius: 80px;
+    color: #fff;
+    margin-right: 50px;
+    font-size: 1.4rem;
+    padding: 9px 20px;
+
+}
+
+button {
+    border: none;
+    box-shadow: none;
+    color: inherit;
+    display: block;
+    outline: none;
+    padding: 0;
+}
+
+/* ======bat dau  ==phan aside===== */
+.box_aside {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.btn_upfile   {
+    display: block;
+    font-weight: 600;
+    cursor: pointer;
+    position: sticky;
+    background: linear-gradient(to right bottom, #c4520a, #da9a72);
+    border-radius: 14px;
+    color: #fff;
+    margin: 0 50px 0px 50px;
+    font-size: 1.4rem;
+    padding: 18px 14px;
+    border: 2px solid #eba43f;
+}
+
+.Click_ontop {
+    display: block;
+    position: fixed;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    margin-right: 30px;
+    border: 3px solid #f0852d;
+    font-size: 2.0rem;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+
+    background-size: cover;
+    background-color: var(--orange-primary);
+
+}
+
+/*== left menu ==== */
+
+/*  gom co luoon btn 3 gach ngang tren header code o phan nay  */
+
+.tab_opt {
+    position: relative;
+    width: 21px;
+    height: 21px;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    background-size: 11px;
+    display: block;
+    padding: 20px;
+
+}
+
+.tab_opt svg {
+    position: absolute;
+    bottom: 7px;
+    background-color: transparent;
+    background-size: auto;
+    width: 30px;
+    height: 25px;
+    margin-left: -15px;
+
+}
+
+.tab_opt:hover {
+    background-clip: padding-box;
+    background-color: #e8decdf0;
+    border-radius: 5px;
+}
+
+/* ====== nav left vert      =================== */
+.nav_left_vert {
+    background-color: #ac8a26;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    z-index: 5;
+    margin: 0;
+}
+
+.nav_left_vert ul {
+
+    list-style: none;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+}
+
+.nav_left_vert li {
+
+    height: 50px;
+    width: 100%;
+}
+
+.nav_left_vert a {
+
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    transition: transform 0.1s ease;
+}
+
+.nav_left_vert a.active {
+    background-color: #e6a571;
+    color: white;
+    border-radius: 2px;
+
+}
+
+
+
+
+.nav_left_vert a:hover:not(.active) {
+    border-radius: 15px;
+    background-color: #f0f0f0;
+}
+
+.nav_left_vert a:hover {
+    transform: scale(1.04);
+
+}
+
+/* =      ------------------------======    ---------------------- css sub nav  */
+.type_meal {
+    position: relative;
+}
+
+.type_meal .sub_nav {
+    position: absolute;
+    width: 200px;
+    top: 0px;
+    height: auto;
+    background-color: rgba(227, 168, 105, 0.8);
+    right: -201px;
+    border-radius: 10px;
+
+}
+
+
+.sub_nav {
+    display: none; 
+}
+
+.type_meal:hover .sub_nav,
+.sub_nav:hover {
+    display: block; /* Hiển thị khi hover vào .type_meal hoặc .sub_nav */
+    color :white;
+}
+
+
+
+
+
+/*  ket thuc phan sub nav  */
+.sidebar_vert {
+    position: sticky;
+    top: 81.6px;
+
+    border-radius: 5px;
+    border: 2px solid rgba(212, 108, 22, 0.5);
+    display: flex;
+    height: 180vh;
+    width: 250px;
+    z-index: 68;
+    background-color: var(--orange-primary);
+    box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.1);
+
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    font-weight: 600;
+    font-size: 1.4rem;
+
+
+
+}
+
+.sidebar_vert li:hover {
+    font-size: 1.7rem;
+}
+
+
+@media (max-width : 800px) {
+    .hideOnMobile {
+        display: none;
+    }
+}
+
+@media (max-width : 700px) {
+    .sidebar_vert {
+        width: 100%;
+    }
+}
+
+/* nội dung dòng 1*/
+.container {
+    max-width: 1170px;
+    margin: auto;
+}
+
+.container .row1 {
+    margin-top: 10rem;
+    margin-left: 10rem;
+    gap: 3rem;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.hot_contain,
+.hot_contain1 {
+    z-index: 0;
+    position: relative;
+}
+
+.hot_contain img {
+    border-radius: 2rem;
+    height: 35rem;
+    width: 65rem;
+}
+
+.hot_contain1 img {
+    border-radius: 2rem;
+    width: 35rem;
+    height: 35rem;
+}
+
+.hot_contain .text_overlay {
+    position: absolute;
+    font-size: 3rem;
+    color: white;
+    width: 70%;
+    text-decoration: none;
+    bottom: 2rem;
+    left: 3rem;
+    white-space: nowrap;
+    /* Đảm bảo chữ không xuống dòng */
+    overflow: hidden;
+    /* Ẩn nội dung vượt quá phần tử */
+    text-overflow: ellipsis;
+    /* Thêm dấu "..." vào cuối */
+}
+
+.hot_contain1 .text_overlay {
+    position: absolute;
+    font-size: 3rem;
+    width: 70%;
+    color: white;
+    text-decoration: none;
+    bottom: 2rem;
+    left: 3rem;
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+}
+
+/* kết thúc nội dung dòng 1*/
+/* bắt đầu nội dung các dòng khác*/
+.container .listNewFood,
+.container .other_contain {
+    margin-top: 3rem;
+    margin-left: 10rem;
+    width: 100%;
+    height: 150%;
+    gap: 2rem;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.container .trainghiem {
+    margin-top: 2rem;
+    margin-left: 10rem;
+    width: 100%;
+    height: 150%;
+    gap: 2rem;
+    display: block;
+    grid-template-columns: auto auto auto auto;
+
+}
+
+.listNewFood>div,
+.other_contain div {
+    background-color: white;
+    width: 23rem;
+    height: 28rem;
+    border-radius: 0.5rem;
+    border: 0.2rem solid #dea77a;
+}
+
+.listNewFood img,
+.other_contain img {
+    width: 23rem;
+    height: 20rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.listNewFood a,
+.other_contain a {
+    display: block;
+    font-size: 2rem;
+    margin-left: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #000;
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+}
+
+.listNewFood p,
+.other_contain p {
+    font-size: 1.3rem;
+    color: grey;
+    margin-left: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* kết thúc nội dung các dòng khác*/
+
+/* phần tin nổi bật */
+.container .newFood h1 {
+    margin-left: 10rem;
+}
+
+.listNewFood>div {
+    position: relative;
+}
+
+.listNewFood>div .dongcuoi {
+    margin-top: 15px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.listNewFood>div .dongcuoi .star-rating {
+    margin-right: 5px;
+    /* Khoảng cách giữa .star-rating và .time-ago */
+    font-size: 15px;
+}
+
+.listNewFood>div .dongcuoi .time-ago {
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    /* Đặt vị trí của .time-ago tính từ viền phải của .dongcuoi */
+}
+
+
+.avatar {
+    border-radius: 50%;
+    width: 20px;
+    /* Điều chỉnh kích thước ảnh */
+    height: 20px;
+    margin-right: 10px;
+    /* Khoảng cách giữa ảnh và tên */
+    cursor: pointer;
+}
+
+.user-info {
+    font-size: 20px;
+    /* Kích thước của tên */
+}
+
+.trainghiem>div {
+    display: flex;
+    align-items: flex-start;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding-right: 10px;
+}
+
+.left-section {
+    flex: 0 0 50%;
+}
+
+.right-section {
+    flex: 1;
+    /* Phần phải chiếm phần còn lại của không gian */
+    padding-left: 10px;
+    /* Khoảng cách giữa phần trái và phải */
+}
+
+.monan-avatar {
+    width: 100%;
+    /* Đảm bảo ảnh monan.png sẽ điền vào không gian của phần trái */
+}
+
+.avatar {
+    width: 30px;
+    /* Điều chỉnh kích thước ảnh */
+    height: 30px;
+    border-radius: 50%;
+    /* Bo góc thành hình tròn */
+}
+
+.user-info {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* Khoảng cách giữa tên và tiêu đề */
+    display: flex;
+    /* Sử dụng flex để sắp xếp ảnh và tên người dùng cùng hàng */
+    align-items: center;
+    /* Căn chỉnh các phần tử theo trục chính */
+}
+
+h2 {
+    margin-bottom: 5px;
+    /* Khoảng cách giữa tiêu đề và nội dung */
+}
+
+.right-section p {
+    margin-bottom: 10px;
+}
+
+.comments {
+    margin-top: 20px;
+    /* Khoảng cách giữa nội dung và phần comment */
+}
+
+.trainghiem span {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.user-comment {
+    background-color: #b8b2b2;
+    padding: 10px;
+    /* Thiết lập padding */
+    border-radius: 8px;
+    /* Bo tròn các góc */
+    margin-top: 10px;
+    /* Khoảng cách giữa các comment */
+}
+
+.comment-box {
+    display: flex;
+    align-items: center;
+    /* căn giữa các phần tử theo chiều dọc */
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.comment-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    /* phần nội dung bình luận chiếm phần còn lại của hàng */
+}
+
+.comment-content textarea {
+    width: 100%;
+    /* full width */
+    margin-right: 10px;
+    /* khoảng cách giữa textarea và nút */
+    padding: 5px;
+    border-radius: 8px;
+}
+
+
+.comment-content button {
+    order: 2;
+    /* xác định thứ tự hiển thị, nút sẽ xuất hiện sau textarea */
+    cursor: pointer;
+}
+
+.comments .morecmt {
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+
+}
+
+.comments .morecmt:hover {
+    text-decoration: underline;
+}
+
+/*Phan chuyen page*/
+.center {
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 200px;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #000;
+}
+
+.pagination a.active {
+    background-color: #f0852d;
+    color: white;
+    border: 1px solid #f0852d;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #a2a2a2;
+}
+
+/* kết thúc nội dung các dòng khác*/
+
+/* bat dầu code cho nút form đăng nhập  */
+
+
+/* Modal */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    /* display: none; */
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 12;
+}
+
+
+.modal .body_modal {
+    border: 20px solid rgba(179, 134, 51, 0.2);
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 2rem;
+    position: relative;
+    margin: auto;
+    width: 600px;
+    height: 660px;
+    background-color: #f5eeea;
+    border-radius: 15px;
+}
+
+.modal .body_modal p {
+    text-align: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: 600;
+    padding: 40px;
+    margin: 45px 0;
+}
+
+.input_text_login {
+    display: block;
+    text-align: center;
+
+}
+
+.box_input_text_account,
+.box_input_text_password {
+    padding: 5px;
+    font-size: 22px;
+    width: 400px;
+    height: 50px;
+    border-radius: 20px;
+}
+
+.box_input_text_account {
+    margin-bottom: 30px;
+}
+
+.box_input_text_password {
+    margin-bottom: 30px;
+}
+
+.forgot_password {
+    color: rgb(225, 134, 134);
+    position: relative;
+    top: 123px;
+    right: auto;
+    padding: 10px;
+    transition: color 0.3s, box-shadow 0.3s;
+}
+
+.forgot_password a:hover {
+    color: red;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
+/*phan cua modal btn close  */
+
+.modal .close_btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: #dbdad3;
+    cursor: pointer;
+}
+
+.modal .close_btn:hover {
+    background: #a4a39e;
+}
+
+.modal .close_btn i {
+    font-size: 20px;
+    /* Điều chỉnh kích thước icon */
+    color: #000;
+    /* Màu icon */
+}
+
+/*  code cho start opt */
+.start_opt {
+
+    font-size: inherit;
+    position: relative;
+    text-align: center;
+}
+
+.start_opt img {
+    background-color: rgba(17, 74, 161, 0.5);
+    ;
+    border-radius: 50%;
+    margin-top: 5px;
+    width: 50px;
+    height: auto;
+}
+
+.start_opt a:hover {
+    background-color: rgba(238, 162, 40, 0.8);
+    border-radius: 50%;
+}
+
+.solid_mid {
+    position: absolute;
+    right: 12.4rem;
+    margin-top: 8px;
+    padding: 4px;
+    border-bottom: 2px solid black;
+    width: 50%;
+    height: 2px;
+}
+
+.start_login {
+    position: absolute;
+    top: -60px;
+    right: 111px;
+    margin: auto;
+    padding: 5px;
+    font-size: 23px;
+    text-align: center;
+    border-radius: 35px;
+    width: 370px;
+    height: 60px;
+    background-color: #388cc9e0;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #ecf7ff;
+    cursor: pointer;
+    transition: color 0.3s, box-shadow 0.3s;
+}
+
+.start_login:hover {
+    background-color: #2a6fc2;
+    text-decoration: underline;
+}
+
+.start_create_new_account {
+    position: absolute;
+    top: 123px;
+    right: 111px;
+    margin: auto;
+    padding: 5px;
+    font-size: 23px;
+    text-align: center;
+    border-radius: 5px;
+    width: 370px;
+    height: 60px;
+    background-color: #126eb0e0;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #ecf7ff;
+    cursor: pointer;
+    transition: color 0.3s, box-shadow 0.3s;
+
+}
+
+.start_create_new_account:hover {
+    background-color: #1b63bb;
+}
+
+/* ket thuc code start opt */
+
+
+/* ==========================================================    kết thúc code cho nút form đăng nhập  */
+
+/* bat dau code cho modal Reg */
+.modal_Reg {
+
+    position: fixed;
+    inset: 0;
+    display: none;
+    /* display: none; */
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 12;
+}
+
+.modal_Reg .body_modal_Reg {
+    border: 20px solid rgba(179, 134, 51, 0.2);
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 2rem;
+    position: relative;
+    margin: auto;
+    width: 600px;
+    height: 660px;
+    background-color: #f5eeea;
+    border-radius: 15px;
+}
+
+.modal_Reg .body_modal_Reg p {
+    text-align: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: 600;
+    padding: 40px;
+    margin: 25px 0;
+}
+
+.input_text_Reg {
+    display: block;
+    text-align: center;
+
+}
+
+.box_input_text_account_Reg,
+.box_input_text_password_Reg {
+    padding: 5px;
+    font-size: 22px;
+    width: 400px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.box_input_text_account_Reg {
+    margin-bottom: 30px;
+}
+
+.box_input_text_password_Reg {
+    margin-bottom: 30px;
+}
+
+
+
+
+/*phan cua modal btn close  */
+
+.modal_Reg .close_btn_Reg {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: #dbdad3;
+    cursor: pointer;
+}
+
+.modal_Reg .close_btn_Reg:hover {
+    background: #a4a39e;
+}
+
+.modal_Reg .close_btn_Reg i {
+    font-size: 20px;
+    /* Điều chỉnh kích thước icon */
+    color: #000;
+    /* Màu icon */
+}
+
+/*  code cho start opt */
+.start_opt_Reg {
+
+    font-size: inherit;
+    position: relative;
+    text-align: center;
+}
+
+
+.solid_mid_Reg {
+    position: absolute;
+    right: 12.4rem;
+    margin-top: 8px;
+    padding: 4px;
+    border-bottom: 2px solid black;
+    width: 50%;
+    height: 2px;
+}
+
+.start_create_new_account_Reg {
+    position: absolute;
+    top: 57px;
+    left: 26%;
+    align-content: center;
+    margin: auto auto 25px;
+    padding: 5px;
+    font-size: 26px;
+    text-align: center;
+    border-radius: 10px;
+    width: 50%;
+    height: 70px;
+    background-color: rgba(18, 110, 176, 0.88);
+    font-weight: 600;
+    color: rgb(236, 247, 255);
+    cursor: pointer;
+    transition: color 0.3s ease 0s, box-shadow 0.3s ease 0s;
+}
+
+.start_create_new_account_Reg:hover {
+    background-color: #1b63bb;
+}
+
+
+
+/* ket thuc code cho modal Reg */
+
+/* bat dau code cho modal Post */
+.modal_Post {
+
+    position: fixed;
+    inset: 0;
+    display: none;
+    /* display: none; */
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 12;
+}
+
+.modal_Post .body_modal_Post {
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 2rem;
+    position: relative;
+    margin: auto;
+    width: 600px;
+    height: 500px;
+    background-color: var(--grey_background);
+    border-radius: 15px;
+}
+
+.modal_Post .body_modal_Post  p {
+    text-align: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 600;
+  
+}
+.modal_Post .body_modal_Post >p{
+    padding: 20px;
+    margin-top: 25px 0;
+    border-bottom: 2px solid black   ;
+}
+
+
+/* ten va avatar cua khangdeptry */
+.Box_Contain_Avatar_And_Name{
+    position: relative;
+    height : 70px; 
+    width : auto ;
+    border-bottom: 4px ;
+    
+}
+.Box_Contain_Avatar_And_Name img{
+    display: block;
+    padding : 10px ;
+    width: 50px ;
+    height: 50px;
+    border-radius: 50%;
+    
+}
+.Box_Contain_Avatar_And_Name p {
+    position: absolute;
+    top: 20px;
+    left: 71px;
+}
+.box_input_content{
+    
+    font-size: 22px;
+    width: 100%;
+    padding-bottom : 30%;
+    height: 10%;
+    
+}
+.Add_To_Content > p{
+    padding: 10px;
+}
+
+.Add_To_Content{
+    text-align: center;
+    
+}
+.Add_To_Content a {
+    padding : 2px 10px;
+}
+.rel_btn_post{
+    position: relative;
+}
+.btn_post_content {
+    position: absolute;
+    top: 7px;
+    left: 35%;
+    align-content: center;
+    margin: auto auto 25px;
+    padding: 5px;
+    font-size: 17px;
+    text-align: center;
+    border-radius: 3px;
+    width: 30%;
+    /* height: 20px; */
+    background-color: rgb(18, 110, 176);
+    font-weight: 500;
+    color: rgb(236, 247, 255);
+    cursor: pointer;
+    transition: color 0.3s ease 0s, box-shadow 0.3s ease 0s;
+}
+
+
+
+
+/*phan cua modal btn close  */
+
+.modal_Post .close_btn_Post {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: #dbdad3;
+    cursor: pointer;
+}
+
+.modal_Post .close_btn_Post:hover {
+    background: #a4a39e;
+}
+
+.modal_Post .close_btn_Post i {
+    font-size: 20px;
+    color: #000;
+
+}
+
+/*  code cho start opt */
+.start_opt_Post {
+
+    font-size: inherit;
+    position: relative;
+    text-align: center;
+}
+
+
+.solid_mid_Post {
+    position: absolute;
+    right: 12.4rem;
+    margin-top: 8px;
+    padding: 4px;
+    border-bottom: 2px solid black;
+    width: 50%;
+    height: 2px;
+}
+
+.start_create_new_account_Post {
+    position: absolute;
+    top: 57px;
+    left: 26%;
+    align-content: center;
+    margin: auto auto 25px;
+    padding: 5px;
+    font-size: 26px;
+    text-align: center;
+    border-radius: 10px;
+    width: 50%;
+    height: 70px;
+    background-color: rgba(18, 110, 176, 0.88);
+    font-weight: 600;
+    color: rgb(236, 247, 255);
+    cursor: pointer;
+    transition: color 0.3s ease 0s, box-shadow 0.3s ease 0s;
+}
+
+.start_create_new_account_Post:hover {
+    background-color: #1b63bb;
+}
+/*  ket thuc code cho modal Post */
+
+/* bat dau code cho footer  */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style: none;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #011548;
+    padding: 70px 0px;
+    z-index: 10;
+    font-size: 4rem;
+    font-weight: 500;
+}
+
+
+
+.collum_foot {
+    width: 25%;
+    padding: 0 15px;
+}
+
+.collum_foot h4 {
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.collum_foot h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e6a571;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.collum_foot ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.collum_foot ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.collum_foot ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+}
+
+.collum_foot .Online a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+.collum_foot .Online a:hover {
+    color: #24262b;
+    background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px) {
+    .collum_foot {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+
+
+@media(max-width: 574px) {
+    .footer {
+        display: none;
+    }
+}
+
+.result_text {
+    margin-top: 10rem;
+    margin-left: 25rem;
+    font-size: 25px;
+}
