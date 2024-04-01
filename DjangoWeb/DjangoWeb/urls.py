@@ -20,6 +20,7 @@ from . import views
 from .views import CustomPasswordResetView,CustomPasswordResetDoneView,CustomPasswordConfirmView
 
 urlpatterns = [
+    path('', views.index, name="index"),
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('whilelogin/',views.whilelogin,name="whilelogin"),
@@ -27,4 +28,7 @@ urlpatterns = [
     path('accounts/',include('django.contrib.auth.urls')),
     path('passwordreset/done',CustomPasswordResetDoneView.as_view(),name="passwordresetdone"),
     path('accounts/reset/<uidb64>/<token>/',CustomPasswordConfirmView.as_view(),name="passwordresetconfirm"),
+    path('index/', views.index, name='index'),
+    path('whilelogin/',views.whilelogin,name="whilelogin"),
+    path('search/', views.search, name="search")
 ]

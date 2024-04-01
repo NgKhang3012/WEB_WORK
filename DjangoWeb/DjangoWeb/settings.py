@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-sg)saf=pu_asn=+zww$p1v@@hrh=5!+h4ed&z+y2!#3_#*(z#j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.100.112']
+
+
 
 
 # Application definition
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'DjangoApp',
 ]
 
 MIDDLEWARE = [
@@ -122,6 +125,7 @@ STATICFILES_DIRS = [
     'D:\\WEB_WORK\\UI_Web_Page_Offical\\Forget_password',
     'D:\\WEB_WORK\\UI_Web_Page_Offical\\Password_Reset_Done',
     'D:\\WEB_WORK\\UI_Web_Page_Offical\\Password_Reset_Confirm',
+    'D:\\WEB_WORK\\UI_Web_Page_Offical\\Search',
 ]
 
 # URL mà các tệp tĩnh sẽ được phục vụ từ
@@ -134,9 +138,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = '22520628@gm.uit.edu.vn'
 EMAIL_HOST_PASSWORD = 'yzat hyho vczp odlf'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

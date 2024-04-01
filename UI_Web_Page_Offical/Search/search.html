@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ĐỒ ĂN LÀNG ĐẠI HỌC</title>
-    <link rel="stylesheet" href="/static/styles.css" />
+    <link rel="stylesheet" href="/static/styles_search.css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -38,8 +38,9 @@
                 </h3>
                 <div class="navbar_body flex_Search_center">
                     <div>
-                        <div class="Search_Wrapper flex_Search_center">
-                            <div class="Search_SearchIcon">
+                        <form class="Search_Wrapper flex_Search_center" role="search" method = POST action = "{% url 'search' %}">
+                            {% csrf_token %}
+                            <button class="Search_SearchIcon" style="display: block" type="submit">
                                 <a href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20"
                                         height="20">
@@ -47,18 +48,18 @@
                                             d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
                                     </svg>
                                 </a>
-                            </div>
+                            </button>
 
-                            <input class="Search_input" spellcheck="false"
-                                placeholder="Tìm kiếm địa điểm món ăn bạn yêu thích" value="" />
-                        </div>
+                            <input class="Search_input" spellcheck="false" type="search"
+                                placeholder="Tìm kiếm địa điểm món ăn bạn yêu thích" value="" name="searched" />
+                        </form>
                     </div>
                 </div>
 
                 <div class="navbar_action">
                     <div id="navbar_action_portal"></div>
                     <div class="UpFile">
-                        <button onclick="Open_Post()" class="btn_upfile" style="display:none;">
+                        <button onclick="Open_Post()" class="btn_upfile" style="display: flex">
                             POST
                         </button>
                     </div>
@@ -74,7 +75,7 @@
         <!-- xong phan header -->
         <!-- Modal đăng nhập  -->
 
-        <div class="modal">
+        <div class="modal" style="display: none">
             <div class="body_modal">
                 <p>Đăng nhập vào Làng</p>
                 <form class="input_text_login" method="POST">
@@ -88,7 +89,7 @@
                         <a href="#"><img src="/static/Image_web_offical/fb_icon_login.png" alt="iconFB" /></a>
                         <a href="#"><img src="/static/Image_web_offical/icon_google.jpg" alt="iconGG" /></a>
                         <button type="submit" class="start_login" name="button-login">Login</button>
-                        
+                        <div class="solid_mid"></div>
                         <button onclick="handleButtonClick()" class="start_create_new_account">
                             Create New Account
                         </button>
@@ -123,34 +124,7 @@
         </div>
 
         <!--  ket thúc phan modal đăng ký -->
-
-
-        <!-- bat dau phan modal post -->
-        <div class="modal_Post" display: none>
-            <div class="body_modal_Post">
-                <p>Tạo bài viết </p>
-                <div class="Box_Contain_Avatar_And_Name">
-                    <img src="/static/Image_web_offical/avatar_user_emtpy.jpg" alt="avatar_user_emtpy">
-                    <p> Nguyên Khang đẹp trai quá đi mà !!</p>
-                </div>
-                <textarea class="box_input_content" placeholder=" Hãy viết suy nghĩ của bạn"></textarea>
-                <div class="Add_To_Content">
-                    <p>Thêm vào bài viết của bạn </p>
-                    <a href="#"><i class="fa-solid fa-image" style="color: #cf6d17;"></i></a>
-                    <a href="#"><i class="fa-solid fa-location-dot" style="color: #cf6d17;"></i></a>
-                    <a href=""><i class="fa-solid fa-face-smile" style="color: #cf6d17;"></i></a>
-                </div>
-                <div class="rel_btn_post">
-                    <button class="btn_post_content">Đăng</button>
-                </div>
-                <button onclick="CLose_Post()" class="close_btn_Post">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-        </div>
-
-
-        <!-- ket thuc phan modal post  -->
+   
         <aside>
             <div class="box_aside">
                 <a href="#">
@@ -226,108 +200,27 @@
             </script>
         </div>
         <!-- xong phan vertical tab left  -->
+        
+        <div class="result_text"> Result search for {{searched}} </div>
+        <div class="listNewFood">
+            {% for product in keys %}
+            <div class="newestfood1">
+                <img class="thumbnail" src="{{product.imageURL}}" alt="Phở Trang">
+                <a href="#">{{product.name}}</a>
+                <p>{{product.address}}</p>
+                <div class="dongcuoi">
+                    <div class="star-rating">
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"> {{product.star}} / 5.0 </i>
+                    </div>
+                    <div class="time-ago">
+                        <u>{{ product.date|timesince:current_time }}</u>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
 
-        <div class="container">
-            <div class="row1">
-                <div class="hot_contain">
-                    <a href="Bài_Đăng/index.html">
-                        <img src="/static/User_Picture/hotcontain.jpg" alt="Gà rán siêu ngon" />
-                        <div class="text_overlay">
-                            <b>Gà rán siêu ngon</b>
-                        </div>
-                    </a>
-                </div>
-                <div class="hot_contain1">
-                    <a href="Bài_Đăng/index.html">
-                        <img src="/static/User_Picture/contain1.jpg" alt="Nem nướng nha trang" />
-                        <div class="text_overlay">
-                            <b>Nem nướng Nha Trang</b>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="other_contain">
-                <div>
-                    <img src="/static/User_Picture/contain2.jpg" alt="Bánh Mì Thổ Nhỹ Kỳ Kebab" />
-                    <a href="Bài_Đăng/index.html">Bánh Mì Thổ Nhỹ Kỳ Kebab</a>
-                    <p>309/93 Võ Văn Ngân, P. Linh Chiểu, Thủ Đức</p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain3.jpg" alt="Phở Trang" />
-                    <a href="Bài_Đăng/index.html">Phở Trang Thủ Đức</a>
-                    <p>
-                        Số 510, Quốc lộ 13, Phường Hiệp Bình Phước, Thủ Đức
-                    </p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain4.jpg" alt="Gà Xối Mỡ Minh Thư" />
-                    <a href="Bài_Đăng/index.html">Gà Xối Mỡ Minh Thư</a>
-                    <p>40A đường số 17, phường Linh Chiểu, Thủ Đức</p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain5.jpg" alt="Quán Bà 5 Cua" />
-                    <a href="Bài_Đăng/index.html">Quán Bà 5 Cua</a>
-                    <p>Đường Phạm Văn Đồng, Thủ Đức</p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain6.jpg" alt="Buffet BBQ 99K Sáu Béo" />
-                    <a href="Bài_Đăng/index.html">Buffet BBQ 99K Sáu Béo</a>
-                    <p>Số 39B, Đường Phạm Văn Đồng, Thủ Đức</p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain7.jpg"
-                        alt="Chinku- Nướng Không Khói, Nhà hàng quán ăn ngon Thủ Đức" />
-                    <a href="Bài_Đăng/index.html">Chinku- Nướng Không Khói, Nhà hàng quán ăn ngon Thủ
-                        Đức</a>
-                    <p>
-                        Số 996, Đường Phạm Văn Đồng, Phường Hiệp Bình Chánh,
-                        Thủ Đức
-                    </p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain8.jpg" alt="Phá Lấu" />
-                    <a href="Bài_Đăng/index.html">Phá Lấu </a>
-                    <p>296 Linh Đông, P. Linh Đông, Thủ Đức</p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain9.jpg" alt="Hải sản Giang Ghẹ Phường Bình Thọ" />
-                    <a href="Bài_Đăng/index.html">Hải sản Giang Ghẹ Phường Bình Thọ</a>
-                    <p>40 Đặng Văn Bi, Bình Thọ, Thủ Đức</p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain10.jpg" alt="Mỳ cay Naga Thủ Đức" />
-                    <a href="Bài_Đăng/index.html">Mỳ cay Naga Thủ Đức</a>
-                    <p>2 Hàn Thuyên, Bình Thọ, Thủ Đức</p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain11.jpg" alt="Buffet Đại Dương Phường Linh Chiểu" />
-                    <a href="Bài_Đăng/index.html">Buffet Đại Dương Phường Linh Chiểu</a>
-                    <p>1088 Đ. Kha Vạn Cân, Linh Chiểu, Thủ Đức</p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain12.jpg" alt="Hủ tiếu Nam Vang Mười Đoàn Phường Trường Thọ" />
-                    <a href="Bài_Đăng/index.html">Hủ tiếu Nam Vang Mười Đoàn Phường Trường Thọ</a>
-                    <p>49 Đặng Văn Bi, Trường Thọ, Thủ Đức</p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain13.jpg" alt="Bún bò Huế Lam Sơn" />
-                    <a href="Bài_Đăng/index.html">Bún bò Huế Lam Sơn</a>
-                    <p>4 Lam Sơn, Trường Thọ, Thủ Đức</p>
-                </div>
-            </div>
-        </div>
-        <div class="center">
-            <div class="pagination">
-                <a href="#">&laquo;</a>
-                <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">&raquo;</a>
-            </div>
-        </div>
+        
         <!--Xong phần nội dung-->
 
         <!-- bat dau phan footer wrapper -->
