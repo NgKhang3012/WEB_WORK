@@ -119,6 +119,9 @@ USE_TZ = True
 STATICFILES_DIRS = [
     'D:\\WEB_WORK\\UI_Web_Page_Offical',
     'D:\\WEB_WORK\\UI_Web_Page_Offical\\While_Login',
+    'D:\\WEB_WORK\\UI_Web_Page_Offical\\Forget_password',
+    'D:\\WEB_WORK\\UI_Web_Page_Offical\\Password_Reset_Done',
+    'D:\\WEB_WORK\\UI_Web_Page_Offical\\Password_Reset_Confirm',
 ]
 
 # URL mà các tệp tĩnh sẽ được phục vụ từ
@@ -130,3 +133,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = '22520628@gm.uit.edu.vn'
+EMAIL_HOST_PASSWORD = 'yzat hyho vczp odlf'
