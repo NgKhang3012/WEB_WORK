@@ -38,7 +38,7 @@
                 </h3>
                 <div class="navbar_body flex_Search_center">
                     <div>
-                        <form class="Search_Wrapper flex_Search_center" role="search" method = POST action = "{% url 'search' %}">
+                        <form class="Search_Wrapper flex_Search_center" role="search" method=POST action = "{% url 'search' %}">
                             {% csrf_token %}
                             <button class="Search_SearchIcon" style="display: block" type="submit">
                                 <a href="#">
@@ -205,15 +205,15 @@
         <div class="listNewFood">
             {% for product in keys %}
             <div class="newestfood1">
-                <img class="thumbnail" src="{{product.imageURL}}" alt="Phở Trang">
-                <a href="#">{{product.name}}</a>
+                <img class="thumbnail" src="../../User_Picture/hotcontain.jpg" alt="{{product.title}}">
+                <a href="#">{{product.title}}</a>
                 <p>{{product.address}}</p>
                 <div class="dongcuoi">
                     <div class="star-rating">
                         <i class="fa-solid fa-star" style="color: #FFD43B;"> {{product.star}} / 5.0 </i>
                     </div>
                     <div class="time-ago">
-                        <u>{{ product.date|timesince:current_time }}</u>
+                        <u>{{ product.date|timesince }} ago</u>
                     </div>
                 </div>
             </div>
