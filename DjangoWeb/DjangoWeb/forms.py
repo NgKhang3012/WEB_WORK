@@ -1,10 +1,14 @@
 from django import forms
+from django.contrib.auth.forms import PasswordResetForm,SetPasswordForm
+class CustomPasswordResetForm(PasswordResetForm):
+    email = forms.EmailField(
+        label="", max_length=254, widget=forms.EmailInput(attrs={'autocomplete': 'email','class': 'forget-pass-box-email','placeholder':'Nhập email của bạn'})
+    )
 
-class RegistrationForm(forms.Form):
-    email_or_phone = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Email address or phone number', 'class':'box_input_text_account_Reg',}),label='')
-    password = forms.CharField(max_length=100, widget=forms.PasswordInput(attrs={'placeholder': 'Please Input Password', 'class':'box_input_text_password_Reg'}),label='')
-    confirm_password = forms.CharField(max_length=100, widget=forms.PasswordInput(attrs={'placeholder': 'Please Input Password Again','class':'box_input_text_password_Reg'}),label='')
-    
-class LoginForm(forms.Form):
-    email_or_phone = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Email address or phone number', 'class':'box_input_text_account_Reg',}),label='')
-    password = forms.CharField(max_length=100, widget=forms.PasswordInput(attrs={'placeholder': 'Please Input Password', 'class':'box_input_text_password_Reg'}),label='')
+class CustomSetPasswordForm(SetPasswordForm):
+    password = forms.CharField(
+        label="",widget=forms.PasswordInput(attrs={'autocomplete': 'new-password', 'class': 'custom-password-input', 'placeholder': 'Nhập mật khẩu của bạn'}),
+    )
+    confirmpassword = forms.CharField(
+        label="",widget=forms.PasswordInput(attrs={'autocomplete': 'new-password', 'class': 'custom-password-input', 'placeholder': 'Nhập lại mật khẩu của bạn'}),
+    )
