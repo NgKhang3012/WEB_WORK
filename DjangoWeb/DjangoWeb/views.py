@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,reverse
 from .forms import CustomPasswordResetForm
 from .forms import CustomSetPasswordForm
 from django.contrib.auth.models import User
@@ -37,21 +37,21 @@ class CustomPasswordConfirmView(PasswordResetConfirmView):
 def index(request):
     if request.method == 'POST':
         if 'button-login' in request.POST:
-            email_or_phone = request.POST.get('input-login-account')
+            email = request.POST.get('input-login-account')
             password = request.POST.get('input-login-password')
-            user = authenticate(request, username=email_or_phone, password=password)
+            user = authenticate(request, username=email, password=password)
             if user is not None:
                 login(request, user)
                 return redirect('whilelogin') 
             else:
-                return render(request, 'index.html', {'error_message': 'Invalid email/phone number or password'})
+                return render(request, "index.html", {'error_message_login': 'Invalid email or password'})
         elif 'button-reg' in request.POST:
-            email_or_phone = request.POST.get('input-reg-account')
+            email = request.POST.get('input-reg-account')
             password = request.POST.get('input-reg-password')
             confirm_password = request.POST.get('input-reg-repassword')
             if password != confirm_password:
-                return render(request, 'index.html', {'error_message': 'Passwords do not match'})
-            user = User.objects.create_user(username=email_or_phone, password=password)
+                return render(request, 'index.html', {'error_message_reg': 'Passwords do not match'})
+            user = User.objects.create_user(username=email, password=password)
             user.save()
             return redirect('whilelogin')
     else:

@@ -20,7 +20,6 @@ from . import views
 from .views import CustomPasswordResetView,CustomPasswordResetDoneView,CustomPasswordConfirmView
 
 urlpatterns = [
-    path('', views.index, name="index"),
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('whilelogin/',views.whilelogin,name="whilelogin"),

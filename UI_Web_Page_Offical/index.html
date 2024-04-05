@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ĐỒ ĂN LÀNG ĐẠI HỌC</title>
-    <link rel="stylesheet" href="/static/styles.css" />
+    <link rel="stylesheet" href="/static/styles_index.css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -79,8 +79,11 @@
                 <p>Đăng nhập vào Làng</p>
                 <form class="input_text_login" method="POST">
                     {% csrf_token %}
-                    <input type="text" name="input-login-account" class="box_input_text_account" placeholder="Email address or phone number" />
+                    <input type="text" name="input-login-account" class="box_input_text_account" placeholder="Email address" />
                     <input type="password" name="input-login-password" class="box_input_text_password" placeholder="Password" />
+                    {% if error_message_login %}
+                        <p class="error">{{ error_message_login }}</p>
+                    {% endif %}
                     <div class="forgot_password">
                         <a href="#">Forgotten Password</a>
                     </div>
@@ -107,7 +110,7 @@
                 <p>Đăng Ký vào Làng</p>
                 <form class="input_text_Reg" method="POST">
                     {% csrf_token %}
-                    <input type="text" name="input-reg-account" class="box_input_text_account_Reg" placeholder="Email address or phone number" />
+                    <input type="text" name="input-reg-account" class="box_input_text_account_Reg" placeholder="Email address" />
                     <input type="password" name="input-reg-password" class="box_input_text_password_Reg" placeholder="Please Input Password" />
                     <input type="password" name="input-reg-repassword" class="box_input_text_password_Reg" placeholder="Please Input Password Again" />
 

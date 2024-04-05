@@ -766,13 +766,20 @@ h2 {
     font-size: 4rem;
     font-weight: 600;
     padding: 40px;
-    margin: 45px 0;
+    margin: 25px 0;
 }
 
 .input_text_login {
     display: block;
     text-align: center;
+}
 
+.modal .body_modal .error{
+    color: red;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
 }
 
 .box_input_text_account,
