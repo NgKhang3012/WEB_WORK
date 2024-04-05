@@ -8,20 +8,6 @@ from django.contrib.auth.views import PasswordResetDoneView
 from django.contrib.auth.views import PasswordResetConfirmView
 from django.http import HttpResponse
 from DjangoApp.models import *
-from django.utils import timezone
-
-def your_view(request):
-    current_time = timezone.now()
-    other_context_data = {
-        'current_time': current_time
-    }
-    return render(request, 'Search/search.html', other_context_data)
-
-def search(request):
-    if request.method == "POST":
-        searched = request.POST["searched"]
-        keys = Post.objects.filter(title = searched)
-    return render(request, 'Search/search.html')
 
 class CustomPasswordResetView(PasswordResetView):
     template_name = 'Forget_password/Forget_password.html'
@@ -59,6 +45,15 @@ def index(request):
 
 def whilelogin(request):
     return render(request,'While_Login/index-login.html')
+
+def search(request):
+    searched = ""
+    keys = []
+    if request.method == "POST":
+        searched = request.POST["searched"]
+        keys = Post.objects.filter(title__contains=searched)
+    return render(request, 'Search/search.html', {"searched": searched, "keys": keys})
+
 
 def verifyotp(request):
     return render(request,'verify_otp/verify_otp.html')
