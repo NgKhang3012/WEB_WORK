@@ -85,7 +85,7 @@
                         <p class="error">{{ error_message_login }}</p>
                     {% endif %}
                     <div class="forgot_password">
-                        <a href="#">Forgotten Password</a>
+                        <a href="{% url 'passwordreset' %}">Forgotten Password</a>
                     </div>
                     <div class="start_opt">
                         <a href="#"><img src="/static/Image_web_offical/fb_icon_login.png" alt="iconFB" /></a>
@@ -113,7 +113,11 @@
                     <input type="text" name="input-reg-account" class="box_input_text_account_Reg" placeholder="Email address" />
                     <input type="password" name="input-reg-password" class="box_input_text_password_Reg" placeholder="Please Input Password" />
                     <input type="password" name="input-reg-repassword" class="box_input_text_password_Reg" placeholder="Please Input Password Again" />
-
+                    {% if error_message_reg_1 %}
+                        <p class="error">{{ error_message_reg_1 }}</p>
+                    {% elif error_message_reg %}
+                        <p class="error">{{ error_message_reg }}</p>
+                    {% endif %}
                     <div class="start_opt_Reg">
                         <div class="solid_mid_Reg"></div>
                         <button type="submit" class="start_create_new_account_Reg" name="button-reg">Resgister</button>
@@ -124,7 +128,20 @@
                 </button>
             </div>
         </div>
-
+        {% if reg_check %}
+            <script>
+                CLose_login();
+                Open_Reg();
+                function CLose_login() {
+                    const sidebar = document.querySelector(".modal");
+                    sidebar.style.display = "none";
+                }
+                function Open_Reg() {
+                    const sidebar = document.querySelector(".modal_Reg");
+                    sidebar.style.display = "flex";
+                }
+            </script>
+        {% endif %}
         <!--  ket thúc phan modal đăng ký -->
 
 

@@ -129,6 +129,8 @@ STATICFILES_DIRS = [
     'D:\\WEB_WORK\\UI_Web_Page_Offical\\Password_Reset_Done',
     'D:\\WEB_WORK\\UI_Web_Page_Offical\\Password_Reset_Confirm',
     'D:\\WEB_WORK\\UI_Web_Page_Offical\\Search',
+    'D:\\WEB_WORK\\UI_Web_Page_Offical\\Password_Reset_Email',
+    'D:\\WEB_WORK\\UI_Web_Page_Offical\\Password_Reset_Complete',
 ]
 DEBUG = True
 CACHES = {

@@ -1358,40 +1358,39 @@ ul {
 .modal,.sidebar_vert,.tab_opt,.container,.UpFile,.Search_Wrapper,.flex_Search_center,.footer,.login_btn,.register_btn{
     display: none;
 }
-.forget_pass{
+.reset-confirm{
     position: relative;
     margin-top: 10rem;
     margin-left: 50rem;
     background-color: #f5eeea;
     width: 500px;
-    height: 200px;
+    height: 400px;
     display: block;
     border-radius: 20px;
 }
-.Form-Email{
-    display: grid;
-    grid-template-columns: 75% 25%;
+.Form-Reset-Pass{
+    display:inline-block;
 }
-
-.forget_pass .forget-pass-box-email{
+.custom-password-input{
     margin-top: 5rem;
     padding: 5px;
     border: 2px solid #f0852d;
     font-size: 22px;
     width: 300px;
     display: block;
-    margin-left: 2rem;
+    margin-left: 8.3rem;
     height: 50px;
     border-radius: 20px;
 }
-.sendotp-btn {
+.Change_pass_btn{
     margin-top: 5rem;
+    margin-left: 13rem;
     padding: 5px;
     font-size: 18px;
     text-align: center;
     border-radius: 10px;
     border: 2px solid #f0852d;
-    width: 80px;
+    width: 200px;
     display: block;
     height: 60px;
     background-color: #e4a481e0;
@@ -1400,8 +1399,7 @@ ul {
     cursor: pointer;
     transition: color 0.3s, box-shadow 0.3s;
 }
-
-.sendotp-btn:hover {
-    background-color: #2a6fc2;
+.Change_pass_btn:hover {
+    background-color: #a2735ae0;
     text-decoration: underline;
 }
