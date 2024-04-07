@@ -6,9 +6,10 @@ class CustomPasswordResetForm(PasswordResetForm):
     )
 
 class CustomSetPasswordForm(SetPasswordForm):
-    password = forms.CharField(
+    new_password1 = forms.CharField(
         label="",widget=forms.PasswordInput(attrs={'autocomplete': 'new-password', 'class': 'custom-password-input', 'placeholder': 'Nhập mật khẩu của bạn'}),
     )
-    confirmpassword = forms.CharField(
+    new_password2 = forms.CharField(
         label="",widget=forms.PasswordInput(attrs={'autocomplete': 'new-password', 'class': 'custom-password-input', 'placeholder': 'Nhập lại mật khẩu của bạn'}),
     )
+    

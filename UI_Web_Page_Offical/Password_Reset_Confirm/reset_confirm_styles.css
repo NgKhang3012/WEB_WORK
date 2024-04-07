@@ -6,13 +6,13 @@
 
 :root {
     --grey_background: rgba(217, 208, 203, 0.92);
-    --orange-primary: rgba(236, 201, 162, 0.4);
-    --color-page: rgba(236, 201, 162, 0.4);
-    --orange_icon: #cf6d17;
+    --orange-primary : rgba(236, 201, 162, 0.4) ;
+    --color-page: rgba(236, 201, 162, 0.4) ;
+    --orange_icon : #cf6d17;
 }
 
 html {
-    height: -webkit-fill-available;
+  
     -webkit-text-size-adjust: 100%;
     font-size: 70%;
     box-sizing: border-box;
@@ -20,7 +20,9 @@ html {
 }
 
 .webapp {
-    background-color: var(--color-page);
+    background-color:var(--color-page);
+    background-size: cover;
+    height: 772px;
     margin: 0;
 }
 
@@ -32,7 +34,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    overflow-y: scroll;
 }
 
 
@@ -65,9 +66,13 @@ body {
 }
 
 .navbar_logo_web img {
+    position: absolute;
+    top: -32px;
+    left: 13px;
     height: 70px;
     width: auto;
-
+    /* border: 3px solid rgb(247, 195, 122); */
+    border-radius: 16px;
 }
 
 
@@ -81,9 +86,32 @@ body {
 
 }
 
+@media (max-width:1210px) {
+    .navbar_logo_Heading {
+        display: none;
+    }
+}
 
+@media (max-width:700px) {
+    .container {
+        display: none;
+    }
 
+}
 
+@media (max-width:510px) {
+    .sidebar_vert {
+        width: 100%;
+    }
+
+}
+
+@media (max-width:800px) {
+
+    .navbar_logo_web img {
+        display: none;
+    }
+}
 
 .navbar_body {
     flex: 1 1;
@@ -209,7 +237,7 @@ button {
 
 }
 
-.btn_upfile {
+.btn_upfile   {
     display: block;
     font-weight: 600;
     cursor: pointer;
@@ -349,14 +377,13 @@ button {
 
 
 .sub_nav {
-    display: none;
+    display: none; 
 }
 
 .type_meal:hover .sub_nav,
 .sub_nav:hover {
-    display: block;
-    /* Hiển thị khi hover vào .type_meal hoặc .sub_nav */
-    color: white;
+    display: block; /* Hiển thị khi hover vào .type_meal hoặc .sub_nav */
+    color :white;
 }
 
 
@@ -407,7 +434,6 @@ button {
 
 /* nội dung dòng 1*/
 .container {
-
     max-width: 1170px;
     margin: auto;
 }
@@ -1078,71 +1104,63 @@ h2 {
     border-radius: 15px;
 }
 
-.modal_Post .body_modal_Post p {
+.modal_Post .body_modal_Post  p {
     text-align: center;
     justify-content: center;
     font-size: 2rem;
     font-weight: 600;
-
+  
 }
-
-.modal_Post .body_modal_Post>p {
+.modal_Post .body_modal_Post >p{
     padding: 20px;
     margin-top: 25px 0;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid black   ;
 }
 
 
 /* ten va avatar cua khangdeptry */
-.Box_Contain_Avatar_And_Name {
+.Box_Contain_Avatar_And_Name{
     position: relative;
-    height: 70px;
-    width: auto;
-    border-bottom: 4px;
-
+    height : 70px; 
+    width : auto ;
+    border-bottom: 4px ;
+    
 }
-
-.Box_Contain_Avatar_And_Name img {
+.Box_Contain_Avatar_And_Name img{
     display: block;
-    padding: 10px;
-    width: 50px;
+    padding : 10px ;
+    width: 50px ;
     height: 50px;
     border-radius: 50%;
-
+    
 }
-
 .Box_Contain_Avatar_And_Name p {
     position: absolute;
     top: 20px;
     left: 71px;
 }
-
-.box_input_content {
-
+.box_input_content{
+    
     font-size: 22px;
     width: 100%;
-    padding-bottom: 30%;
+    padding-bottom : 30%;
     height: 10%;
-
+    
 }
-
-.Add_To_Content>p {
+.Add_To_Content > p{
     padding: 10px;
 }
 
-.Add_To_Content {
+.Add_To_Content{
     text-align: center;
-
+    
 }
-
 .Add_To_Content a {
-    padding: 2px 10px;
+    padding : 2px 10px;
 }
-
-.rel_btn_post {
+.rel_btn_post{
     position: relative;
 }
-
 .btn_post_content {
     position: absolute;
     top: 7px;
@@ -1233,7 +1251,6 @@ h2 {
 .start_create_new_account_Post:hover {
     background-color: #1b63bb;
 }
-
 /*  ket thuc code cho modal Post */
 
 /* bat dau code cho footer  */
@@ -1247,8 +1264,8 @@ ul {
 }
 
 .footer {
-    position: relative;
-    margin-top: 10rem;
+    position: fixed;
+    bottom: 0;
     left: 0;
     width: 100%;
     background-color: #011548;
@@ -1323,102 +1340,66 @@ ul {
     background-color: #ffffff;
 }
 
-
-@media (max-width:1210px) {
-    .navbar_logo_Heading {
-        display: none;
-    }
-}
-
-@media (max-width:700px) {
-    .container {
-        display: none;
-    }
-}
-
-@media (max-width:510px) {
-    .sidebar_vert {
-        width: 100%;
-    }
-
-}
-/*  thick media  */
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+/*responsive*/
+@media(max-width: 767px) {
     .collum_foot {
         width: 50%;
         margin-bottom: 30px;
     }
-
-    .Search_Wrapper {
-        border-radius: 13px;
-        margin: 8px;
-        width: 76px;
-    }
-
-    .Search_input {
-        display: none;
-    }
-
-    .navbar_Wrapper_fulltab {
-
-        padding: 0px 0px;
-    }
-
-    .navbar_logo_web {
-        margin: 0px 7px;
-        height: auto;
-        width: auto;
-    }
-
-    .navbar_logo_web a {
-        margin-left: 0px;
-
-    }
-
-    .navbar_logo_web img {
-        display: flex;
-        height: 70px;
-        width: auto;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .register_btn {
-        border-radius: 11px;
-        padding: 5px 12px;
-    }
-
-    .login_btn {
-        border-radius: 11px;
-        margin-right: 8px;
-        padding: 5px 20px;
-    }
-
-    .flex_Search_center {
-        justify-content: flex-start;
-    }
-
-    .nav_left_vert {
-        display: none;
-    }
 }
+
 
 
 @media(max-width: 574px) {
     .footer {
         display: none;
     }
-
 }
-
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {}
+.modal,.sidebar_vert,.tab_opt,.container,.UpFile,.Search_Wrapper,.flex_Search_center,.footer,.login_btn,.register_btn{
+    display: none;
+}
+.reset-confirm{
+    position: relative;
+    margin-top: 10rem;
+    margin-left: 50rem;
+    background-color: #f5eeea;
+    width: 500px;
+    height: 400px;
+    display: block;
+    border-radius: 20px;
+}
+.Form-Reset-Pass{
+    display:inline-block;
+}
+.custom-password-input{
+    margin-top: 5rem;
+    padding: 5px;
+    border: 2px solid #f0852d;
+    font-size: 22px;
+    width: 300px;
+    display: block;
+    margin-left: 8.3rem;
+    height: 50px;
+    border-radius: 20px;
+}
+.Change_pass_btn{
+    margin-top: 5rem;
+    margin-left: 13rem;
+    padding: 5px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid #f0852d;
+    width: 200px;
+    display: block;
+    height: 60px;
+    background-color: #e4a481e0;
+    font-weight: 600;
+    color: #fefefe;
+    cursor: pointer;
+    transition: color 0.3s, box-shadow 0.3s;
+}
+.Change_pass_btn:hover {
+    background-color: #a2735ae0;
+    text-decoration: underline;
+}

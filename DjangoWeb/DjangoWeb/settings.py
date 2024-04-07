@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -119,6 +118,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 # Đường dẫn đến thư mục chứa các tệp tĩnh như CSS, JavaScript, vv.
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
 STATICFILES_DIRS = [
     'D:\\WEB_WORK\\UI_Web_Page_Offical',
     'D:\\WEB_WORK\\UI_Web_Page_Offical\\While_Login',
@@ -126,13 +129,20 @@ STATICFILES_DIRS = [
     'D:\\WEB_WORK\\UI_Web_Page_Offical\\Password_Reset_Done',
     'D:\\WEB_WORK\\UI_Web_Page_Offical\\Password_Reset_Confirm',
     'D:\\WEB_WORK\\UI_Web_Page_Offical\\Search',
+    'D:\\WEB_WORK\\UI_Web_Page_Offical\\Password_Reset_Email',
+    'D:\\WEB_WORK\\UI_Web_Page_Offical\\Password_Reset_Complete',
 ]
-
+DEBUG = True
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}
 # URL mà các tệp tĩnh sẽ được phục vụ từ
 STATIC_URL = '/static/'
 
 # Đường dẫn đến thư mục chứa tệp tĩnh sau khi bạn thu thập chúng (cần thiết khi triển khai)
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
