@@ -200,12 +200,13 @@
             </script>
         </div>
         <!-- xong phan vertical tab left  -->
-        
+    
         <div class="result_text"> Result search for {{searched}} </div>
+    <div class="container">
         <div class="listNewFood">
             {% for product in keys %}
             <div class="newestfood1">
-                <img class="thumbnail" src="../../User_Picture/hotcontain.jpg" alt="{{product.title}}">
+                <img class="thumbnail" src="{{ product.image.url }}" alt="{{product.title}}">
                 <a href="#">{{product.title}}</a>
                 <p>{{product.address}}</p>
                 <div class="dongcuoi">
@@ -219,7 +220,7 @@
             </div>
             {% endfor %}
         </div>
-
+    </div>
         
         <!--Xong phần nội dung-->
 

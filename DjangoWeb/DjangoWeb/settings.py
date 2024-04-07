@@ -154,3 +154,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = '22520628@gm.uit.edu.vn'
 EMAIL_HOST_PASSWORD = 'yzat hyho vczp odlf'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/User_Picture/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'User_Picture')
