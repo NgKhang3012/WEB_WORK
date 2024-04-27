@@ -7,8 +7,10 @@ from django.contrib.auth.views import PasswordResetView
 from django.contrib.auth.views import PasswordResetDoneView 
 from django.contrib.auth.views import PasswordResetConfirmView
 from django.contrib.auth.views import PasswordResetCompleteView
+from django.http import JsonResponse
 from django.http import HttpResponse
 from DjangoApp.models import *
+import openai
 
 class CustomPasswordResetView(PasswordResetView):
     template_name = 'Forget_password.html'
@@ -64,3 +66,19 @@ def search(request):
         keys = Post.objects.filter(title__contains=searched)
     return render(request, 'search.html', {"searched": searched, "keys": keys})
 
+def ai_suggest(request):
+    result=None
+    if request.method=="POST":
+        question=request.POST.get('question')
+        question= 'Bạn tên là FoodieFriend, nhiệm vụ của bạn chỉ là tư vấn về món ăn, không trả lời câu hỏi không liên quan đến món ăn, hãy đọc câu hỏi sau:'+ '"' +question+'"'+'. Nếu câu hỏi hợp lệ hãy trả lời ngắn gọn. Nếu không hợp lệ thì trả lời là: Tôi là chuyên gia về món ăn, tôi không thể trả lời những câu hỏi liên quan đến món ăn. Bạn không được dùng kí tự đặc biệt trong câu trả lời.'
+        api_key='sk-proj-g6lqMuOBL2qSxqFdCSNXT3BlbkFJadaqUmJM33RtNzsRg6FO'
+        openai.api_key=api_key
+        response=openai.completions.create(
+            model='gpt-3.5-turbo-instruct',
+            prompt=question,
+            max_tokens=512,
+            temperature=1,
+        )
+        result=response.choices[0].text
+    return render(request,'ai_suggest.html',{'result': result})
+    
