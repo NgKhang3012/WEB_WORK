@@ -79,10 +79,12 @@
                 <p>Đăng nhập vào Làng</p>
                 <form class="input_text_login" method="POST">
                     {% csrf_token %}
-                    <input type="text" name="input-login-account" class="box_input_text_account" placeholder="Email address" />
-                    <input type="password" name="input-login-password" class="box_input_text_password" placeholder="Password" />
+                    <input type="text" name="input-login-account" class="box_input_text_account"
+                        placeholder="Email address" />
+                    <input type="password" name="input-login-password" class="box_input_text_password"
+                        placeholder="Password" />
                     {% if error_message_login %}
-                        <p class="error">{{ error_message_login }}</p>
+                    <p class="error">{{ error_message_login }}</p>
                     {% endif %}
                     <div class="forgot_password">
                         <a href="{% url 'passwordreset' %}">Forgotten Password</a>
@@ -91,7 +93,7 @@
                         <a href="#"><img src="/static/Image_web_offical/fb_icon_login.png" alt="iconFB" /></a>
                         <a href="#"><img src="/static/Image_web_offical/icon_google.jpg" alt="iconGG" /></a>
                         <button type="submit" class="start_login" name="button-login">Login</button>
-                        
+
                         <button onclick="handleButtonClick()" class="start_create_new_account">
                             Create New Account
                         </button>
@@ -110,13 +112,16 @@
                 <p>Đăng Ký vào Làng</p>
                 <form class="input_text_Reg" method="POST">
                     {% csrf_token %}
-                    <input type="text" name="input-reg-account" class="box_input_text_account_Reg" placeholder="Email address" />
-                    <input type="password" name="input-reg-password" class="box_input_text_password_Reg" placeholder="Please Input Password" />
-                    <input type="password" name="input-reg-repassword" class="box_input_text_password_Reg" placeholder="Please Input Password Again" />
+                    <input type="text" name="input-reg-account" class="box_input_text_account_Reg"
+                        placeholder="Email address" />
+                    <input type="password" name="input-reg-password" class="box_input_text_password_Reg"
+                        placeholder="Please Input Password" />
+                    <input type="password" name="input-reg-repassword" class="box_input_text_password_Reg"
+                        placeholder="Please Input Password Again" />
                     {% if error_message_reg_1 %}
-                        <p class="error">{{ error_message_reg_1 }}</p>
+                    <p class="error">{{ error_message_reg_1 }}</p>
                     {% elif error_message_reg %}
-                        <p class="error">{{ error_message_reg }}</p>
+                    <p class="error">{{ error_message_reg }}</p>
                     {% endif %}
                     <div class="start_opt_Reg">
                         <div class="solid_mid_Reg"></div>
@@ -129,18 +134,18 @@
             </div>
         </div>
         {% if reg_check %}
-            <script>
-                CLose_login();
-                Open_Reg();
-                function CLose_login() {
-                    const sidebar = document.querySelector(".modal");
-                    sidebar.style.display = "none";
-                }
-                function Open_Reg() {
-                    const sidebar = document.querySelector(".modal_Reg");
-                    sidebar.style.display = "flex";
-                }
-            </script>
+        <script>
+            CLose_login();
+            Open_Reg();
+            function CLose_login() {
+                const sidebar = document.querySelector(".modal");
+                sidebar.style.display = "none";
+            }
+            function Open_Reg() {
+                const sidebar = document.querySelector(".modal_Reg");
+                sidebar.style.display = "flex";
+            }
+        </script>
         {% endif %}
         <!--  ket thúc phan modal đăng ký -->
 
@@ -247,95 +252,91 @@
         </div>
         <!-- xong phan vertical tab left  -->
 
-        <div class="container">
-            <div class="row1">
-                <div class="hot_contain">
-                    <a href="index_post.html">
-                        <img src="/static/User_Picture/hotcontain.jpg" alt="Gà rán siêu ngon" />
-                        <div class="text_overlay">
-                            <b>Gà rán siêu ngon</b>
-                        </div>
-                    </a>
-                </div>
-                <div class="hot_contain1">
-                    <a href="index_post.html">
-                        <img src="/static/User_Picture/contain1.jpg" alt="Nem nướng nha trang" />
-                        <div class="text_overlay">
-                            <b>Nem nướng Nha Trang</b>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="other_contain">
-                <div>
-                    <img src="/static/User_Picture/contain2.jpg" alt="Bánh Mì Thổ Nhỹ Kỳ Kebab" />
-                    <a href="index_post.html">Bánh Mì Thổ Nhỹ Kỳ Kebab</a>
-                    <p>309/93 Võ Văn Ngân, P. Linh Chiểu, Thủ Đức</p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain3.jpg" alt="Phở Trang" />
-                    <a href="index_post.html">Phở Trang Thủ Đức</a>
-                    <p>
-                        Số 510, Quốc lộ 13, Phường Hiệp Bình Phước, Thủ Đức
-                    </p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain4.jpg" alt="Gà Xối Mỡ Minh Thư" />
-                    <a href="index_post.html">Gà Xối Mỡ Minh Thư</a>
-                    <p>40A đường số 17, phường Linh Chiểu, Thủ Đức</p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain5.jpg" alt="Quán Bà 5 Cua" />
-                    <a href="index_post.html">Quán Bà 5 Cua</a>
-                    <p>Đường Phạm Văn Đồng, Thủ Đức</p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain6.jpg" alt="Buffet BBQ 99K Sáu Béo" />
-                    <a href="index_post.html">Buffet BBQ 99K Sáu Béo</a>
-                    <p>Số 39B, Đường Phạm Văn Đồng, Thủ Đức</p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain7.jpg"
-                        alt="Chinku- Nướng Không Khói, Nhà hàng quán ăn ngon Thủ Đức" />
-                    <a href="index_post.html">Chinku- Nướng Không Khói, Nhà hàng quán ăn ngon Thủ
-                        Đức</a>
-                    <p>
-                        Số 996, Đường Phạm Văn Đồng, Phường Hiệp Bình Chánh,
-                        Thủ Đức
-                    </p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain8.jpg" alt="Phá Lấu" />
-                    <a href="index_post.html">Phá Lấu </a>
-                    <p>296 Linh Đông, P. Linh Đông, Thủ Đức</p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain9.jpg" alt="Hải sản Giang Ghẹ Phường Bình Thọ" />
-                    <a href="index_post.html">Hải sản Giang Ghẹ Phường Bình Thọ</a>
-                    <p>40 Đặng Văn Bi, Bình Thọ, Thủ Đức</p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain10.jpg" alt="Mỳ cay Naga Thủ Đức" />
-                    <a href="index_post.html">Mỳ cay Naga Thủ Đức</a>
-                    <p>2 Hàn Thuyên, Bình Thọ, Thủ Đức</p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain11.jpg" alt="Buffet Đại Dương Phường Linh Chiểu" />
-                    <a href="index_post.html">Buffet Đại Dương Phường Linh Chiểu</a>
-                    <p>1088 Đ. Kha Vạn Cân, Linh Chiểu, Thủ Đức</p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain12.jpg" alt="Hủ tiếu Nam Vang Mười Đoàn Phường Trường Thọ" />
-                    <a href="index_post.html">Hủ tiếu Nam Vang Mười Đoàn Phường Trường Thọ</a>
-                    <p>49 Đặng Văn Bi, Trường Thọ, Thủ Đức</p>
-                </div>
-                <div>
-                    <img src="/static/User_Picture/contain13.jpg" alt="Bún bò Huế Lam Sơn" />
-                    <a href="index_post.html">Bún bò Huế Lam Sơn</a>
-                    <p>4 Lam Sơn, Trường Thọ, Thủ Đức</p>
-                </div>
-            </div>
+        {% comment %} {% endcomment %}
+
+
+        <!--  bat dau code cho phan noi dung  -->
+        <div class="article_post">
+            <a href="#">
+                <img src="/static/User_Picture/hotcontain.jpg" alt="Gà rán siêu ngon">
+                <h3>Gà rán siêu ngon</h3>
+            </a>
+            <a href="#">
+                <img src="/static/User_Picture/contain1.jpg" alt="Nem nướng nha trang">
+                <h3>Nem nướng Nha Trang</h3>
+            </a>
         </div>
+        <section class="container">
+
+
+            <a href="#">
+                <img src="/static/User_Picture/contain2.jpg" alt="Bánh Mì Thổ Nhỹ Kỳ Kebab">
+                <h3>Bánh Mì Thổ Nhỹ Kỳ Kebab</h3>
+                <p>309/93 Võ Văn Ngân, P. Linh Chiểu, Thủ Đức</p>
+            </a>
+            <a href="#">
+                <img src="/static/User_Picture/contain3.jpg" alt="Phở Trang" />
+                <h3>Phở Trang Thủ Đức</h3>
+                <p>Số 510, Quốc lộ 13, Phường Hiệp Bình Phước, Thủ Đức</p>
+            </a>
+            <a href="#">
+                <img src="/static/User_Picture/contain4.jpg" alt="Gà Xối Mỡ Minh Thư" />
+                <h3>Gà Xối Mỡ Minh Thư</h3>
+                <p>40A đường số 17, phường Linh Chiểu, Thủ Đức</p>
+            </a>
+            <a href="#">
+                <img src="/static/User_Picture/contain5.jpg" alt="Quán Bà 5 Cua" />
+                <h3>Quán Bà 5 Cua</h3>
+                <p>Đường Phạm Văn Đồng, Thủ Đức</p>
+            </a>
+            <a href="#">
+                <img src="/static/User_Picture/contain6.jpg" alt="Buffet BBQ 99K Sáu Béo" />
+                <h3>Buffet BBQ 99K Sáu Béo</h3>
+                <p>Số 39B, Đường Phạm Văn Đồng, Thủ Đức</p>
+            </a>
+            <a href="#">
+                <img src="/static/User_Picture/contain7.jpg"
+                    alt="Chinku- Nướng Không Khói, Nhà hàng quán ăn ngon Thủ Đức" />
+                <h3>Chinku- Nướng Không Khói, Nhà hàng quán ăn ngon Thủ
+                    Đức</h3>
+                <p> Số 996, Đường Phạm Văn Đồng, Phường Hiệp Bình Chánh,
+                    Thủ Đức</p>
+            </a>
+            <a href="#">
+                <img src="/static/User_Picture/contain8.jpg" alt="Phá Lấu" />
+                <h3>Phá Lấu</h3>
+                <p>296 Linh Đông, P. Linh Đông, Thủ Đức</p>
+            </a>
+            <a href="#">
+                <img src="/static/User_Picture/contain9.jpg" alt="Hải sản Giang Ghẹ Phường Bình Thọ" />
+                <h3>Hải sản Giang Ghẹ Phường Bình Thọ</h3>
+                <p>40 Đặng Văn Bi, Bình Thọ, Thủ Đức</p>
+            </a>
+            <a href="#">
+                <img src="/static/User_Picture/contain10.jpg" alt="Mỳ cay Naga Thủ Đức" />
+                <h3>Mỳ cay Naga Thủ Đức</h3>
+                <p>2 Hàn Thuyên, Bình Thọ, Thủ Đức</p>
+            </a>
+            <a href="#">
+                <img src="/static/User_Picture/contain11.jpg" alt="Buffet Đại Dương Phường Linh Chiểu" />
+                <h3>Buffet Đại Dương Phường Linh Chiểu</h3>
+                <p>1088 Đ. Kha Vạn Cân, Linh Chiểu, Thủ Đức</p>
+            </a>
+            <a href="#">
+                <img src="/static/User_Picture/contain12.jpg" alt="Hủ tiếu Nam Vang Mười Đoàn Phường Trường Thọ" />
+                <h3>Hủ tiếu Nam Vang Mười Đoàn Phường Trường Thọ</h3>
+                <p>49 Đặng Văn Bi, Trường Thọ, Thủ Đức</p>
+            </a>
+            <a href="#">
+                <img src="/static/User_Picture/contain13.jpg" alt="Bún bò Huế Lam Sơn" />
+                <h3>Bún bò Huế Lam Sơn</h3>
+                <p>4 Lam Sơn, Trường Thọ, Thủ Đức</p>
+            </a>
+
+        </section>
+
+        <!--  ket thuc code cho phan noi dung  -->
+
         <div class="center">
             <div class="pagination">
                 <a href="#">&laquo;</a>
@@ -348,7 +349,9 @@
                 <a href="#">&raquo;</a>
             </div>
         </div>
-        <!--Xong phần nội dung-->
+
+
+
 
         <!-- bat dau phan footer wrapper -->
         <footer class="footer">
