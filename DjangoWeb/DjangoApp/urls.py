@@ -16,12 +16,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from DjangoApp import views
+from DjangoApp.views import CustomPasswordResetView,CustomPasswordResetDoneView,CustomPasswordConfirmView,CustomPasswordResetCompleteView
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', include('DjangoApp.urls')),
-    path('admin/', admin.site.urls),
+    path('', views.index, name='index'),
+    path('whilelogin/',views.whilelogin,name="whilelogin"),
+    path('passwordreset/',CustomPasswordResetView.as_view(),name="passwordreset"),
+    path('accounts/',include('django.contrib.auth.urls')),
+    path('passwordreset/done/',CustomPasswordResetDoneView.as_view(),name="passwordresetdone"),
+    path('passwordreset/reset/<uidb64>/<token>/',CustomPasswordConfirmView.as_view(),name="passwordresetconfirm"),
+    path('passwordreset/reset/<uidb64>/<token>/done',CustomPasswordResetCompleteView.as_view(),name="passwordresetcomplete"),
+    path('whilelogin/',views.whilelogin,name="whilelogin"),
+    path('search/', views.search, name="search"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
