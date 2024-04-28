@@ -679,9 +679,8 @@ button {
 }
 
 .start_login {
-    position: absolute;
-    top: -60px;
-    right: 111px;
+    position: relative;
+    bottom: 9rem;
     margin: auto;
     padding: 5px;
     font-size: 23px;
@@ -703,9 +702,8 @@ button {
 }
 
 .start_create_new_account {
-    position: absolute;
-    top: 123px;
-    right: 111px;
+    position: relative;
+    bottom: 2rem;
     margin: auto;
     padding: 5px;
     font-size: 23px;
@@ -719,7 +717,6 @@ button {
     color: #ecf7ff;
     cursor: pointer;
     transition: color 0.3s, box-shadow 0.3s;
-
 }
 
 .start_create_new_account:hover {
@@ -1164,7 +1161,7 @@ ul {
 /* header max-width: 600px */
 @media only screen and (max-width: 600px) {
 
-    /* cho phan headder max-width : 600px */
+    /* bat dau cho phan headder max-width : 600px */
     .navbar_logo_Heading {
        font-size : 16px ;
      }
@@ -1219,11 +1216,12 @@ ul {
 
     /* ket thuc cho header maxwidth 600px */
 
-    /* mobile modal login max-width: 600px */
+    /*  bat dau mobile modal login max-width: 600px */
     .modal .body_modal {
         width: 32rem;
         height: 47rem;
     }
+
 
     .modal .body_modal p {
         font-size: 4rem;
@@ -1239,19 +1237,17 @@ ul {
     }
 
     .start_login {
-        left: 6rem;
+        /* left: 6rem;
         top: -6rem;
-        font-size: 23px;
+        font-size: 23px; */
         width: 20rem;
         height: 4rem;
     }
 
     .start_create_new_account {
-        top: 7rem;
         font-size: 1.7rem;
         width: 25rem;
         height: 4rem;
-        left: 3rem;
         font-weight: 500;
     }
 
@@ -1266,14 +1262,14 @@ ul {
 
     /* ket thuc cho modal login  max-width*/
 
-    /* mobile modal resgister max-width: 600px */
+    /* bat dau mobile modal resgister max-width: 600px */
 
-    /* ket thuc mobile modal login max-width: 600px */
+    /* ket thuc mobile modal resgister max-width: 600px */
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-    /* cho phan headder min-width : 600px */
+    /* bat dau phan headder min-width : 600px */
     .tab_opt {
         left: 1rem;
     }
@@ -1322,9 +1318,54 @@ ul {
         margin: 0px 5px;
         padding: 8px 16px;
     }
-
     /* ket thuc cho header minwidth 600px */
+      /* bat dau mobile modal login min-width: 600px */
+      .modal .body_modal {
+        width: 32rem;
+        height: 47rem;
+    }
 
+
+    .modal .body_modal p {
+        font-size: 4rem;
+        padding: 19px;
+        margin: 30px 0;
+    }
+
+    .box_input_text_account,
+    .box_input_text_password {
+        font-size: 2rem;
+        width: 26rem;
+        height: 2.5rem;
+    }
+
+    .start_login {
+        /* left: 6rem;
+        top: -6rem;
+        font-size: 23px; */
+        width: 20rem;
+        height: 4rem;
+    }
+
+    .start_create_new_account {
+        font-size: 1.7rem;
+        width: 25rem;
+        height: 4rem;
+        font-weight: 500;
+    }
+
+    .start_opt img {
+        margin-top: -1rem;
+        width: 4rem;
+    }
+
+    .forgot_password {
+        top: 7rem;
+    }
+
+    /* ket thuc mobile modal login min-width: 600px */
+    
+   
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
