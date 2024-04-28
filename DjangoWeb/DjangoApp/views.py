@@ -71,7 +71,7 @@ def ai_suggest(request):
     if request.method=="POST":
         question=request.POST.get('question')
         question= 'Bạn tên là FoodieFriend, nhiệm vụ của bạn chỉ là tư vấn về món ăn, không trả lời câu hỏi không liên quan đến món ăn, hãy đọc câu hỏi sau:'+ '"' +question+'"'+'. Nếu câu hỏi hợp lệ hãy trả lời ngắn gọn. Nếu không hợp lệ thì trả lời là: Tôi là chuyên gia về món ăn, tôi không thể trả lời những câu hỏi liên quan đến món ăn. Bạn không được dùng kí tự đặc biệt trong câu trả lời.'
-        #openai.api_key=os.getenv("OPENAI_KEY",None)
+        openai.api_key=os.getenv("OPENAI_KEY",None)
         response=openai.completions.create(
             model='gpt-3.5-turbo-instruct',
             prompt=question,
