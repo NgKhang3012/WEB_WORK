@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ĐỒ ĂN LÀNG ĐẠI HỌC</title>
+    <link rel="stylesheet" href="/static/ai_chat.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="AIchatbox">
+        <div class="chatshow">
+            {% if result%}
+                <p>{{ result|safe }}</p>
+            {% endif %}
+        </div>
+        <form class="chatsend" method="POST">
+            {% csrf_token %}
+            <input type="text" name="question">
+            <button type="submit">Gửi</button>
+        </form>
+    </div>
+</body>
+
+</html>

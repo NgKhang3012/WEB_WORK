@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from DjangoApp import views
-from DjangoApp.views import CustomPasswordResetView,CustomPasswordResetDoneView,CustomPasswordConfirmView,CustomPasswordResetCompleteView
+from DjangoApp.views import ai_suggest,CustomPasswordResetView,CustomPasswordResetDoneView,CustomPasswordConfirmView,CustomPasswordResetCompleteView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -31,6 +31,7 @@ urlpatterns = [
     path('passwordreset/reset/<uidb64>/<token>/done',CustomPasswordResetCompleteView.as_view(),name="passwordresetcomplete"),
     path('whilelogin/',views.whilelogin,name="whilelogin"),
     path('search/', views.search, name="search"),
+    path('aisuggest/', ai_suggest,name="AI suggest")
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
