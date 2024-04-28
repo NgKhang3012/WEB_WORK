@@ -8,9 +8,7 @@ from django.contrib.auth.views import PasswordResetDoneView
 from django.contrib.auth.views import PasswordResetConfirmView
 from django.contrib.auth.views import PasswordResetCompleteView
 from DjangoApp.models import *
-import openai,os
-from dotenv import load_dotenv
-load_dotenv()
+import openai
 
 class CustomPasswordResetView(PasswordResetView):
     template_name = 'Forget_password.html'
@@ -70,8 +68,13 @@ def ai_suggest(request):
     result=None
     if request.method=="POST":
         question=request.POST.get('question')
-        question= 'Bạn tên là FoodieFriend, nhiệm vụ của bạn chỉ là tư vấn về món ăn, không trả lời câu hỏi không liên quan đến món ăn, hãy đọc câu hỏi sau:'+ '"' +question+'"'+'. Nếu câu hỏi hợp lệ hãy trả lời ngắn gọn. Nếu không hợp lệ thì trả lời là: Tôi là chuyên gia về món ăn, tôi không thể trả lời những câu hỏi liên quan đến món ăn. Bạn không được dùng kí tự đặc biệt trong câu trả lời.'
-        openai.api_key=os.getenv("OPENAI_KEY",None)
+        allpost= Post.objects.all()
+        trainning=""
+        for post in allpost:
+            trainning+=f'{post.title}, địa chỉ: {post.address}, đánh giá: {post.star} sao; \n'
+        question= f'Bạn tên là FoodieFriend, nhiệm vụ của bạn chỉ là tư vấn về món ăn, không trả lời câu hỏi không liên quan đến món ăn, hãy đọc câu hỏi sau: "{question}". Nếu câu hỏi hợp lệ hãy trả lời ngắn gọn và thật thông minh phù hợp với câu hỏi của người dùng dựa theo các dữ liệu sau(bạn không cần liệt kê hết, chỉ đưa ra những gì phù hợp, và đừng nhầm lẫn giữa quán ăn và quán bán nước): {trainning}. Nếu không hợp lệ thì trả lời là: Tôi là chuyên gia về món ăn, tôi không thể trả lời những câu hỏi liên quan đến món ăn. Bạn không được dùng kí tự đặc biệt trong câu trả lời.'
+        API_KEY='sk-proj-voH84xT8yXBZGuMC2LldT3BlbkFJ1bd9xnxCsI7egzwW7Xlf'
+        openai.api_key=API_KEY
         response=openai.completions.create(
             model='gpt-3.5-turbo-instruct',
             prompt=question,
