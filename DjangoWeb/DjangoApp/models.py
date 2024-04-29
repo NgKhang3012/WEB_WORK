@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Post(models.Model):
     title = models.CharField(max_length=100)
-    content = models.TextField
+    content = models.TextField(null=True, default=None)
     date = models.DateTimeField(auto_now_add=True)
     star = models.FloatField(default=0)
     address = models.CharField(max_length=100)

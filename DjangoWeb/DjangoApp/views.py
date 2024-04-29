@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect,reverse
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CustomPasswordResetForm
 from .forms import CustomSetPasswordForm
 from django.contrib.auth.models import User
@@ -10,7 +10,8 @@ from django.contrib.auth.views import PasswordResetCompleteView
 from DjangoApp.models import *
 from openai import OpenAI,OpenAIError
 import os
-
+from .forms import PostForm  
+from django.urls import reverse
 class CustomPasswordResetView(PasswordResetView):
     template_name = 'Forget_password.html'
     success_url='done'
@@ -29,6 +30,8 @@ class CustomPasswordConfirmView(PasswordResetConfirmView):
     success_url='passwordresetcomplete'
     
 def index(request):
+    top_posts = Post.objects.order_by('-star')[:2]  # Lấy 2 bài đăng có star lớn nhất
+    other_posts = Post.objects.exclude(pk__in=[post.pk for post in top_posts])  # Lấy các bài đăng không thuộc top_posts
     if request.method == 'POST':
         if 'button-login' in request.POST:
             email = request.POST.get('input-login-account')
@@ -52,10 +55,18 @@ def index(request):
                 user.save()
                 return redirect('whilelogin')
     else:
-        return render(request, 'index.html')
+        return render(request, 'index.html', {'top_posts': top_posts, 'other_posts': other_posts} )
 
 def whilelogin(request):
-    return render(request,'index-login.html')
+    form = PostForm()
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save()
+            # Tạo URL động cho trang chi tiết của bài viết mới tạo
+            post_url = reverse('post', kwargs={'post_id': post.id})  # Đặt tên cho tham số post_id
+            # return redirect(post_url)
+    return render(request,'index-login.html', {'form': form})
 
 def search(request):
     searched = ""
@@ -96,3 +107,7 @@ def ai_suggest(request):
 
 def editprofile(request):
     return render(request,'profile.html')
+
+def post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    return render(request, 'index-post.html', {'post': post}) 

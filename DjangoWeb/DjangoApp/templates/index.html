@@ -150,7 +150,7 @@
 
 
         <!-- bat dau phan modal post -->
-        <div class="modal_Post" display: none>
+        <div class="modal_Post" style="display: none;">
             <div class="body_modal_Post">
                 <p>Tạo bài viết </p>
                 <div class="Box_Contain_Avatar_And_Name">
@@ -256,81 +256,22 @@
 
         <!--  bat dau code cho phan noi dung  -->
         <div class="article_post">
+            {% for post in top_posts %}
             <a href="#">
-                <img src="/static/User_Picture/hotcontain.jpg" alt="Gà rán siêu ngon">
-                <h3>Gà rán siêu ngon</h3>
+                <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                <h3>{{ post.title }}</h3>
             </a>
-            <a href="#">
-                <img src="/static/User_Picture/contain1.jpg" alt="Nem nướng nha trang">
-                <h3>Nem nướng Nha Trang</h3>
-            </a>
+            {% endfor %}
         </div>
+        <!-- Các trường dữ liệu khác của bài đăng -->
         <section class="container">
-
-
+            {% for post in other_posts %}
             <a href="#">
-                <img src="/static/User_Picture/contain2.jpg" alt="Bánh Mì Thổ Nhỹ Kỳ Kebab">
-                <h3>Bánh Mì Thổ Nhỹ Kỳ Kebab</h3>
-                <p>309/93 Võ Văn Ngân, P. Linh Chiểu, Thủ Đức</p>
+                <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.address }}</p>
             </a>
-            <a href="#">
-                <img src="/static/User_Picture/contain3.jpg" alt="Phở Trang" />
-                <h3>Phở Trang Thủ Đức</h3>
-                <p>Số 510, Quốc lộ 13, Phường Hiệp Bình Phước, Thủ Đức</p>
-            </a>
-            <a href="#">
-                <img src="/static/User_Picture/contain4.jpg" alt="Gà Xối Mỡ Minh Thư" />
-                <h3>Gà Xối Mỡ Minh Thư</h3>
-                <p>40A đường số 17, phường Linh Chiểu, Thủ Đức</p>
-            </a>
-            <a href="#">
-                <img src="/static/User_Picture/contain5.jpg" alt="Quán Bà 5 Cua" />
-                <h3>Quán Bà 5 Cua</h3>
-                <p>Đường Phạm Văn Đồng, Thủ Đức</p>
-            </a>
-            <a href="#">
-                <img src="/static/User_Picture/contain6.jpg" alt="Buffet BBQ 99K Sáu Béo" />
-                <h3>Buffet BBQ 99K Sáu Béo</h3>
-                <p>Số 39B, Đường Phạm Văn Đồng, Thủ Đức</p>
-            </a>
-            <a href="#">
-                <img src="/static/User_Picture/contain7.jpg"
-                    alt="Chinku- Nướng Không Khói, Nhà hàng quán ăn ngon Thủ Đức" />
-                <h3>Chinku- Nướng Không Khói, Nhà hàng quán ăn ngon Thủ
-                    Đức</h3>
-                <p> Số 996, Đường Phạm Văn Đồng, Phường Hiệp Bình Chánh,
-                    Thủ Đức</p>
-            </a>
-            <a href="#">
-                <img src="/static/User_Picture/contain8.jpg" alt="Phá Lấu" />
-                <h3>Phá Lấu</h3>
-                <p>296 Linh Đông, P. Linh Đông, Thủ Đức</p>
-            </a>
-            <a href="#">
-                <img src="/static/User_Picture/contain9.jpg" alt="Hải sản Giang Ghẹ Phường Bình Thọ" />
-                <h3>Hải sản Giang Ghẹ Phường Bình Thọ</h3>
-                <p>40 Đặng Văn Bi, Bình Thọ, Thủ Đức</p>
-            </a>
-            <a href="#">
-                <img src="/static/User_Picture/contain10.jpg" alt="Mỳ cay Naga Thủ Đức" />
-                <h3>Mỳ cay Naga Thủ Đức</h3>
-                <p>2 Hàn Thuyên, Bình Thọ, Thủ Đức</p>
-            </a>
-            <a href="#">
-                <img src="/static/User_Picture/contain11.jpg" alt="Buffet Đại Dương Phường Linh Chiểu" />
-                <h3>Buffet Đại Dương Phường Linh Chiểu</h3>
-                <p>1088 Đ. Kha Vạn Cân, Linh Chiểu, Thủ Đức</p>
-            </a>
-            <a href="#">
-                <img src="/static/User_Picture/contain12.jpg" alt="Hủ tiếu Nam Vang Mười Đoàn Phường Trường Thọ" />
-                <h3>Hủ tiếu Nam Vang Mười Đoàn Phường Trường Thọ</h3>
-                <p>49 Đặng Văn Bi, Trường Thọ, Thủ Đức</p>
-            </a>
-            <a href="#">
-                <img src="/static/User_Picture/contain13.jpg" alt="Bún bò Huế Lam Sơn" />
-                <h3>Bún bò Huế Lam Sơn</h3>
-                <p>4 Lam Sơn, Trường Thọ, Thủ Đức</p>
-            </a>
+            {% endfor %}
 
         </section>
 
