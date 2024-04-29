@@ -31,7 +31,8 @@ urlpatterns = [
     path('passwordreset/reset/<uidb64>/<token>/done',CustomPasswordResetCompleteView.as_view(),name="passwordresetcomplete"),
     path('whilelogin/',views.whilelogin,name="whilelogin"),
     path('search/', views.search, name="search"),
-    path('aisuggest/', ai_suggest,name="AI suggest")
+    path('aisuggest/', ai_suggest,name="AI suggest"),
+    path('editprofile/',views.editprofile,name="Edit Profile"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

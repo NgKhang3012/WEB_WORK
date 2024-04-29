@@ -8,7 +8,8 @@ from django.contrib.auth.views import PasswordResetDoneView
 from django.contrib.auth.views import PasswordResetConfirmView
 from django.contrib.auth.views import PasswordResetCompleteView
 from DjangoApp.models import *
-import openai
+from openai import OpenAI,OpenAIError
+import os
 
 class CustomPasswordResetView(PasswordResetView):
     template_name = 'Forget_password.html'
@@ -65,22 +66,33 @@ def search(request):
     return render(request, 'search.html', {"searched": searched, "keys": keys})
 
 def ai_suggest(request):
-    result=None
+    result=''
     if request.method=="POST":
         question=request.POST.get('question')
         allpost= Post.objects.all()
         trainning=""
         for post in allpost:
             trainning+=f'{post.title}, địa chỉ: {post.address}, đánh giá: {post.star} sao; \n'
-        question= f'Bạn tên là FoodieFriend, nhiệm vụ của bạn chỉ là tư vấn về món ăn, không trả lời câu hỏi không liên quan đến món ăn, hãy đọc câu hỏi sau: "{question}". Nếu câu hỏi hợp lệ hãy trả lời ngắn gọn và thật thông minh phù hợp với câu hỏi của người dùng dựa theo các dữ liệu sau(bạn không cần liệt kê hết, chỉ đưa ra những gì phù hợp, và đừng nhầm lẫn giữa quán ăn và quán bán nước): {trainning}. Nếu không hợp lệ thì trả lời là: Tôi là chuyên gia về món ăn, tôi không thể trả lời những câu hỏi liên quan đến món ăn. Bạn không được dùng kí tự đặc biệt trong câu trả lời.'
-        API_KEY='sk-proj-voH84xT8yXBZGuMC2LldT3BlbkFJ1bd9xnxCsI7egzwW7Xlf'
-        openai.api_key=API_KEY
-        response=openai.completions.create(
-            model='gpt-3.5-turbo-instruct',
-            prompt=question,
-            max_tokens=512,
-            temperature=1,
+        question= f'Bạn tên là FoodieFriend, nhiệm vụ của bạn chỉ là tư vấn về món ăn, không trả lời câu hỏi không liên quan đến món ăn và không trả lời những câu hỏi mà bạn không rõ yêu cầu, hãy đọc câu hỏi sau: "{question}". Nếu câu hỏi hợp lệ hãy trả lời ngắn gọn và thật thông minh phù hợp với câu hỏi của người dùng dựa theo các dữ liệu sau(bạn không cần liệt kê hết, chỉ đưa ra những gì phù hợp, và đừng nhầm lẫn giữa quán ăn và quán bán nước): {trainning}. Nếu không hợp lệ thì trả lời là: Tôi là chuyên gia về món ăn, tôi không thể trả lời những câu hỏi liên quan đến món ăn. Bạn không được dùng kí tự đặc biệt trong câu trả lời.'
+# Try to get API key from environment variable
+        api_key = os.environ.get('OPENAI_API_KEY')
+        client = OpenAI(api_key=api_key)
+        stream = client.chat.completions.create(
+            model='gpt-3.5-turbo-0125',
+            messages=[
+                {
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": question},
+                ],
+                }
+            ],
+            stream=True,
         )
-        result=response.choices[0].text
-    return render(request,'ai_suggest.html',{'result': result})
-    
+        for chunk in stream:
+            if chunk.choices[0].delta.content is not None:
+                result += chunk.choices[0].delta.content
+    return render(request, 'ai_suggest.html', {'result': result})
+
+def editprofile(request):
+    return render(request,'profile.html')
