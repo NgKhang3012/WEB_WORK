@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect,reverse
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CustomPasswordResetForm
 from .forms import CustomSetPasswordForm
 from django.contrib.auth.models import User
@@ -9,7 +9,8 @@ from django.contrib.auth.views import PasswordResetConfirmView
 from django.contrib.auth.views import PasswordResetCompleteView
 from DjangoApp.models import *
 import openai
-
+from .forms import PostForm  
+from django.urls import reverse
 class CustomPasswordResetView(PasswordResetView):
     template_name = 'Forget_password.html'
     success_url='done'
@@ -54,7 +55,15 @@ def index(request):
         return render(request, 'index.html')
 
 def whilelogin(request):
-    return render(request,'index-login.html')
+    form = PostForm()
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save()
+            # Tạo URL động cho trang chi tiết của bài viết mới tạo
+            post_url = reverse('post', kwargs={'post_id': post.id})  # Đặt tên cho tham số post_id
+            # return redirect(post_url)
+    return render(request,'index-login.html', {'form': form})
 
 def search(request):
     searched = ""
@@ -83,4 +92,7 @@ def ai_suggest(request):
         )
         result=response.choices[0].text
     return render(request,'ai_suggest.html',{'result': result})
-    
+
+#def post(request, post_id):
+#    post = get_object_or_404(Post, pk=post_id)
+#    return render(request, 'index-post.html', {'post': post}) 
