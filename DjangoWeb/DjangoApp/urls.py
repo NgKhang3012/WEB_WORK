@@ -32,7 +32,7 @@ urlpatterns = [
     path('post/<int:post_id>/', views.post, name='post'),
     path('search/', views.search, name="search"),
     path('aisuggest/', ai_suggest,name="AI suggest"),
-    path('editprofile/',views.editprofile,name="Edit Profile"),
+    path('usr/<int:user_id>/editprofile/', views.editprofile, name="Edit Profile"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

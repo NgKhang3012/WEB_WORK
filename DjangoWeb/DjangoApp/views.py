@@ -85,7 +85,6 @@ def ai_suggest(request):
         for post in allpost:
             trainning+=f'{post.title}, địa chỉ: {post.address}, đánh giá: {post.star} sao; \n'
         question= f'Bạn tên là FoodieFriend, nhiệm vụ của bạn chỉ là tư vấn về món ăn, không trả lời câu hỏi không liên quan đến món ăn và không trả lời những câu hỏi mà bạn không rõ yêu cầu, hãy đọc câu hỏi sau: "{question}". Nếu câu hỏi hợp lệ hãy trả lời ngắn gọn và thật thông minh phù hợp với câu hỏi của người dùng dựa theo các dữ liệu sau(bạn không cần liệt kê hết, chỉ đưa ra những gì phù hợp, và đừng nhầm lẫn giữa quán ăn và quán bán nước): {trainning}. Nếu không hợp lệ thì trả lời là: Tôi là chuyên gia về món ăn, tôi không thể trả lời những câu hỏi liên quan đến món ăn. Bạn không được dùng kí tự đặc biệt trong câu trả lời.'
-# Try to get API key from environment variable
         api_key = os.environ.get('OPENAI_API_KEY')
         client = OpenAI(api_key=api_key)
         stream = client.chat.completions.create(
@@ -105,8 +104,8 @@ def ai_suggest(request):
                 result += chunk.choices[0].delta.content
     return render(request, 'ai_suggest.html', {'result': result})
 
-def editprofile(request):
-    return render(request,'profile.html')
+def editprofile(request, user_id):
+    return render(request, 'profile.html')
 
 def post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)

@@ -440,20 +440,20 @@ body {
     position: relative;
     margin-left:3.5rem;
 }
-.container input[type="text"], input[type="password"]{
-    border-radius: 7px;
-    font-size: 20px;
-    width: 40rem;
-    height: 3.5rem;
-    border: 1px solid #000;
-    padding-left: 5px;
-}
-.container select{
+.container input[type="text"],.container select{
     border-radius: 7px;
     font-size: 17px;
     width: 40rem;
     height: 3.5rem;
     border: 1.5px solid #000;
+}
+.container textarea{
+    border-radius: 7px;
+    font-size: 17px;
+    width: 40rem;
+    height: 10rem;
+    border: 1.5px solid #000;
+    resize: none;
 }
 .container select:hover{
     cursor: pointer;
