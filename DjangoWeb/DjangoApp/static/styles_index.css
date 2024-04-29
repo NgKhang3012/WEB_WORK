@@ -8,12 +8,13 @@
     --grey_background: rgba(217, 208, 203, 0.92);
     --orange-primary: rgba(236, 201, 162, 0.4);
     --color-page: rgba(236, 201, 162, 0.4);
+    --width_box_aside: 15em;
     --orange_icon: #cf6d17;
     --height_header: 5em;
-    --width_nav_left: 250px;
+    --width_nav_left: 16em;
     --width_box_aside: 15em;
 
-                                                                                                                                    
+
 }
 
 html {
@@ -41,7 +42,7 @@ body {
     overflow-y: scroll;
 }
 
-                                                                                                                        
+
 .navbar_Wrapper_fulltab {
     position: fixed;
     top: 0;
@@ -154,7 +155,7 @@ body {
     outline: none;
     padding: 0 4px;
 }
-                                                                                                                                    
+
 .navbar_action {
     flex: 1 1;
     align-items: center;
@@ -173,23 +174,28 @@ body {
 }
 
 
-.login_btn,.register_btn{
+.login_btn,
+.register_btn {
     font-weight: 500;
     cursor: pointer;
     border-radius: 80px;
     color: #fff;
-    margin-right : 30px;
+    margin-right: 30px;
     font-size: 1.4rem;
     padding: 9px 20px;
-    transition: 0.3 ease-in-out ;
+    transition: 0.3 ease-in-out;
 
 }
-.login_btn:hover,.register_btn:hover{
+
+.login_btn:hover,
+.register_btn:hover {
     transform: scale(1.09);
 }
+
 .login_btn {
     background: linear-gradient(to right bottom, #0d4b99, #87aad6);
 }
+
 .register_btn {
     background: linear-gradient(to right bottom, #c4520a, #da9a72);
 }
@@ -389,7 +395,7 @@ button {
 
 /*  bat dau code css cho phan noi dung */
 .article_post {
-    margin: calc(var(--height_header) + 2.5em) calc(var(--width_box_aside)) 0 calc(var(--width_nav_left));
+    margin: calc(var(--height_header) + 1.9em) calc(var(--width_box_aside)) 0 calc(var(--width_nav_left));
     align-items: center;
     justify-content: space-around;
     display: flex;
@@ -439,7 +445,9 @@ button {
     grid-template-columns: 1fr 1fr 1fr;
     /* grid-template-rows: 0.5fr 0.5fr 0.5fr; */
     gap: 10px 10px;
-
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .container a {
@@ -834,19 +842,15 @@ button {
 
 
 .solid_mid_Reg {
-    position: absolute;
-    right: 12.4rem;
-    margin-top: 8px;
-    padding: 4px;
+    left: 8rem;
+    position: relative;
     border-bottom: 2px solid black;
     width: 50%;
     height: 2px;
 }
 
 .start_create_new_account_Reg {
-    position: absolute;
-    top: 57px;
-    left: 26%;
+    position: relative;
     align-content: center;
     margin: auto auto 25px;
     padding: 5px;
@@ -1154,20 +1158,23 @@ ul {
 
 @media only screen and (max-width: 540px) {
     .navbar_logo_Heading {
-       display: none;
+        display: none;
     }
 
 }
+
 /* header max-width: 600px */
 @media only screen and (max-width: 600px) {
 
     /* bat dau cho phan headder max-width : 600px */
     .navbar_logo_Heading {
-       font-size : 16px ;
-     }
+        font-size: 16px;
+    }
+
     .tab_opt {
         left: 1rem;
     }
+
     .flex_Search_center {
         justify-content: flex-end;
     }
@@ -1205,12 +1212,12 @@ ul {
     .register_btn {
         border-radius: 11px;
         padding: 5px 12px;
-        margin : 5px;
+        margin: 5px;
     }
 
     .login_btn {
         border-radius: 11px;
-        margin:0px 8px;
+        margin: 0px 8px;
         padding: 5px 20px;
     }
 
@@ -1263,16 +1270,99 @@ ul {
     /* ket thuc cho modal login  max-width*/
 
     /* bat dau mobile modal resgister max-width: 600px */
+    .modal_Reg .body_modal_Reg {
+        width: 32rem;
+        height: 47rem;
+    }
+
+
+    .modal_Reg .body_modal_Reg p {
+        font-size: 4rem;
+        padding: 19px;
+        margin: 30px 0;
+    }
+
+    .box_input_text_account_Reg,
+    .box_input_text_password_Reg {
+        font-size: 2rem;
+        width: 26rem;
+        height: 2.5rem;
+    }
+
+    .start_create_new_account_Reg {
+        top: 3rem;
+        font-size: 1.7rem;
+        width: 25rem;
+        height: 4rem;
+        font-weight: 500;
+    }
+
 
     /* ket thuc mobile modal resgister max-width: 600px */
+
+
+
+    /*  bat dau code cho nav_left_vert max-width: 600px */
+    :root {
+        --width_nav_left: 0px;
+        --width_box_aside: 0em;
+    }
+
+    /*  ket thuc code cho nav_left_vert max-width: 600px */
+
+
+    /*  bat dau code css cho phan noi dung gom article_post &  container max-width: 600px */
+    .container {
+        gap: 15px 5px;
+    }
+
+    .container a {
+        width: 90vw;
+        height: 23rem;
+    }
+
+    .article_post {
+        margin: calc(var(--height_header) + 1.9em) calc(var(--width_box_aside)) 0 calc(var(--width_nav_left));
+        align-items: center;
+        justify-content: space-around;
+        display: flex;
+        position: relative;
+        width: 100vw;
+        height: 26rem;
+        flex-wrap: wrap;
+    }
+
+    .article_post {
+        margin: calc(var(--height_header) + 1.9em) calc(var(--width_box_aside)) 0 calc(var(--width_nav_left));
+        align-items: center;
+        justify-content: space-around;
+        display: flex;
+        position: relative;
+        width: 100vw;
+        height: 26rem;
+        /* border: 2px solid red; */
+        flex-wrap: wrap;
+        /* justify-content: center; */
+    }
+
+    .article_post a h3 {
+        font-size: 15px;
+    }
+
+
+
+
+    /*  ket thuc code css cho phan noi dung gom article_post & container max-width: 600px */
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+
     /* bat dau phan headder min-width : 600px */
     .tab_opt {
         left: 1rem;
     }
+
     .flex_Search_center {
         justify-content: flex-end;
     }
@@ -1310,7 +1400,7 @@ ul {
     .register_btn {
         border-radius: 11px;
         padding: 5px 12px;
-        margin-right : 0;
+        margin-right: 0;
     }
 
     .login_btn {
@@ -1318,9 +1408,10 @@ ul {
         margin: 0px 5px;
         padding: 8px 16px;
     }
+
     /* ket thuc cho header minwidth 600px */
-      /* bat dau mobile modal login min-width: 600px */
-      .modal .body_modal {
+    /* bat dau mobile modal login min-width: 600px */
+    .modal .body_modal {
         width: 32rem;
         height: 47rem;
     }
@@ -1364,34 +1455,142 @@ ul {
     }
 
     /* ket thuc mobile modal login min-width: 600px */
-    
-   
+
+    /* bat dau mobile modal resgister min-width: 600px */
+    .modal_Reg .body_modal_Reg {
+        width: 32rem;
+        height: 47rem;
+    }
+
+
+    .modal_Reg .body_modal_Reg p {
+        font-size: 4rem;
+        padding: 19px;
+        margin: 30px 0;
+    }
+
+    .box_input_text_account_Reg,
+    .box_input_text_password_Reg {
+        font-size: 2rem;
+        width: 26rem;
+        height: 2.5rem;
+    }
+
+    .start_create_new_account_Reg {
+        top: 3rem;
+        font-size: 1.7rem;
+        width: 25rem;
+        height: 4rem;
+        font-weight: 500;
+    }
+
+    /* ket thuc cho modal resgister min-width 600px */
+    /*  bat dau code cho nav_left_vert min-width: 600px */
+    :root {
+        --width_nav_left: 0px;
+        --width_box_aside: 0em;
+    }
+
+    /*  ket thuc code cho nav_left_vert min-width: 600px */
+
+    /*  bat dau code css cho phan noi dung gom article_post &  container min-width: 600px */
+    .article_post {
+        width: 100vw;
+
+    }
+
+    .article_post a h3 {
+        font-size: 2rem;
+    }
+
+    .container a {
+        width: 47vw;
+        height: 23rem;
+    }
+
+    /*  ket thuc code css cho phan noi dung gom article_post & container min-width: 600px */
+
+
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-        /* header min-width 768px */
-        .Search_Wrapper {
-            border-radius: 13px;
-            width: 36vw;
-        }
-        /* ket thuc header min-width 768px */
 
-        .register_btn,.login_btn{
-            margin-right: 15px;
-        }
+    /* header min-width 768px */
+    .Search_Wrapper {
+        border-radius: 13px;
+        width: 36vw;
+    }
+
+    .container a {
+        width: 31vw;
+        height: 23rem;
+    }
+
+    /* ket thuc header min-width 768px */
+
+    .register_btn,
+    .login_btn {
+        margin-right: 15px;
+    }
 
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-    .register_btn, .login_btn {
+
+    /*  bat dau code cho nav_left_vert min-width: 992px */
+    :root {
+        --width_nav_left: 0px;
+        --width_box_aside: 0em;
+    }
+
+    /*  ket thuc code cho nav_left_vert min-width: 992px */
+    .register_btn,
+    .login_btn {
         height: 4rem;
         width: 11rem;
         margin-right: 30px;
     }
 
+    /*  bat dau code css cho phan noi dung gom article_post & container min-width: 992px */
+    .article_post {
+        width: 100vw;
+        height: 26rem;
+    }
+
+    .article_post a h3 {
+        font-size: 3rem;
+    }
+    .container a {
+        width: 31vw;
+        height: 23rem;
+    }
+
+    /*  ket thuc code css cho phan noi dung gom article_post & container min-width: 992px */
+
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+
+
+     /*  bat dau code css cho phan noi dung gom article_post & container min-width: 1200px */
+     :root {
+        --width_nav_left: 15em;
+        --width_box_aside: 15em;
+    }
+    .article_post {
+        width: calc(95vw - var(--width_nav_left) - var(--width_box_aside));
+        height: 26rem;
+        margin: calc(var(--height_header) + 1.9em) calc(var(--width_box_aside)) 0 calc(var(--width_nav_left) + 6em );
+    }
+    .container{
+        margin-left: calc(var(--width_nav_left) + 6em);
+    }
+     .container a {
+        width: calc(45vw - var(--width_nav_left) - var(--width_box_aside));
+        height: 17rem;
+    }
+     /*  ket thuc code css cho phan noi dung gom article_post & container min-width: 1200px */
+}
