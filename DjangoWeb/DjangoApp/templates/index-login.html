@@ -53,9 +53,9 @@
 
                 <div class="navbar_action">
                     <div id="navbar_action_portal"></div>
-                    <div class="UpFile">
-                        <button class="btn_upfile">POST</button>
-                    </div>
+                    <button onclick="Open_Post()" class="btn_upfile">
+                        POST
+                    </button>
                     <!-- phan thong bao va ICON avatar -->
                     <div class="notification">
                         <button onclick=show_notification() class="btn_notification"> <i class="fa-regular fa-bell"></i>
@@ -72,6 +72,90 @@
 
         </div> <!-- xong phan header -->
 
+        <!-- bat dau phan modal post -->
+        <div class="modal_Post" style="display: none;">
+            <div class="body_modal_Post" style="overflow-y: auto;">
+                <p>Tạo bài viết</p>
+                <div class="Box_Contain_Avatar_And_Name">
+                    <img src="/static/Image_web_offical/avatar_user_emtpy.jpg" alt="avatar_user_emtpy">
+                    <p>Nguyên Khang đẹp trai quá đi mà !!</p>
+                </div>
+                <form method="post" enctype="multipart/form-data" id="postForm" name="form">
+                    {% csrf_token %}
+                    <input type="text" name="title" placeholder="Title" required><br><br>
+                    <textarea class="box_input_content" placeholder="Content" name="content"></textarea>
+                    <!-- Hình ảnh xem trước -->
+                    <div id="imagePreview" style="display: none;">
+                        <img id="preview" src="#" alt="Ảnh xem trước" style="max-width: 100%; max-height: 200px;">
+                    </div>
+                    <div id="addressField" style="display: none;">
+                        <input type="text" name="address" alt="Địa chỉ" placeholder="Địa chỉ" required>
+                    </div>
+                    <div id="starField" style="display: none;">
+                        <input type="number" name="star" placeholder="Star" min="0" max="5" required>
+                    </div>
+                    <br><br>
+                    <div class="Add_To_Content">
+                        <!-- Input type file ẩn -->
+                        <input type="file" name="image" id="fileInput" style="display: none;">
+                        <!-- Biểu tượng icon hình ảnh -->
+                        <a href="#" onclick="openFileExplorer()"><i class="fa-solid fa-image" style="color: #cf6d17;"></i></a>
+                        <!-- Biểu tượng icon address -->
+                        <a href="#" onclick="toggleAddressField()"><i class="fa-solid fa-location-dot" style="color: #cf6d17;"></i></a>
+                        <!-- Trường star -->
+                        <a href="#" onclick="toggleStarField()"><i class="fa-solid fa-star" style="color: yellow;"></i></a>
+                        
+                    </div>
+                    <br>
+                    <div class="rel_btn_post">
+                        <button class="btn_post_content" type="submit">Đăng</button>
+                    </div>
+                </form>
+                <button onclick="CLose_Post()" class="close_btn_Post">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+        
+        <script>
+            function toggleAddressField() {
+                var starField = document.getElementById('addressField');
+                if (starField.style.display === 'none') {
+                    starField.style.display = 'block';
+                } else {
+                    starField.style.display = 'none';
+                }
+            }
+
+            function toggleStarField() {
+                var starField = document.getElementById('starField');
+                if (starField.style.display === 'none') {
+                    starField.style.display = 'block';
+                } else {
+                    starField.style.display = 'none';
+                }
+            }
+        
+            // Mở explorer khi nhấn vào biểu tượng hình ảnh
+            function openFileExplorer() {
+                document.getElementById('fileInput').click();
+            }
+        
+            // Hiển thị hình ảnh xem trước khi tải lên
+            function previewImage(event) {
+                var preview = document.getElementById('preview');
+                var imagePreview = document.getElementById('imagePreview');
+                preview.src = URL.createObjectURL(event.target.files[0]);
+                imagePreview.style.display = 'block';
+            }
+        
+            // Gắn sự kiện onchange vào input type file
+            document.getElementById('fileInput').addEventListener('change', previewImage);
+        </script>
+        
+        
+
+        <!-- ket thuc phan modal post  -->
         <Aside>
             <div class="box_aside">
 
@@ -105,6 +189,15 @@
                     } else {
                         sidebar.style.display = 'none'; // Ẩn sidebar nếu đang hiển thị
                     }
+                }
+
+                function Open_Post() {
+                    const sidebar = document.querySelector(".modal_Post");
+                    sidebar.style.display = "flex";
+                }
+                function CLose_Post() {
+                    const sidebar = document.querySelector(".modal_Post");
+                    sidebar.style.display = "none";
                 }
             </script>
         </div>
