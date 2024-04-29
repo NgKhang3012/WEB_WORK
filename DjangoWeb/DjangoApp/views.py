@@ -29,6 +29,8 @@ class CustomPasswordConfirmView(PasswordResetConfirmView):
     success_url='passwordresetcomplete'
     
 def index(request):
+    top_posts = Post.objects.order_by('-star')[:2]  # Lấy 2 bài đăng có star lớn nhất
+    other_posts = Post.objects.exclude(pk__in=[post.pk for post in top_posts])  # Lấy các bài đăng không thuộc top_posts
     if request.method == 'POST':
         if 'button-login' in request.POST:
             email = request.POST.get('input-login-account')
@@ -52,7 +54,7 @@ def index(request):
                 user.save()
                 return redirect('whilelogin')
     else:
-        return render(request, 'index.html')
+        return render(request, 'index.html', {'top_posts': top_posts, 'other_posts': other_posts} )
 
 def whilelogin(request):
     form = PostForm()
@@ -93,6 +95,6 @@ def ai_suggest(request):
         result=response.choices[0].text
     return render(request,'ai_suggest.html',{'result': result})
 
-#def post(request, post_id):
-#    post = get_object_or_404(Post, pk=post_id)
-#    return render(request, 'index-post.html', {'post': post}) 
+def post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    return render(request, 'index-post.html', {'post': post}) 
