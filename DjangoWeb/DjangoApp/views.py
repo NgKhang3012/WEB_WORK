@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CustomPasswordResetForm
 from .forms import CustomSetPasswordForm
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.views import PasswordResetView
 from django.contrib.auth.views import PasswordResetDoneView 
 from django.contrib.auth.views import PasswordResetConfirmView
@@ -30,6 +30,8 @@ class CustomPasswordConfirmView(PasswordResetConfirmView):
     success_url='passwordresetcomplete'
     
 def index(request):
+    if request.user.is_authenticated:
+        return redirect('/usr/{}/'.format(request.user.id))
     top_posts = Post.objects.order_by('-star')[:2]  # Lấy 2 bài đăng có star lớn nhất
     other_posts = Post.objects.exclude(pk__in=[post.pk for post in top_posts])  # Lấy các bài đăng không thuộc top_posts
     if request.method == 'POST':
@@ -39,7 +41,7 @@ def index(request):
             user = authenticate(request, username=email,email=email, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('whilelogin') 
+                return redirect('/usr/{}/'.format(request.user.id))
             else:
                 return render(request, "index.html", {'error_message_login': 'Invalid email or password'})
         elif 'button-reg' in request.POST:
@@ -53,20 +55,31 @@ def index(request):
             else: 
                 user = User.objects.create_user(username=email,email=email, password=password)
                 user.save()
-                return redirect('whilelogin')
+                login(request,user)
+                newuserinfo=UserInfo(id=request.user.id)
+                newuserinfo.save()
+                return redirect('/usr/{}/'.format(request.user.id))
     else:
         return render(request, 'index.html', {'top_posts': top_posts, 'other_posts': other_posts} )
 
-def whilelogin(request):
-    form = PostForm()
-    if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES)
-        if form.is_valid():
-            post = form.save()
-            # Tạo URL động cho trang chi tiết của bài viết mới tạo
-            post_url = reverse('post', kwargs={'post_id': post.id})  # Đặt tên cho tham số post_id
-            # return redirect(post_url)
-    return render(request,'index-login.html', {'form': form})
+
+def logoutPage(request):
+    logout(request)
+    return redirect('index')
+
+def whilelogin(request, user_id):
+    if request.user.is_authenticated:
+        form = PostForm()
+        if request.method == 'POST':
+            form = PostForm(request.POST, request.FILES)
+            if form.is_valid():
+                post = form.save()
+                # Tạo URL động cho trang chi tiết của bài viết mới tạo
+                post_url = reverse('post', kwargs={'post_id': post.id})  # Đặt tên cho tham số post_id
+                # return redirect(post_url)
+        return render(request,'index-login.html', {'form': form})
+    else:
+        return redirect('index')
 
 def search(request):
     searched = ""
@@ -105,8 +118,27 @@ def ai_suggest(request):
     return render(request, 'ai_suggest.html', {'result': result})
 
 def editprofile(request, user_id):
-    return render(request, 'profile.html')
-
+    if request.user.id==user_id: 
+        userinfo = get_object_or_404(UserInfo,id=user_id)
+        if request.method=="POST":
+            if 'savebtn' in request.POST:
+                userinfo.firstname=request.POST.get('firstname')
+                userinfo.lastname=request.POST.get('lastname')
+                userinfo.phonenumber=request.POST.get('phonenumber')
+                userinfo.gender=request.POST.get('gender')
+                userinfo.avatar=request.FILES.get('avatar')
+                userinfo.introduction=request.POST.get('introduction')
+                userinfo.save()
+                return render(request, 'profile.html',{'user':userinfo})
+            if 'cancelbtn' in request.POST:
+                return redirect('/usr/{}/'.format(request.user.id))
+        return render(request, 'profile.html',{'user':userinfo})
+    else:
+        if request.user.is_authenticated:
+            return redirect('/usr/{}/'.format(request.user.id))
+        else:
+            return redirect('index')
+    
 def post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    return render(request, 'index-post.html', {'post': post}) 
+    return render(request, 'index-post.html', {'post': post})
