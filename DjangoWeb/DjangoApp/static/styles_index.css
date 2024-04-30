@@ -603,6 +603,7 @@ button {
     right: auto;
     padding: 10px;
     transition: color 0.3s, box-shadow 0.3s;
+    z-index: 1;
 }
 
 .forgot_password a:hover {

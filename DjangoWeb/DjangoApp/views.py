@@ -27,7 +27,7 @@ class CustomPasswordResetCompleteView(PasswordResetCompleteView):
 class CustomPasswordConfirmView(PasswordResetConfirmView):
     template_name= 'Password_Reset_Confirm.html' 
     form_class= CustomSetPasswordForm   
-    success_url='passwordresetcomplete'
+    success_url='done'
     
 def index(request):
     if request.user.is_authenticated:
