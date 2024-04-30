@@ -51,7 +51,13 @@
                 </button>
             </div>
             <div class="div_avatar">
-                <a href="Edit_User_Profile/profile.html"><button onclick=show_profile_on_avatar() class="btn_avatar"> <i class="fa-solid fa-user"></i></button></a>
+                <a href="Edit_User_Profile/profile.html">
+                    <button onclick=show_profile_on_avatar() class="btn_avatar"> 
+                        <div class="avatar_user_page">
+                            <img src="{{userinfo.avatar.url}}" alt="Avatar User">
+                        </div>
+                    </button>
+                </a>
             </div>
             <p class='hello_tag'> {{ userinfo.firstname }} {{userinfo.lastname}} </p>
 
@@ -66,8 +72,8 @@
     <div class="body_modal_Post" style="overflow-y: auto;">
         <p>Tạo bài viết</p>
         <div class="Box_Contain_Avatar_And_Name">
-            <img src="/static/Image_web_offical/avatar_user_emtpy.jpg" alt="avatar_user_emtpy">
-            <p>Nguyên Khang đẹp trai quá đi mà !!</p>
+            <img src="{{userinfo.avatar.url}}" alt="avatar_user">
+            <p>{{ userinfo.firstname }} {{userinfo.lastname}}</p>
         </div>
         <form method="post" enctype="multipart/form-data" id="postForm" name="form">
             {% csrf_token %}

@@ -185,9 +185,21 @@ body {
     border-radius: 50%;
     margin: -48px 0px 0px 250px;
     font-size: 2.2rem;
-    padding: 14px 14px;
+    padding: 3px 3px;
     border: 3px solid #f7c37a;
     background-color: #f2efea;
+}
+.avatar_user_page{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.avatar_user_page img{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
 }
 
 .btn_notification {
