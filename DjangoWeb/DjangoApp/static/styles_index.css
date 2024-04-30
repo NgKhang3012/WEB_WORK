@@ -446,7 +446,7 @@ button {
     /* grid-template-rows: 0.5fr 0.5fr 0.5fr; */
     gap: 10px 10px;
     justify-content: center;
-    display: flex;
+
     flex-wrap: wrap;
 }
 

@@ -12,6 +12,7 @@ from openai import OpenAI,OpenAIError
 import os
 from .forms import PostForm  
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 class CustomPasswordResetView(PasswordResetView):
     template_name = 'Forget_password.html'
     success_url='done'
@@ -56,9 +57,11 @@ def index(request):
                 return redirect('whilelogin')
     else:
         return render(request, 'index.html', {'top_posts': top_posts, 'other_posts': other_posts} )
-
+@login_required(login_url="/")
 def whilelogin(request):
     form = PostForm()
+    top_posts = Post.objects.order_by('-star')[:2]  # Lấy 2 bài đăng có star lớn nhất
+    other_posts = Post.objects.exclude(pk__in=[post.pk for post in top_posts])  # Lấy các bài đăng không thuộc top_posts
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -66,16 +69,16 @@ def whilelogin(request):
             # Tạo URL động cho trang chi tiết của bài viết mới tạo
             post_url = reverse('post', kwargs={'post_id': post.id})  # Đặt tên cho tham số post_id
             # return redirect(post_url)
-    return render(request,'index-login.html', {'form': form})
+    return render(request,'index-login.html', {'form': form,'top_posts': top_posts, 'other_posts': other_posts})
 
 def search(request):
     searched = ""
     keys = []
+    user = request.user if request.user.is_authenticated else None
     if request.method == "POST":
-        searched = request.POST["searched"]
+        searched = request.POST.get("searched", "")
         keys = Post.objects.filter(title__contains=searched)
-    return render(request, 'search.html', {"searched": searched, "keys": keys})
-
+    return render(request, 'search.html', {"searched": searched, "keys": keys, "user": user})
 def ai_suggest(request):
     result=''
     if request.method=="POST":
@@ -104,10 +107,10 @@ def ai_suggest(request):
             if chunk.choices[0].delta.content is not None:
                 result += chunk.choices[0].delta.content
     return render(request, 'ai_suggest.html', {'result': result})
-
+@login_required
 def editprofile(request):
     return render(request,'profile.html')
-
+@login_required
 def post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    return render(request, 'index-post.html', {'post': post}) 
+    return render(request, 'index_post.html', {'post': post}) 

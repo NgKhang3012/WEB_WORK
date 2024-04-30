@@ -4,161 +4,18 @@
     border: 0;
 }
 
-html {
-    -webkit-text-size-adjust: 100%;
-    font-size: 70%;
-    box-sizing: border-box;
-    font-family: "Lato", sans-serif;
-}
-
-.webapp {
-    margin: 0;
-}
-
-body {
-
-    display: block;
-    min-height: 100vh;
-    background: #e7e2de;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    overflow-y: scroll;
-}
-
-
-.navbar_Wrapper_fulltab {
-    width: 100%;
-    padding: 0px 30px;
-    position: fixed;
-    z-index: 1;
-    align-items: center;
-    font-size: 1.4rem;
-    display: flex;
-    border-bottom: 2px solid #f0852d;
-    background-color: #ffff;
-    --height: 80px;
-    height: var(--height);
-}
-
-.navbar_logo_web {
-    height: var(--height);
-    width: var(--height);
-    display: flex;
-    align-items: center;
+:root {
+    --grey_background: rgba(217, 208, 203, 0.92);
+    --orange-primary: rgba(236, 201, 162, 0.4);
+    --color-page: rgba(236, 201, 162, 0.4);
+    --width_box_aside: 15em;
+    --orange_icon: #cf6d17;
+    --height_header: 5em;
+    --width_nav_left: 16em;
+    --width_box_aside: 15em;
 
 
 }
-
-.navbar_logo_web a {
-    display: flex;
-}
-
-.navbar_logo_web img {
-
-    flex-shrink: 0;
-    height: 38px;
-    object-fit: contain;
-    width: 38px;
-    border: 2px solid #f7c37a;
-    border-radius: 10px;
-}
-
-.navbar_logo_Heading {
-    color: #000;
-    margin: 10px;
-    font-weight: 700;
-    margin-left: 16px;
-    font-size: 2rem;
-    display: flex;
-
-}
-
-@media (max-width:1210px) {
-    .navbar_logo_Heading {
-        display: none;
-    }
-}
-
-@media (max-width:700px) {
-    .container {
-        display: none;
-    }
-
-}
-
-@media (max-width:510px) {
-    .sidebar_vert {
-        width: 100%;
-    }
-
-}
-
-@media (max-width:800px) {
-
-    .navbar_logo_web img {
-        display: none;
-    }
-}
-
-.navbar_body {
-    flex: 1 1;
-}
-
-.flex_Search_center {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-}
-
-
-.Search_Wrapper {
-    border: 2px solid #f7c37a;
-    border-radius: 20px;
-    flex: 1 1;
-    height: 40px;
-    padding: 0 16px 0 8px;
-    transition: border-color .2s ease-in-out;
-    width: 420px;
-}
-
-.flex_Search_center {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-}
-
-.Search_SearchIcon {
-    background-image: url('/static/User_Picture/search-icon.webp');
-    background-color: #fff;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: 18px;
-    border-radius: 50%;
-    height: 32px;
-    opacity: .7;
-    transition: opacity 0.5s ease-in-out;
-    width: 30px;
-}
-
-.Search_input {
-    flex: 1 1;
-    border: none;
-    /* de mat cai khung  */
-    caret-color: #444;
-    height: 100%;
-    outline: none;
-    /*  bo cai khung den khi nhap vao gõ */
-    padding: 0 4px;
-}
-
-.navbar_action {
-    flex: 1 1;
-    align-items: center;
-    display: flex;
-    justify-content: flex-end;
-}
-
 .button {
     border: none;
     box-shadow: none;
@@ -195,11 +52,208 @@ body {
     border: 2px solid #f7c37a;
 }
 
-/* ======bat dau  ==phan aside===== */
-.box_aside {
+html {
+    height: -webkit-fill-available;
+    -webkit-text-size-adjust: 100%;
+    font-size: 70%;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+}
+
+.webapp {
+    position: relative;
+    background-color: var(--color-page);
+    margin: 0;
+}
+
+body {
+
+    display: block;
+    min-height: 100vh;
+    background: #e7e2de;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow-y: scroll;
+}
+
+
+.navbar_Wrapper_fulltab {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0px 30px;
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #f0852d;
+    background-color: #fff;
+
+    height: var(--height_header);
+    z-index: 12;
+}
+
+.navbar_logo_web {
+    height: var(--height);
+    width: var(--height);
+    display: flex;
+    align-items: center;
+
+}
+
+.navbar_logo_web a {
+    margin-left: 5px;
+    display: block;
+    position: relative;
+}
+
+.navbar_logo_web img {
+    height: 70px;
+    width: auto;
+
+}
+
+
+.navbar_logo_Heading {
+    color: #000;
+    margin: 10px;
+    font-weight: 700;
+    margin-left: 16px;
+    font-size: 2rem;
+    display: flex;
+
+}
+
+
+
+
+
+.navbar_body {
+    flex: 1 1;
+}
+
+.flex_Search_center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+
+.Search_Wrapper {
+    border: 2px solid #f7c37a;
+    border-radius: 20px;
+    flex: 1 1;
+    height: 40px;
+    padding: 0 16px 0 8px;
+    transition: border-color .2s ease-in-out;
+    width: 420px;
+}
+
+.Search_SearchIcon {
+    background-color: #fff;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    border-radius: 50%;
+    height: 32px;
+    opacity: .7;
+    transition: opacity 0.5s ease-in-out;
+    width: 30px;
+}
+
+.Search_SearchIcon svg {
+    background-size: contain;
+    background-position: center;
+    background-color: transparent;
+    margin-top: 6px;
+    width: 20px;
+    height: 20px;
+}
+
+.Search_SearchIcon svg:hover {
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 2px;
+    /*  thu cai kinh lup lai nho 1 siu 1px */
+
+}
+
+.Search_input {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: calc(100% - 30px);
+    flex: 1 1;
+    border: none;
+    caret-color: #444;
+    height: 100%;
+    outline: none;
+    padding: 0 4px;
+}
+
+.navbar_action {
+    flex: 1 1;
+    align-items: center;
     display: flex;
     justify-content: flex-end;
+}
 
+.button {
+    border: none;
+    box-shadow: none;
+    color: inherit;
+    display: block;
+    outline: none;
+    padding: 0;
+
+}
+
+
+.login_btn,
+.register_btn {
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 80px;
+    color: #fff;
+    margin-right: 30px;
+    font-size: 1.4rem;
+    padding: 9px 20px;
+    transition: 0.3 ease-in-out;
+
+}
+
+.login_btn:hover,
+.register_btn:hover {
+    transform: scale(1.09);
+}
+
+.login_btn {
+    background: linear-gradient(to right bottom, #0d4b99, #87aad6);
+}
+
+.register_btn {
+    background: linear-gradient(to right bottom, #c4520a, #da9a72);
+}
+
+button {
+    border: none;
+    box-shadow: none;
+    color: inherit;
+    display: block;
+    outline: none;
+    padding: 0;
+}
+
+/* ======bat dau  ==phan aside===== */
+.box_aside {
+    position: fixed;
+    right: 0;
+    width: var(--width_box_aside);
+    height: 33vh;
+    display: flex;
+    justify-content: flex-end;
+    /* border: 3px solid red; */
+    z-index: 12;
 }
 
 .btn_upfile {
@@ -219,23 +273,17 @@ body {
 .Click_ontop {
     display: block;
     position: fixed;
-    /* dat vi tri co dinh lun */
     border-radius: 50%;
     height: 50px;
     width: 50px;
     cursor: pointer;
-    margin-right: 30px;
     border: 3px solid #f0852d;
     font-size: 2.0rem;
-
-    bottom: 20px;
-    /* Đặt vị trí ở phía dưới cùng */
-    right: 20px;
-    /* Đặt vị trí ở phía bên phải */
-    z-index: 9999;
-    /* Đảm bảo nút hiển thị trên các phần tử khác */
+    bottom: 1em;
+    right: 3em;
+    z-index: 11;
     background-size: cover;
-
+    background-color: var(--orange-primary);
 }
 
 /*== left menu ==== */
@@ -243,35 +291,38 @@ body {
 /*  gom co luoon btn 3 gach ngang tren header code o phan nay  */
 
 .tab_opt {
-    background-image: url("https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/DqJ1dbPhKLh.png?_nc_eui2=AeFq__h7ywuhBQvbEh538aIgQaQrY5cykQ5BpCtjlzKRDgz358kIQ3IGNCbuhzxVcSL8Z8n_rBBSzIKiylUHrOLB");
-    background-position: 6px -453px;
-    background-color: #fff;
-    background-repeat: no-repeat;
-    width: 47px;
-    height: 29px;
+    position: relative;
+    width: 21px;
+    height: 21px;
     cursor: pointer;
     margin-right: 5px;
     margin-bottom: 5px;
-    background-size: 47px;
-    border-color: transparent;
+    background-size: 11px;
     display: block;
     padding: 20px;
 
 }
 
 .tab_opt svg {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    bottom: 7px;
+    background-color: transparent;
+    background-size: auto;
+    width: 30px;
+    height: 25px;
+    margin-left: -15px;
+
 }
 
 .tab_opt:hover {
     background-clip: padding-box;
-    background-color: #cccc;
+    background-color: #e8decdf0;
+    border-radius: 5px;
 }
 
 /* ====== nav left vert      =================== */
 .nav_left_vert {
-    background-color: #fff;
+    background-color: #ac8a26;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
     position: fixed;
     z-index: 5;
@@ -287,11 +338,13 @@ body {
 }
 
 .nav_left_vert li {
+
     height: 50px;
     width: 100%;
 }
 
 .nav_left_vert a {
+
     height: 100%;
     padding: 0 30px;
     text-decoration: none;
@@ -299,52 +352,563 @@ body {
     align-items: center;
     justify-content: center;
     color: black;
+    transition: transform 0.1s ease;
 }
 
 .nav_left_vert a.active {
-    background-color:#e6a571 ;
+    background-color: #e6a571;
     color: white;
+    border-radius: 2px;
+
 }
 
+
+
+
 .nav_left_vert a:hover:not(.active) {
+    border-radius: 15px;
     background-color: #f0f0f0;
 }
 
+.nav_left_vert a:hover {
+    transform: scale(1.04);
 
-.sidebar_vert {
-    position: sticky;
-    top: 81.6px;
-    /* Dính phần sidebar lên trên cùng của viewport */
-    border-radius: 5px;
-    border: 2px solid rgb(240, 133, 45, 0.5);
+}
+
+/* =      ------------------------======    ---------------------- css sub nav  */
+.type_meal {
+    position: relative;
+}
+
+.type_meal .sub_nav {
+    position: absolute;
+    width: 200px;
+    top: 0px;
+    height: auto;
+    background-color: rgba(227, 168, 105, 0.8);
+    right: -201px;
+    border-radius: 10px;
+
+}
+
+
+.sub_nav {
     display: none;
-    height: 180vh;
-    width: 250px;
+}
+
+.type_meal:hover .sub_nav,
+.sub_nav:hover {
+    display: block;
+    /* Hiển thị khi hover vào .type_meal hoặc .sub_nav */
+    color: white;
+}
+
+
+
+
+
+/*  ket thuc phan sub nav  */
+.sidebar_vert {
+    top: 5em;
+    border-radius: 5px;
+    border: 2px solid rgba(212, 108, 22, 0.5);
+    display: flex;
+    height: max-content;
+    width: 15em;
     z-index: 68;
-    background-color: #fff;
+    background-color: var(--orange-primary);
     box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.1);
-
-    /*  tui se dung js phan flex nay */
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-
     font-weight: 600;
     font-size: 1.4rem;
+}
+
+.sidebar_vert li:hover {
+    font-size: 1.7rem;
+}
+
+
+/*  bat dau code css cho phan noi dung */
+.article_post {
+    margin: calc(var(--height_header) + 1.9em) calc(var(--width_box_aside)) 0 calc(var(--width_nav_left));
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    position: relative;
+    width: 70vw;
+    height: 26rem;
+    /* border: 2px solid red; */
+}
+
+.article_post a {
+    height: 25rem;
+    width: 49%;
+    position: relative;
+    /* border: 2px solid black; */
+}
+
+.article_post img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.article_post a h3,
+.article_post a p {
+    position: absolute;
+    bottom: 2rem;
+    left: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: white;
+    text-decoration: none;
+    font-size: 3rem;
+    z-index: 2;
+    /*  phai co width nhu nay de xuat ellips hoat dong */
+    width: calc(100% - 2rem);
+}
+
+/* bat dau code cho phan container  */
+.container {
+    margin-top: 1rem;
+    margin-left: calc(var(--width_nav_left));
+    margin-right: var(--width_box_aside);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-rows: 0.5fr 0.5fr 0.5fr; */
+    gap: 10px 10px;
+    justify-content: center;
+
+    flex-wrap: wrap;
+}
+
+.container a {
+    display: block;
+    position: relative;
+    /* border: 2px solid black; */
+    width: 31rem;
+    height: 17rem;
+    /*  chu y la neu de don vi la % thi height cac cells se tang dan theo moi hang */
+}
+
+.container a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    z-index: 1;
+}
+
+
+.container img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 15px;
 
 }
 
-@media (max-width : 800px) {
-    .hideOnMobile {
-        display: none;
-    }
+.container a h3,
+.container a p {
+    position: absolute;
+    margin: 15px;
+    font-family: inherit;
+    color: white;
+    text-decoration: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: calc(100% - 30px);
+    z-index: 2;
 }
 
-@media (max-width : 700px) {
-    .sidebar_vert {
-        width: 100%;
-    }
+.container a h3 {
+    font-size: 2.5em;
+    bottom: 23%;
+
 }
+
+.container a p {
+    font-size: 1.5em;
+    bottom: 0;
+}
+
+
+
+
+/*  ket thuc code css cho phan noi dung  */
+
+/*Phan chuyen page*/
+.center {
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 200px;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #000;
+}
+
+.pagination a.active {
+    background-color: #f0852d;
+    color: white;
+    border: 1px solid #f0852d;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #a2a2a2;
+}
+
+/* kết thúc nội dung các dòng khác*/
+
+/* bat dầu code cho nút form đăng nhập  */
+
+
+/* Modal */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    /* display: none; */
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 12;
+}
+
+
+.modal .body_modal {
+    border: 20px solid rgba(179, 134, 51, 0.2);
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 2rem;
+    position: relative;
+    margin: auto;
+    width: 600px;
+    height: 660px;
+    background-color: #f5eeea;
+    border-radius: 15px;
+}
+
+.modal .body_modal p {
+    text-align: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: 600;
+    padding: 40px;
+    margin: 25px 0;
+}
+
+.input_text_login {
+    display: block;
+    text-align: center;
+}
+
+.modal .body_modal .error {
+    color: red;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.box_input_text_account,
+.box_input_text_password {
+    padding: 5px;
+    font-size: 22px;
+    width: 400px;
+    height: 50px;
+    border-radius: 20px;
+}
+
+.box_input_text_account {
+    margin-bottom: 30px;
+}
+
+.box_input_text_password {
+    margin-bottom: 30px;
+}
+
+.forgot_password {
+    color: rgb(225, 134, 134);
+    position: relative;
+    top: 123px;
+    right: auto;
+    padding: 10px;
+    transition: color 0.3s, box-shadow 0.3s;
+}
+
+.forgot_password a:hover {
+    color: red;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
+/*phan cua modal btn close  */
+
+.modal .close_btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: #dbdad3;
+    cursor: pointer;
+}
+
+.modal .close_btn:hover {
+    background: #a4a39e;
+}
+
+.modal .close_btn i {
+    font-size: 20px;
+    /* Điều chỉnh kích thước icon */
+    color: #000;
+    /* Màu icon */
+}
+
+/*  code cho start opt */
+.start_opt {
+
+    font-size: inherit;
+    position: relative;
+    text-align: center;
+}
+
+.start_opt img {
+    background-color: rgba(17, 74, 161, 0.5);
+    ;
+    border-radius: 50%;
+    margin-top: 5px;
+    width: 50px;
+    height: auto;
+}
+
+.start_opt a:hover {
+    background-color: rgba(238, 162, 40, 0.8);
+    border-radius: 50%;
+}
+
+.solid_mid {
+    position: absolute;
+    right: 12.4rem;
+    margin-top: 8px;
+    padding: 4px;
+    border-bottom: 2px solid black;
+    width: 50%;
+    height: 2px;
+}
+
+.start_login {
+    position: relative;
+    bottom: 9rem;
+    margin: auto;
+    padding: 5px;
+    font-size: 23px;
+    text-align: center;
+    border-radius: 35px;
+    width: 370px;
+    height: 60px;
+    background-color: #388cc9e0;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #ecf7ff;
+    cursor: pointer;
+    transition: color 0.3s, box-shadow 0.3s;
+}
+
+.start_login:hover {
+    background-color: #2a6fc2;
+    text-decoration: underline;
+}
+
+.start_create_new_account {
+    position: relative;
+    bottom: 2rem;
+    margin: auto;
+    padding: 5px;
+    font-size: 23px;
+    text-align: center;
+    border-radius: 5px;
+    width: 370px;
+    height: 60px;
+    background-color: #126eb0e0;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #ecf7ff;
+    cursor: pointer;
+    transition: color 0.3s, box-shadow 0.3s;
+}
+
+.start_create_new_account:hover {
+    background-color: #1b63bb;
+}
+
+/* ket thuc code start opt */
+
+
+/* ==========================================================    kết thúc code cho nút form đăng nhập  */
+
+/* bat dau code cho modal Reg */
+.modal_Reg {
+
+    position: fixed;
+    inset: 0;
+    display: none;
+    /* display: none; */
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 12;
+}
+
+.modal_Reg .body_modal_Reg {
+    border: 20px solid rgba(179, 134, 51, 0.2);
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 2rem;
+    position: relative;
+    margin: auto;
+    width: 600px;
+    height: 660px;
+    background-color: #f5eeea;
+    border-radius: 15px;
+}
+
+.modal_Reg .body_modal_Reg p {
+    text-align: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: 600;
+    padding: 40px;
+    margin: 25px 0;
+}
+
+.modal_Reg .body_modal_Reg .error {
+    color: red;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.input_text_Reg {
+    display: block;
+    text-align: center;
+
+}
+
+.box_input_text_account_Reg,
+.box_input_text_password_Reg {
+    padding: 5px;
+    font-size: 22px;
+    width: 400px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.box_input_text_account_Reg {
+    margin-bottom: 30px;
+}
+
+.box_input_text_password_Reg {
+    margin-bottom: 30px;
+}
+
+
+
+
+/*phan cua modal btn close  */
+
+.modal_Reg .close_btn_Reg {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: #dbdad3;
+    cursor: pointer;
+}
+
+.modal_Reg .close_btn_Reg:hover {
+    background: #a4a39e;
+}
+
+.modal_Reg .close_btn_Reg i {
+    font-size: 20px;
+    /* Điều chỉnh kích thước icon */
+    color: #000;
+    /* Màu icon */
+}
+
+/*  code cho start opt */
+.start_opt_Reg {
+
+    font-size: inherit;
+    position: relative;
+    text-align: center;
+}
+
+
+.solid_mid_Reg {
+    left: 8rem;
+    position: relative;
+    border-bottom: 2px solid black;
+    width: 50%;
+    height: 2px;
+}
+
+.start_create_new_account_Reg {
+    position: relative;
+    align-content: center;
+    margin: auto auto 25px;
+    padding: 5px;
+    font-size: 26px;
+    text-align: center;
+    border-radius: 10px;
+    width: 50%;
+    height: 70px;
+    background-color: rgba(18, 110, 176, 0.88);
+    font-weight: 600;
+    color: rgb(236, 247, 255);
+    cursor: pointer;
+    transition: color 0.3s ease 0s, box-shadow 0.3s ease 0s;
+}
+
+.start_create_new_account_Reg:hover {
+    background-color: #1b63bb;
+}
+
+
+
+/* ket thuc code cho modal Reg */
+
 /* bat dau code cho modal Post */
 .modal_Post {
 
@@ -364,7 +928,7 @@ body {
     margin: auto;
     width: 600px;
     height: 500px;
-    background-color: #f5eeea;
+    background-color: var(--grey_background);
     border-radius: 15px;
 }
 
@@ -481,126 +1045,54 @@ body {
     color: #000;
 
 }
-/* nội dung dòng 1*/
-.container {
-    max-width: 1170px;
-    margin: auto;
-}
 
-.container .row1 {
-    margin-top: 10rem;
-    margin-left: 10rem;
-    gap: 3rem;
-    display: grid;
-    grid-template-columns: auto auto;
-}
+/*  code cho start opt */
+.start_opt_Post {
 
-.hot_contain,
-.hot_contain1 {
+    font-size: inherit;
     position: relative;
-    z-index: 0;
+    text-align: center;
 }
 
-.hot_contain img {
-    
-    border-radius: 2rem;
-    height: 35rem;
-    width: 65rem;
-    
-}
 
-.hot_contain1 img {
-    border-radius: 2rem;
-    width: 35rem;
-    height: 35rem;
-}
-
-.hot_contain .text_overlay {
+.solid_mid_Post {
     position: absolute;
-    font-size: 3rem;
-    color: white;
-    width: 70%;
-    text-decoration: none;
-    bottom: 2rem;
-    left: 3rem;
-    white-space: nowrap;
-    /* Đảm bảo chữ không xuống dòng */
-    overflow: hidden;
-    /* Ẩn nội dung vượt quá phần tử */
-    text-overflow: ellipsis;
-    /* Thêm dấu "..." vào cuối */
+    right: 12.4rem;
+    margin-top: 8px;
+    padding: 4px;
+    border-bottom: 2px solid black;
+    width: 50%;
+    height: 2px;
 }
 
-.hot_contain1 .text_overlay {
+.start_create_new_account_Post {
     position: absolute;
-    font-size: 3rem;
-    width: 70%;
-    color: white;
-    text-decoration: none;
-    bottom: 2rem;
-    left: 3rem;
-    white-space: nowrap;
-    /* Đảm bảo chữ không xuống dòng */
-    overflow: hidden;
-    /* Ẩn nội dung vượt quá phần tử */
-    text-overflow: ellipsis;
-    /* Thêm dấu "..." vào cuối */
+    top: 57px;
+    left: 26%;
+    align-content: center;
+    margin: auto auto 25px;
+    padding: 5px;
+    font-size: 26px;
+    text-align: center;
+    border-radius: 10px;
+    width: 50%;
+    height: 70px;
+    background-color: rgba(18, 110, 176, 0.88);
+    font-weight: 600;
+    color: rgb(236, 247, 255);
+    cursor: pointer;
+    transition: color 0.3s ease 0s, box-shadow 0.3s ease 0s;
 }
 
-/* kết thúc nội dung dòng 1*/
-/* bắt đầu nội dung các dòng khác*/
-.container .other_contain {
-    margin-top: 3rem;
-    margin-left: 10rem;
-    width: 100%;
-    height: 150%;
-    gap: 2rem;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+.start_create_new_account_Post:hover {
+    background-color: #1b63bb;
 }
 
-.other_contain div {
-    background-color: white;
-    width: 23rem;
-    height: 28rem;
-    border-radius: 0.5rem;
-    border: 0.2rem solid #dea77a;
-}
+/*  ket thuc code cho modal Post */
 
-.other_contain img {
-    width: 23rem;
-    height: 20rem;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-}
-
-.other_contain a {
-    display: block;
-    font-size: 2rem;
-    margin-left: 1rem;
-    font-weight: 700;
-    text-decoration: none;
-    color: #000;
-    white-space: nowrap;
-    /* Đảm bảo chữ không xuống dòng */
-    overflow: hidden;
-    /* Ẩn nội dung vượt quá phần tử */
-    text-overflow: ellipsis;
-    /* Thêm dấu "..." vào cuối */
-}
-
-.other_contain p {
-    font-size: 1.3rem;
-    color: grey;
-    margin-left: 1rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* kết thúc nội dung các dòng khác*/
 /* bat dau code cho footer  */
 .row {
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
 }
@@ -611,11 +1103,11 @@ ul {
 
 .footer {
     position: relative;
-    margin-top: 10rem;
     left: 0;
+    top: 0.5rem;
     width: 100%;
     background-color: #011548;
-    padding: 70px 0px;
+    padding: 1.4em 0;
     z-index: 10;
     font-size: 4rem;
     font-weight: 500;
@@ -629,7 +1121,7 @@ ul {
 }
 
 .collum_foot h4 {
-    font-size: 18px;
+    font-size: 2.5rem;
     color: #ffffff;
     text-transform: capitalize;
     margin-bottom: 35px;
@@ -686,16 +1178,454 @@ ul {
     background-color: #ffffff;
 }
 
-/*responsive*/
-@media(max-width: 767px) {
-    .collum_foot {
-        width: 50%;
-        margin-bottom: 30px;
+
+
+
+
+
+
+
+/*  =                   =               =           thick media  =          =           =       */
+
+
+
+
+
+@media only screen and (max-width: 540px) {
+    .navbar_logo_Heading {
+        display: none;
     }
+
 }
 
-@media(max-width: 574px) {
-    .collum_foot {
-        width: 100%;
+/* header max-width: 600px */
+@media only screen and (max-width: 600px) {
+
+    /* bat dau cho phan headder max-width : 600px */
+    .navbar_logo_Heading {
+        font-size: 16px;
     }
+
+    .tab_opt {
+        left: 1rem;
+    }
+
+    .flex_Search_center {
+        justify-content: flex-end;
+    }
+
+    .Search_Wrapper {
+        border-radius: 13px;
+        width: 11rem;
+    }
+
+    .navbar_Wrapper_fulltab {
+        padding: 0px 0px;
+    }
+
+    .navbar_logo_web {
+        margin: 0px 7px;
+        height: auto;
+        width: auto;
+    }
+
+    .navbar_logo_web a {
+        margin-left: 0px;
+
+    }
+
+    .navbar_logo_web img {
+        margin-left: 1rem;
+        display: flex;
+        height: 6rem;
+        width: auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .register_btn {
+        border-radius: 11px;
+        padding: 5px 12px;
+        margin: 5px;
+    }
+
+    .login_btn {
+        border-radius: 11px;
+        margin: 0px 8px;
+        padding: 5px 20px;
+    }
+
+    /* ket thuc cho header maxwidth 600px */
+
+    /*  bat dau mobile modal login max-width: 600px */
+    .modal .body_modal {
+        width: 32rem;
+        height: 47rem;
+    }
+
+
+    .modal .body_modal p {
+        font-size: 4rem;
+        padding: 19px;
+        margin: 30px 0;
+    }
+
+    .box_input_text_account,
+    .box_input_text_password {
+        font-size: 2rem;
+        width: 26rem;
+        height: 2.5rem;
+    }
+
+    .start_login {
+        /* left: 6rem;
+        top: -6rem;
+        font-size: 23px; */
+        width: 20rem;
+        height: 4rem;
+    }
+
+    .start_create_new_account {
+        font-size: 1.7rem;
+        width: 25rem;
+        height: 4rem;
+        font-weight: 500;
+    }
+
+    .start_opt img {
+        margin-top: -1rem;
+        width: 4rem;
+    }
+
+    .forgot_password {
+        top: 7rem;
+    }
+
+    /* ket thuc cho modal login  max-width*/
+
+    /* bat dau mobile modal resgister max-width: 600px */
+    .modal_Reg .body_modal_Reg {
+        width: 32rem;
+        height: 47rem;
+    }
+
+
+    .modal_Reg .body_modal_Reg p {
+        font-size: 4rem;
+        padding: 19px;
+        margin: 30px 0;
+    }
+
+    .box_input_text_account_Reg,
+    .box_input_text_password_Reg {
+        font-size: 2rem;
+        width: 26rem;
+        height: 2.5rem;
+    }
+
+    .start_create_new_account_Reg {
+        top: 3rem;
+        font-size: 1.7rem;
+        width: 25rem;
+        height: 4rem;
+        font-weight: 500;
+    }
+
+
+    /* ket thuc mobile modal resgister max-width: 600px */
+
+
+
+    /*  bat dau code cho nav_left_vert max-width: 600px */
+    :root {
+        --width_nav_left: 0px;
+        --width_box_aside: 0em;
+    }
+
+    /*  ket thuc code cho nav_left_vert max-width: 600px */
+
+
+    /*  bat dau code css cho phan noi dung gom article_post &  container max-width: 600px */
+    .container {
+        gap: 15px 5px;
+    }
+
+    .container a {
+        width: 90vw;
+        height: 23rem;
+    }
+
+    .article_post {
+        margin: calc(var(--height_header) + 1.9em) calc(var(--width_box_aside)) 0 calc(var(--width_nav_left));
+        align-items: center;
+        justify-content: space-around;
+        display: flex;
+        position: relative;
+        width: 100vw;
+        height: 26rem;
+        flex-wrap: wrap;
+    }
+
+    .article_post {
+        margin: calc(var(--height_header) + 1.9em) calc(var(--width_box_aside)) 0 calc(var(--width_nav_left));
+        align-items: center;
+        justify-content: space-around;
+        display: flex;
+        position: relative;
+        width: 100vw;
+        height: 26rem;
+        /* border: 2px solid red; */
+        flex-wrap: wrap;
+        /* justify-content: center; */
+    }
+
+    .article_post a h3 {
+        font-size: 15px;
+    }
+
+
+
+
+    /*  ket thuc code css cho phan noi dung gom article_post & container max-width: 600px */
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+    /* bat dau phan headder min-width : 600px */
+    .tab_opt {
+        left: 1rem;
+    }
+
+    .flex_Search_center {
+        justify-content: flex-end;
+    }
+
+    .Search_Wrapper {
+        border-radius: 13px;
+        width: 15rem;
+    }
+
+    .navbar_Wrapper_fulltab {
+        padding: 0px 0px;
+    }
+
+    .navbar_logo_web {
+        margin: 0px 7px;
+        height: auto;
+        width: auto;
+    }
+
+    .navbar_logo_web a {
+        margin-left: 0px;
+
+    }
+
+    .navbar_logo_web img {
+        margin-left: 1rem;
+        display: flex;
+        height: 6rem;
+        width: auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .register_btn {
+        border-radius: 11px;
+        padding: 5px 12px;
+        margin-right: 0;
+    }
+
+    .login_btn {
+        border-radius: 11px;
+        margin: 0px 5px;
+        padding: 8px 16px;
+    }
+
+    /* ket thuc cho header minwidth 600px */
+    /* bat dau mobile modal login min-width: 600px */
+    .modal .body_modal {
+        width: 32rem;
+        height: 47rem;
+    }
+
+
+    .modal .body_modal p {
+        font-size: 4rem;
+        padding: 19px;
+        margin: 30px 0;
+    }
+
+    .box_input_text_account,
+    .box_input_text_password {
+        font-size: 2rem;
+        width: 26rem;
+        height: 2.5rem;
+    }
+
+    .start_login {
+        /* left: 6rem;
+        top: -6rem;
+        font-size: 23px; */
+        width: 20rem;
+        height: 4rem;
+    }
+
+    .start_create_new_account {
+        font-size: 1.7rem;
+        width: 25rem;
+        height: 4rem;
+        font-weight: 500;
+    }
+
+    .start_opt img {
+        margin-top: -1rem;
+        width: 4rem;
+    }
+
+    .forgot_password {
+        top: 7rem;
+    }
+
+    /* ket thuc mobile modal login min-width: 600px */
+
+    /* bat dau mobile modal resgister min-width: 600px */
+    .modal_Reg .body_modal_Reg {
+        width: 32rem;
+        height: 47rem;
+    }
+
+
+    .modal_Reg .body_modal_Reg p {
+        font-size: 4rem;
+        padding: 19px;
+        margin: 30px 0;
+    }
+
+    .box_input_text_account_Reg,
+    .box_input_text_password_Reg {
+        font-size: 2rem;
+        width: 26rem;
+        height: 2.5rem;
+    }
+
+    .start_create_new_account_Reg {
+        top: 3rem;
+        font-size: 1.7rem;
+        width: 25rem;
+        height: 4rem;
+        font-weight: 500;
+    }
+
+    /* ket thuc cho modal resgister min-width 600px */
+    /*  bat dau code cho nav_left_vert min-width: 600px */
+    :root {
+        --width_nav_left: 0px;
+        --width_box_aside: 0em;
+    }
+
+    /*  ket thuc code cho nav_left_vert min-width: 600px */
+
+    /*  bat dau code css cho phan noi dung gom article_post &  container min-width: 600px */
+    .article_post {
+        width: 100vw;
+
+    }
+
+    .article_post a h3 {
+        font-size: 2rem;
+    }
+
+    .container a {
+        width: 47vw;
+        height: 23rem;
+    }
+
+    /*  ket thuc code css cho phan noi dung gom article_post & container min-width: 600px */
+
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+    /* header min-width 768px */
+    .Search_Wrapper {
+        border-radius: 13px;
+        width: 36vw;
+    }
+
+    .container a {
+        width: 31vw;
+        height: 23rem;
+    }
+
+    /* ket thuc header min-width 768px */
+
+    .register_btn,
+    .login_btn {
+        margin-right: 15px;
+    }
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+    /*  bat dau code cho nav_left_vert min-width: 992px */
+    :root {
+        --width_nav_left: 0px;
+        --width_box_aside: 0em;
+    }
+
+    /*  ket thuc code cho nav_left_vert min-width: 992px */
+    .register_btn,
+    .login_btn {
+        height: 4rem;
+        width: 11rem;
+        margin-right: 30px;
+    }
+
+    /*  bat dau code css cho phan noi dung gom article_post & container min-width: 992px */
+    .article_post {
+        width: 100vw;
+        height: 26rem;
+    }
+
+    .article_post a h3 {
+        font-size: 3rem;
+    }
+    .container a {
+        width: 31vw;
+        height: 23rem;
+    }
+
+    /*  ket thuc code css cho phan noi dung gom article_post & container min-width: 992px */
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+
+     /*  bat dau code css cho phan noi dung gom article_post & container min-width: 1200px */
+     :root {
+        --width_nav_left: 15em;
+        --width_box_aside: 15em;
+    }
+    .article_post {
+        width: calc(95vw - var(--width_nav_left) - var(--width_box_aside));
+        height: 26rem;
+        margin: calc(var(--height_header) + 1.9em) calc(var(--width_box_aside)) 0 calc(var(--width_nav_left) + 6em );
+    }
+    .container{
+        margin-left: calc(var(--width_nav_left) + 6em);
+    }
+     .container a {
+        width: calc(45vw - var(--width_nav_left) - var(--width_box_aside));
+        height: 17rem;
+    }
+     /*  ket thuc code css cho phan noi dung gom article_post & container min-width: 1200px */
 }
