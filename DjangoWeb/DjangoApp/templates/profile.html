@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ĐỒ ĂN LÀNG ĐẠI HỌC </title>
-    <link rel="stylesheet" href="/static/styles-profile.css">
+    <link rel="stylesheet" href="/static/styles_profile.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -113,14 +113,12 @@
                     <div class="preview-image">
                         {% if user.avatar %}
                             <img src={{user.avatar.url}} id="avatar-img" alt="Ảnh đại diện">
-                            <input type='image'name="avatar" style="display: none;" src={{user.avatar.url}} id='img-input'>
                         {% else %}
                             <img src="/static/User_Picture/avatar_test.jpg" id="avatar-img" alt="Ảnh đại diện">
-                            <input type='image'name="avatar" style="display: none;" src="/static/User_Picture/avatar_test.jpg" id='img-input'>
                         {% endif %}
                     </div>
                     <div>
-                        <input type="file" id="fileinput" style="display: none;">
+                        <input type="file" id="fileinput" name="inputavatar" style="display: none;">
                         <input type="button" class="image-avatar" value="Choose Image"
                             onclick="document.getElementById('fileinput').click()">
                         <script>

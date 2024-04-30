@@ -22,6 +22,7 @@ class UserInfo(models.Model):
     gender = models.CharField(max_length=100,null=True)
     avatar = models.ImageField(null=True, default=None)
     introduction=models.CharField(max_length=200,null=True)
+    date = models.DateTimeField(auto_now_add=True)
     def __str__(self) :
         return self.firstname    
 

@@ -1,41 +1,51 @@
 <header>
     <div></div>
     <div class="navbar_Wrapper_fulltab">
-        <button onclick=toggleSidebar() class="tab_opt">
-            <svg xmlns="http://www.w3.org/2000/svg" height="45" viewBox="0 -960 960 960" width="45">
-                <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+        <button onclick="toggleSidebar()" class="tab_opt">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                    d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
             </svg>
         </button>
 
-
         <div class="navbar_logo_web">
-            <a href="/">
-                <img src="/static/Image_web_offical/LOGO_OFFICIAL.jpg" alt="logoweb">
+            <a href="#">
+                <img src="/static/Image_web_offical/LOGO_OFFICIAL.jpg" alt="logoweb" />
             </a>
         </div>
 
-        <h3 class="navbar_logo_Heading">Ăn ngập làng<br> Đại học</h3>
+        <h3 class="navbar_logo_Heading">
+            Ăn sập làng<br />
+            Đại học
+        </h3>
         <div class="navbar_body flex_Search_center">
             <div>
                 <div class="Search_Wrapper flex_Search_center">
-
-                    <div class="Search_SearchIcon"> </div>
-
-
-
+                    <div class="Search_SearchIcon">
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20"
+                                height="20">
+                                <path fill="#da9a72"
+                                    d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+                            </svg>
+                        </a>
+                    </div>
                     <input class="Search_input" spellcheck="false"
-                        placeholder="Tìm kiếm địa điểm món ăn bạn yêu thích" value="">
-
+                        placeholder="Tìm kiếm địa điểm món ăn bạn yêu thích" value="" />
                 </div>
             </div>
         </div>
-
+        
         <div class="navbar_action">
             <div id="navbar_action_portal"></div>
-            <button onclick="Open_Post()" class="btn_upfile">
-                POST
-            </button>
+            <div class="UpFile">
+                <button onclick="Open_Post()" class="btn_upfile">
+                    POST
+                </button>
             <!-- phan thong bao va ICON avatar -->
+            <div>
+            </div>
             <div class="notification">
                 <button onclick=show_notification() class="btn_notification"> <i class="fa-regular fa-bell"></i>
                 </button>
@@ -43,7 +53,7 @@
             <div class="div_avatar">
                 <a href="Edit_User_Profile/profile.html"><button onclick=show_profile_on_avatar() class="btn_avatar"> <i class="fa-solid fa-user"></i></button></a>
             </div>
-            
+            <p class='hello_tag'> {{ userinfo.firstname }} {{userinfo.lastname}} </p>
 
         </div>
 
