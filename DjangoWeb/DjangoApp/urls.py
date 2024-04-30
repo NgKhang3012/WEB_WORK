@@ -23,7 +23,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('whilelogin/',views.whilelogin,name="whilelogin"),
+    path('usr/<int:user_id>/',views.whilelogin,name="whilelogin"),
     path('passwordreset/',CustomPasswordResetView.as_view(),name="passwordreset"),
     path('accounts/',include('django.contrib.auth.urls')),
     path('passwordreset/done/',CustomPasswordResetDoneView.as_view(),name="passwordresetdone"),
@@ -32,7 +32,8 @@ urlpatterns = [
     path('post/<int:post_id>/', views.post, name='post'),
     path('search/', views.search, name="search"),
     path('aisuggest/', ai_suggest,name="AI suggest"),
-    path('editprofile/',views.editprofile,name="Edit Profile"),
+    path('usr/<int:user_id>/editprofile/', views.editprofile, name="Edit Profile"),
+    path('logout/',views.logoutPage,name='logout'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ĐỒ ĂN LÀNG ĐẠI HỌC </title>
-    <link rel="stylesheet" href="/static/styles-profile.css">
+    <link rel="stylesheet" href="/static/styles_profile.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -106,20 +106,41 @@
         </div>
         <!-- xong phan vertical tab left  -->
 
-        <form>
+        <form method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
             <div class="container">
                 <div class="avatar">
                     <div class="preview-image">
-                        <img src="/static/User_Picture/avatar_test.jpg">
+                        {% if user.avatar %}
+                            <img src={{user.avatar.url}} id="avatar-img" alt="Ảnh đại diện">
+                        {% else %}
+                            <img src="/static/User_Picture/avatar_test.jpg" id="avatar-img" alt="Ảnh đại diện">
+                        {% endif %}
                     </div>
                     <div>
-                        <input type="file" id="fileinput" style="display: none;">
+                        <input type="file" id="fileinput" name="inputavatar" style="display: none;">
                         <input type="button" class="image-avatar" value="Choose Image"
                             onclick="document.getElementById('fileinput').click()">
+                        <script>
+                            document.getElementById('fileinput').addEventListener('change', function(event) {
+                                var file = event.target.files[0]; 
+                                var reader = new FileReader();
+                                reader.onload = function(e) {
+                                    var imgElement = document.getElementById('avatar-img');
+                                    imgElement.src = e.target.result; 
+                                    var imgElement1 = document.getElementById('img-input');
+                                    imgElement1.src=e.target.result;
+                                };
+                                reader.readAsDataURL(file); 
+                            });
+                        </script>
                     </div>
                     <div>
                         <b>
-                            <p class="name">Nguyễn Anh</p>
+                            <p class="name">
+                                {{ user.lastname }} 
+                                {{ user.firstname }}
+                            </p>
                         </b>
                     </div>
                     <div>
@@ -129,30 +150,56 @@
                 <div class="account-profile">
                     <div class="profile-edit">
                         <div><label>First Name</label></div>
-                        <div><input type="text" placeholder="Anh"></div>
+                        <div>
+                            {% if user.firstname %}
+                                <input type="text" placeholder="Anh" value={{user.firstname}} name="firstname">
+                            {% else %}
+                                <input type="text" placeholder="Anh" name="firstname">
+                            {% endif %}
+                        </div>
                         <div><label>Last Name</label></div>
-                        <div><input type="text" placeholder="Nguyễn"></div>
-                        <div><label>Email</label></div>
-                        <div><input type="text" placeholder="abc@gmail.com"></div>
+                        <div>
+                            {% if user.lastname %}
+                                <input type="text" placeholder="Nguyễn" value={{user.lastname}} name="lastname">
+                            {% else %}
+                                <input type="text" placeholder="Nguyễn" name="lastname">
+                            {% endif %}
+                        </div>
                         <div><label>Phone Number</label></div>
-                        <div><input type="text" placeholder="0123456789"></div>
+                        <div>
+                            {% if user.lastname %}
+                                <input type="text" placeholder="0123456789" value={{user.phonenumber}} name="phonenumber">
+                            {% else %}
+                                <input type="text" placeholder="0123456789"  name="phonenumber">
+                            {% endif %}
+                        </div>
                         <div><label>Gender</label></div>
                         <div>
-                            <select>
+                            <select id="select-gender" name="gender">
                                 <option value="Male">Male</option>
-                                <option value="Female">Female</option>
+                                <option value="Female" >Female</option>
                                 <option value="Other">Other</option>
                                 <option value="Prefer not to say">Prefer not to say</option>
                             </select>
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function() {
+                                    var selectElement = document.getElementById("select-gender");
+                                    {% if user.gender %}
+                                        selectElement.value = '{{user.gender}}';
+                                    {% else %}
+                                        selectElement.value="Male"
+                                    {% endif %}
+                                });
+                            </script>
                         </div>
-                        <div><label>Old Password</label></div>
-                        <div><input type="password"></div>
-                        <div><label>New Password</label></div>
-                        <div><input type="password"></div>
-                        <div><label>Comfirm New Password</label></div>
-                        <div><input type="password"></div>
-                        <div class="savediv"><input type="button" class="save" value="Save Change"></div>
-                        <div class="canceldiv"><input type="button" class="cancel" value="Cancel"></div>
+                        <div>
+                            <label>Introduction</label>
+                        </div>
+                        <div>
+                            <textarea placeholder="Introduce yourself briefly..." name="introduction">{{user.introduction}}</textarea>
+                        </div>
+                        <div class="savediv"><button type="submit" class="save" name="savebtn">Save</div>
+                        <div class="canceldiv"><button type="submit" class="cancel" name="cancelbtn">Cancel</div>
                     </div>
                 </div>
             </div>

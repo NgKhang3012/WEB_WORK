@@ -39,11 +39,6 @@
         
         <div class="navbar_action">
             <div id="navbar_action_portal"></div>
-            <div class="UpFile">
-                <button onclick="Open_Post()" class="btn_upfile" style="display:none;">
-                    POST
-                </button>
-            </div>
             <button onclick="Open_login()" class="login_btn">
                 Đăng nhập
             </button>
@@ -59,7 +54,7 @@
 <div class="modal">
     <div class="body_modal">
         <p>Đăng nhập vào Làng</p>
-        <form class="input_text_login" method="POST">
+        <form class="input_text_login" method="POST" action="">
             {% csrf_token %}
             <input type="text" name="input-login-account" class="box_input_text_account"
                 placeholder="Email address" />
@@ -92,7 +87,7 @@
 <div class="modal_Reg">
     <div class="body_modal_Reg">
         <p>Đăng Ký vào Làng</p>
-        <form class="input_text_Reg" method="POST">
+        <form class="input_text_Reg" method="POST" action="">
             {% csrf_token %}
             <input type="text" name="input-reg-account" class="box_input_text_account_Reg"
                 placeholder="Email address" />

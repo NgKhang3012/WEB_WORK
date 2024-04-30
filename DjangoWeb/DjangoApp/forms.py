@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import PasswordResetForm,SetPasswordForm
-from .models import Post
+from .models import Post, UserInfo
 
 class CustomPasswordResetForm(PasswordResetForm):
     email = forms.EmailField(
@@ -19,3 +19,7 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'content', 'star', 'address', 'image']
+
+    
+    
+    
