@@ -93,13 +93,20 @@
                 placeholder="Email address" />
             <input type="password" name="input-reg-password" class="box_input_text_password_Reg"
                 placeholder="Please Input Password" />
+            <p class="pass_validate">Your password can’t be too similar to your other personal information.</p>
+            <p class="pass_validate">Your password must contain at least 8 characters.</p>
+            <p class="pass_validate">Your password can't be a commonly used password.</p>
+            <p class="pass_validate">Your password can’t be entirely numeric.</p>
             <input type="password" name="input-reg-repassword" class="box_input_text_password_Reg"
                 placeholder="Please Input Password Again" />
             {% if error_message_reg_1 %}
             <p class="error">{{ error_message_reg_1 }}</p>
+            {% elif error_message_reg_2 %}
+            <p class="error">{{ error_message_reg_2 }}</p>
             {% elif error_message_reg %}
             <p class="error">{{ error_message_reg }}</p>
             {% endif %}
+            
             <div class="start_opt_Reg">
                 <div class="solid_mid_Reg"></div>
                 <button type="submit" class="start_create_new_account_Reg" name="button-reg">Resgister</button>

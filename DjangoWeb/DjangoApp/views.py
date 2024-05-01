@@ -8,11 +8,14 @@ from django.contrib.auth.views import PasswordResetDoneView
 from django.contrib.auth.views import PasswordResetConfirmView
 from django.contrib.auth.views import PasswordResetCompleteView
 from DjangoApp.models import *
-from openai import OpenAI,OpenAIError
+from openai import OpenAI
 import os
-from .forms import PostForm  
+from .forms import PostForm
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.password_validation import validate_password
+from django.core.exceptions import ValidationError
+        
 class CustomPasswordResetView(PasswordResetView):
     template_name = 'Forget_password.html'
     success_url='done'
@@ -44,20 +47,25 @@ def index(request):
                 login(request, user)
                 return redirect('/usr/{}/'.format(request.user.id))
             else:
-                return render(request, "index.html", {'error_message_login': 'Invalid email or password'})
+                return render(request, "index.html", {'error_message_login': 'Invalid email or password','top_posts': top_posts, 'other_posts': other_posts})
         elif 'button-reg' in request.POST:
             email = request.POST.get('input-reg-account')
             password = request.POST.get('input-reg-password')
+            try:
+                validate_password(password)
+            except ValidationError as e:
+                return render(request,"index.html",{'error_message_reg_2': 'Your password is invalid', 'reg_check': True,'top_posts': top_posts, 'other_posts': other_posts})
             confirm_password = request.POST.get('input-reg-repassword')
             if User.objects.filter(username=email).exists():
-                return render(request,"index.html",{'error_message_reg_1': 'Your email is exits', 'reg_check': True})
+                return render(request,"index.html",{'error_message_reg_1': 'Your email is exits', 'reg_check': True,'top_posts': top_posts, 'other_posts': other_posts})
             elif password != confirm_password:
-                return render(request, 'index.html', {'error_message_reg': 'Passwords do not match', 'reg_check': True})
+                return render(request, 'index.html', {'error_message_reg': 'Passwords do not match', 'reg_check': True,'top_posts': top_posts, 'other_posts': other_posts})
             else: 
                 user = User.objects.create_user(username=email,email=email, password=password)
                 user.save()
                 login(request,user)
                 newuserinfo=UserInfo(id=request.user.id)
+                newuserinfo.avatar='avatar_test.jpg'
                 newuserinfo.save()
                 return redirect('/usr/{}/'.format(request.user.id))
     else:
