@@ -9,7 +9,7 @@
     --orange-primary: rgba(236, 201, 162, 0.4);
     --color-page: rgba(236, 201, 162, 0.4);
     --width_box_aside: 15em;
-    --orange_icon: #cf6d17;
+    --orange_icon: rgb(207, 109, 23);
     --height_header: 5em;
     --width_nav_left: 16em;
     --width_box_aside: 15em;
@@ -51,7 +51,7 @@ body {
     display: flex;
     align-items: center;
     font-size: 1.4rem;
-    border-bottom: 2px solid #f0852d;
+    border-bottom: 2px solid rgb(240, 133, 45);
     background-color: #fff;
 
     height: var(--height_header);
@@ -160,7 +160,7 @@ body {
     flex: 1 1;
     align-items: center;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
 }
 
 .button {
@@ -173,62 +173,6 @@ body {
 
 }
 
-.UpFile{
-    width: 30rem;
-    height: 7rem;
-}
-.btn_avatar {
-
-    display: block;
-    cursor: pointer;
-    position: sticky;
-    border-radius: 50%;
-    margin: -48px 0px 0px 250px;
-    font-size: 2.2rem;
-    padding: 3px 3px;
-    border: 3px solid #f7c37a;
-    background-color: #f2efea;
-}
-.avatar_user_page{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-.avatar_user_page img{
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    overflow: hidden;
-}
-
-.btn_notification {
-    background-color: #f2efea;
-    display: block;
-    cursor: pointer;
-    position: sticky;
-    border-radius: 5px;
-    margin: -48px 0px 0px 38px;
-    font-size: 1.5rem;
-    padding: 8px 8px;
-    border: 2px solid #f7c37a;
-}
-.hello_tag{
-    font-weight: 600;
-    color: blue;
-    font-size: 20px;
-    margin: -43px 0px 0px 85px;
-    width: 160px;
-    text-align: center;
-}
-button {
-    border: none;
-    box-shadow: none;
-    color: inherit;
-    display: block;
-    outline: none;
-    padding: 0;
-}
 /* ======bat dau  ==phan aside===== */
 .box_aside {
     position: fixed;
@@ -239,21 +183,6 @@ button {
     justify-content: flex-end;
     /* border: 3px solid red; */
     z-index: 12;
-}
-
-.btn_upfile {
-    display: block;
-    font-weight: 600;
-    cursor: pointer;
-    position: sticky;
-    background: linear-gradient(to right bottom, #c4520a, #da9a72);
-    border-radius: 14px;
-    color: #fff;
-    margin: 10px 0px 0px -48px;
-    font-size: 1.4rem;
-    padding: 18px 14px;
-    border: 2px solid #eba43f;
-    margin-top: 1rem;
 }
 
 .Click_ontop {
@@ -409,6 +338,7 @@ button {
 .sidebar_vert li:hover {
     font-size: 1.7rem;
 }
+
 /* bat dau code cho modal Post */
 .modal_Post {
     position: fixed;
@@ -544,6 +474,7 @@ button {
     color: #000;
 
 }
+
 /*  bat dau code css cho phan noi dung */
 .article_post {
     margin: calc(var(--height_header) + 1.9em) calc(var(--width_box_aside)) 0 calc(var(--width_nav_left));
@@ -793,15 +724,6 @@ ul {
 
 
 
-
-
-@media only screen and (max-width: 540px) {
-    .navbar_logo_Heading {
-        display: none;
-    }
-
-}
-
 /* header max-width: 600px */
 @media only screen and (max-width: 600px) {
 
@@ -846,6 +768,175 @@ ul {
         align-items: center;
         justify-content: center;
     }
+
+    /* header bat dau */
+    .Search_Wrapper {
+        border-radius: 13px;
+        width: 64%;
+        justify-content: flex-start;
+    }
+
+    .Search_SearchIcon {
+        width: 2rem;
+    }
+
+    .flex_Search_center {
+        justify-content: flex-start;
+    }
+
+    /*  bat dau btn_upfile max-width: 600px */
+
+    .btn_upfile {
+        display: block;
+        font-weight: 500;
+        border-radius: 10px;
+        color: #fff;
+        background: linear-gradient(to right bottom, #c4520a, #da9a72);
+        border-radius: 8px;
+        padding: 1rem 1.3rem;
+        transition: 0.3 ease-in-out;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .btn_avatar {
+        left: 6.5rem;
+        bottom: 5.5rem;
+        display: block;
+        cursor: pointer;
+        /* position: relative; */
+        border-radius: 50%;
+        border: 3px solid #e27c15;
+        background-color: #f2efea;
+    }
+
+    /* header bat dau */
+
+    .Search_Wrapper {
+        border-radius: 13px;
+        width: 64%;
+        justify-content: flex-start;
+    }
+
+    .Search_SearchIcon {
+        width: 2rem;
+    }
+
+    .flex_Search_center {
+        justify-content: flex-start;
+    }
+
+    .btn_avatar {
+        left: 6.5rem;
+        bottom: 5.5rem;
+        display: block;
+        cursor: pointer;
+        /* position: relative; */
+        border-radius: 50%;
+        border: 3px solid #e27c15;
+        background-color: #f2efea;
+    }
+
+    /* bat dau code dropdown user */
+    .div_avatar {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-menu::before {
+        top: -6px;
+        content: "";
+        position: absolute;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid #c4520a;
+        z-index: 2;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 4rem;
+        right: 0rem;
+        display: none;
+        /* Ẩn dropdown mặc định */
+        background-color: #c4520a;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.8);
+        object-fit: contain;
+        border-radius: 5px;
+    }
+
+    .dropdown-menu li {
+        list-style: none;
+    }
+
+    .dropdown-menu li a {
+        display: block;
+        padding: 10px;
+        color: black;
+        text-decoration: none;
+        position: relative;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .dropdown-menu li a:hover {
+        transform: scale(1.09);
+        color: #e4d9d2;
+        font-weight: 600;
+    }
+
+    .dropdown-menu li a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background: #000;
+        display: block;
+    }
+
+    .dropdown-menu li:last-child a::after {
+        display: none;
+    }
+
+
+    /* ket thuc code dropdown user */
+
+    .avatar_user_page {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+    }
+
+    .avatar_user_page img {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        overflow: hidden;
+    }
+
+    .btn_notification {
+        left: 3.8rem;
+        bottom: 2.3rem;
+        background-color: #ffffff;
+        display: block;
+        cursor: pointer;
+        /* position: relative; */
+        border-radius: 5px;
+        font-size: 2rem;
+        padding: 5px 5px;
+        border: 2px solid #f7c37a;
+    }
+
+    .hello_tag {
+        display: none;
+    }
+
+    /* ket thuc  btn_upfile max-width: 600px */
     /* ket thuc cho header maxwidth 600px */
 
     /*  bat dau code cho nav_left_vert max-width: 600px */
@@ -867,16 +958,6 @@ ul {
         height: 23rem;
     }
 
-    .article_post {
-        margin: calc(var(--height_header) + 1.9em) calc(var(--width_box_aside)) 0 calc(var(--width_nav_left));
-        align-items: center;
-        justify-content: space-around;
-        display: flex;
-        position: relative;
-        width: 100vw;
-        height: 26rem;
-        flex-wrap: wrap;
-    }
 
     .article_post {
         margin: calc(var(--height_header) + 1.9em) calc(var(--width_box_aside)) 0 calc(var(--width_nav_left));
@@ -884,7 +965,7 @@ ul {
         justify-content: space-around;
         display: flex;
         position: relative;
-        width: 100vw;
+        width: 96vw;
         height: 26rem;
         /* border: 2px solid red; */
         flex-wrap: wrap;
@@ -896,6 +977,169 @@ ul {
     }
 
     /*  ket thuc code css cho phan noi dung gom article_post & container max-width: 600px */
+}
+
+@media only screen and (max-width: 540px) {
+    .navbar_logo_Heading {
+        display: none;
+    }
+}
+
+/* de max-width tu theo thu tu giam dan   */
+@media only screen and (max-width : 500px) {
+
+    /* bat dau header bat dau max-width: 500px */
+    .Search_Wrapper {
+        border-radius: 13px;
+        width: 64%;
+        justify-content: flex-start;
+    }
+
+    .Search_SearchIcon {
+        width: 2rem;
+    }
+
+    .flex_Search_center {
+        justify-content: flex-start;
+    }
+
+    .btn_upfile {
+        display: block;
+        font-weight: 500;
+        border-radius: 10px;
+        color: #fff;
+        background: linear-gradient(to right bottom, #c4520a, #da9a72);
+        border-radius: 8px;
+        padding: 1rem 0.3rem;
+        transition: 0.3 ease-in-out;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .btn_notification {
+        background-color: #ffffff;
+        display: block;
+        cursor: pointer;
+        border-radius: 5px;
+        margin: 2px;
+        font-size: 1.3rem;
+        padding: 5px 5px;
+        border: 2px solid #f7c37a;
+    }
+
+    .btn_avatar {
+        display: block;
+        cursor: pointer;
+        border-radius: 50%;
+        border: 3px solid #e27c15;
+        background-color: #f2efea;
+    }
+
+    /* bat dau code dropdown user */
+    .div_avatar {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-menu::before {
+        top: -6px;
+        content: "";
+        position: absolute;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid #c4520a;
+        z-index: 2;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 4rem;
+        right: 0rem;
+        display: none;
+        /* Ẩn dropdown mặc định */
+        background-color: #c4520a;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.8);
+        object-fit: contain;
+        border-radius: 5px;
+    }
+
+    .dropdown-menu li {
+        list-style: none;
+    }
+
+    .dropdown-menu li a {
+        display: block;
+        padding: 10px;
+        color: black;
+        text-decoration: none;
+        position: relative;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .dropdown-menu li a:hover {
+        transform: scale(1.09);
+        color: #e4d9d2;
+        font-weight: 600;
+    }
+
+    .dropdown-menu li a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background: #000;
+        display: block;
+    }
+
+    .dropdown-menu li:last-child a::after {
+        display: none;
+    }
+
+
+    /* ket thuc code dropdown user */
+
+    .avatar_user_page {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+    }
+
+    .avatar_user_page img {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        overflow: hidden;
+    }
+
+
+    .hello_tag {
+        display: none;
+    }
+
+
+    /* header ket thuc */
+
+    /* bat dau footer max-width: 500px */
+    .collum_foot h4 {
+        font-size: 1.5rem;
+    }
+
+    .collum_foot {
+        width: 21%;
+        padding: 0px 15px;
+    }
+
+    .footer {
+        font-size: 2rem;
+    }
+
+    /* ket thuc footer max-width: 500px */
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -938,13 +1182,157 @@ ul {
         align-items: center;
         justify-content: center;
     }
-    /* ket thuc cho header maxwidth 600px */
+
+    /* bat dau header bat dau min-width: 600px */
+    .Search_Wrapper {
+        border-radius: 13px;
+        width: 64%;
+        justify-content: flex-start;
+    }
+
+    .Search_SearchIcon {
+        width: 2rem;
+    }
+
+    .flex_Search_center {
+        justify-content: flex-start;
+    }
+
+    .btn_upfile {
+        display: block;
+        font-weight: 500;
+        border-radius: 10px;
+        color: #fff;
+        background: linear-gradient(to right bottom, #c4520a, #da9a72);
+        border-radius: 8px;
+        padding: 1.3rem 1.3rem;
+        transition: 0.3 ease-in-out;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .btn_notification {
+        background-color: #ffffff;
+        display: block;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 2.5rem;
+        padding: 5px 5px;
+        border: 2px solid #be7225;
+    }
+
+    .btn_avatar {
+        display: block;
+        cursor: pointer;
+        border-radius: 50%;
+        border: 3px solid #e27c15;
+        background-color: #f2efea;
+    }
+
+    /* bat dau code dropdown user */
+    .div_avatar {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-menu::before {
+        top: -6px;
+        content: "";
+        position: absolute;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid #c4520a;
+        z-index: 2;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 4rem;
+        right: 0rem;
+        display: none;
+        /* Ẩn dropdown mặc định */
+        background-color: #c4520a;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.8);
+        object-fit: contain;
+        border-radius: 5px;
+    }
+
+    .dropdown-menu li {
+        list-style: none;
+    }
+
+    .dropdown-menu li a {
+        display: block;
+        padding: 10px;
+        color: black;
+        text-decoration: none;
+        position: relative;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .dropdown-menu li a:hover {
+        transform: scale(1.09);
+        color: #e4d9d2;
+        font-weight: 600;
+    }
+
+    .dropdown-menu li a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background: #000;
+        display: block;
+    }
+
+    .dropdown-menu li:last-child a::after {
+        display: none;
+    }
+
+
+    /* ket thuc code dropdown user */
+
+
+    .avatar_user_page {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+    }
+
+    .avatar_user_page img {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        overflow: hidden;
+    }
+
+
+    .hello_tag {
+        font-weight: 600;
+        margin: 0.5rem;
+        font-size: 2rem;
+        text-align: end;
+        background: linear-gradient(to right, #243cc4, #db7e27);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+
+    /* header ket thuc */
+
 
     /*  bat dau code cho nav_left_vert min-width: 600px */
     :root {
         --width_nav_left: 0px;
         --width_box_aside: 0em;
     }
+
     /*  ket thuc code cho nav_left_vert min-width: 600px */
 
     /*  bat dau code css cho phan noi dung gom article_post &  container min-width: 600px */
@@ -961,6 +1349,7 @@ ul {
         width: 47vw;
         height: 23rem;
     }
+
     /*  ket thuc code css cho phan noi dung gom article_post & container min-width: 600px */
 
 
@@ -980,6 +1369,12 @@ ul {
         height: 23rem;
     }
 
+    /* ket thuc header min-width 768px */
+
+    .btn_upfile {
+        margin-right: 15px;
+    }
+
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -991,6 +1386,21 @@ ul {
         --width_box_aside: 0em;
     }
 
+    /*  ket thuc code cho nav_left_vert min-width: 992px */
+    .avatar_user_page {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+    }
+
+    /*  */
+    .dropdown-menu {
+        top: 5rem;
+        right: 0.6rem;
+    }
+
+    /*  */
+
     /*  bat dau code css cho phan noi dung gom article_post & container min-width: 992px */
     .article_post {
         width: 100vw;
@@ -1000,10 +1410,12 @@ ul {
     .article_post a h3 {
         font-size: 3rem;
     }
+
     .container a {
         width: 31vw;
         height: 23rem;
     }
+
     /*  ket thuc code css cho phan noi dung gom article_post & container min-width: 992px */
 
 }
@@ -1012,22 +1424,33 @@ ul {
 @media only screen and (min-width: 1200px) {
 
 
-     /*  bat dau code css cho phan noi dung gom article_post & container min-width: 1200px */
-     :root {
+    /*  bat dau code css cho phan noi dung gom article_post & container min-width: 1200px */
+    :root {
         --width_nav_left: 15em;
         --width_box_aside: 15em;
     }
+
+    .btn_upfile {
+        font-weight: 600;
+        font-size: 1.4rem;
+        padding: 1.5rem 2rem;
+        margin-right: 15px;
+    }
+
     .article_post {
         width: calc(95vw - var(--width_nav_left) - var(--width_box_aside));
         height: 26rem;
-        margin: calc(var(--height_header) + 1.9em) calc(var(--width_box_aside)) 0 calc(var(--width_nav_left) + 6em );
+        margin: calc(var(--height_header) + 1.9em) calc(var(--width_box_aside)) 0 calc(var(--width_nav_left) + 6em);
     }
-    .container{
+
+    .container {
         margin-left: calc(var(--width_nav_left) + 6em);
     }
-     .container a {
+
+    .container a {
         width: calc(45vw - var(--width_nav_left) - var(--width_box_aside));
         height: 17rem;
     }
-     /*  ket thuc code css cho phan noi dung gom article_post & container min-width: 1200px */
+
+    /*  ket thuc code css cho phan noi dung gom article_post & container min-width: 1200px */
 }
