@@ -18,7 +18,7 @@
     <div class="container">
         <div class="listNewFood">
             {% for product in keys %}
-            <div class="newestfood1">
+            <a href="{% url 'post' post_id=post.id %}" class="newestfood1">
                 <img class="thumbnail" src="{{ product.image.url }}" alt="{{product.title}}">
                 <a href="#">{{product.title}}</a>
                 <p>{{product.address}}</p>
@@ -30,7 +30,7 @@
                         <u>{{ product.date|timesince }} ago</u>
                     </div>
                 </div>
-            </div>
+            </a>
             {% endfor %}
         </div>
     </div>
