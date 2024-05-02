@@ -24,46 +24,50 @@
                 <div class="Search_Wrapper flex_Search_center">
                     <div class="Search_SearchIcon">
                         <a href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20"
-                                height="20">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20" height="20">
                                 <path fill="#da9a72"
                                     d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
                             </svg>
                         </a>
                     </div>
-                    <input class="Search_input" spellcheck="false"
-                        placeholder="Tìm kiếm địa điểm món ăn bạn yêu thích" value="" />
+                    <input class="Search_input" spellcheck="false" placeholder="Tìm kiếm địa điểm món ăn bạn yêu thích"
+                        value="" />
                 </div>
             </div>
         </div>
-        
+
         <div class="navbar_action">
-            <div id="navbar_action_portal"></div>
-            <div class="UpFile">
-                <button onclick="Open_Post()" class="btn_upfile">
-                    POST
-                </button>
+
+            <button onclick="Open_Post()" class="btn_upfile">
+                POST
+            </button>
             <!-- phan thong bao va ICON avatar -->
             <div>
             </div>
             <div class="notification">
-                <button onclick=show_notification() class="btn_notification"> <i class="fa-regular fa-bell"></i>
+                <button onclick=show_notification() class="btn_notification"> <i class="fa-regular fa-bell"
+                        style="color: #f0852d;"></i>
                 </button>
             </div>
             <div class="div_avatar">
-                <a href="editprofile">
-                    <button onclick=show_profile_on_avatar() class="btn_avatar"> 
+
+                    <button onclick=show_profile_on_avatar() class="btn_avatar">
                         <div class="avatar_user_page">
                             <img src="{{userinfo.avatar.url}}" alt="Avatar User">
                         </div>
                     </button>
-                </a>
+                    <ul id="dropdownMenu" class="dropdown-menu" style="display: none;">
+                        
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
             </div>
             <p class='hello_tag'> {{ userinfo.firstname }} {{userinfo.lastname}} </p>
 
-        </div>
 
-    </div>
+
+        </div>
 
 </header> <!-- xong phan header -->
 
@@ -106,7 +110,8 @@
                 <!-- Biểu tượng icon hình ảnh -->
                 <a href="#" onclick="openFileExplorer()"><i class="fa-solid fa-image" style="color: #cf6d17;"></i></a>
                 <!-- Biểu tượng icon address -->
-                <a href="#" onclick="toggleAddressField()"><i class="fa-solid fa-location-dot" style="color: #cf6d17;"></i></a>
+                <a href="#" onclick="toggleAddressField()"><i class="fa-solid fa-location-dot"
+                        style="color: #cf6d17;"></i></a>
                 <!-- Trường star -->
                 <a href="#" onclick="toggleStarField()"><i class="fa-solid fa-star" style="color: yellow;"></i></a>
                 <!-- Tag -->
@@ -124,6 +129,16 @@
 </div>
 
 <script>
+    function show_profile_on_avatar() {
+        var dropdown = document.getElementById("dropdownMenu");
+        if (dropdown.style.display === "none" || !dropdown.style.display) {
+            dropdown.style.display = "block";
+        } else {
+            dropdown.style.display = "none";
+        }
+    }
+    
+
     function toggleAddressField() {
         var addressField = document.getElementById('addressField');
         if (addressField.style.display === 'none') {
