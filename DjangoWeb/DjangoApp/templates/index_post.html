@@ -79,13 +79,13 @@
     <div class="container-right">
         <div class="author-box">
             <div class="author-info">
-                <div class="avatar-img"><a href="#"><img src="avatar_test.jpg" alt="Avatar"></a></div>
-                <div class="author-name"><a href="#"><p>Nguyễn A</p></a></div>
+                <div class="avatar-img"><a href="#"><img src="{{ userinfo.avatar.url }}" alt="Avatar"></a></div>
+                <div class="author-name"><a href="#"><p>{{ userinfo.firstname }} {{ userinfo.lastname }}</p></a></div>
             </div>
             <div class="line"></div>
             <div class="activity">
                 <div class="sl-baiviet">
-                    <div class="sl">14</div>
+                    <div class="sl">{{ userinfo.post_set.count }}</div>
                     <div class="label">Bài viết</div>
                 </div>
                 <div class="sl-nguoitheodoi">

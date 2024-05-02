@@ -85,7 +85,22 @@ def whilelogin(request, user_id):
         if request.method == 'POST':
             form = PostForm(request.POST, request.FILES)
             if form.is_valid():
-                post = form.save()
+                post = form.save(commit=False)  # Không lưu vào cơ sở dữ liệu ngay lập tức
+                post.idUser = userinfo  # Gán idUser từ userinfo
+                post.save()
+
+                # Lưu các tag được chọn vào bài đăng
+                selected_tags = []
+
+                # Xác định các tag được chọn từ request.POST
+                for key, value in request.POST.items():
+                    if value == 'on':  # Nếu checkbox được chọn
+                        tag_name = key.replace('_', ' ')  # Chuyển tên trường thành tên tag
+                        tag = Tag.objects.get_or_create(name=tag_name)[0]
+                        selected_tags.append(tag)
+
+                # Lưu các tag vào bài đăng
+                post.tags.add(*selected_tags)
                 return redirect('/post/{}/'.format(post.id))
         return render(request,'index_login.html', {'form': form,'top_posts': top_posts, 'other_posts': other_posts, 'userinfo': userinfo})
     else:
