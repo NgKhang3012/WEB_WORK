@@ -31,6 +31,7 @@
                             </svg>
                         </a>
                     </div>
+
                     <input class="Search_input" spellcheck="false"
                         placeholder="Tìm kiếm địa điểm món ăn bạn yêu thích" value="" />
                 </div>
@@ -84,21 +85,21 @@
 <!--  ket thúc phan modal đăng nhập  -->
 
 <!-- Modal đăng ký -->
-<div class="modal_Reg">
+<div class="modal_Reg" >
     <div class="body_modal_Reg">
         <p>Đăng Ký vào Làng</p>
         <form class="input_text_Reg" method="POST" action="">
             {% csrf_token %}
-            <input type="text" name="input-reg-account" class="box_input_text_account_Reg"
-                placeholder="Email address" />
-            <input type="password" name="input-reg-password" class="box_input_text_password_Reg"
-                placeholder="Please Input Password" />
-            <p class="pass_validate">Your password can’t be too similar to your other personal information.</p>
-            <p class="pass_validate">Your password must contain at least 8 characters.</p>
-            <p class="pass_validate">Your password can't be a commonly used password.</p>
-            <p class="pass_validate">Your password can’t be entirely numeric.</p>
-            <input type="password" name="input-reg-repassword" class="box_input_text_password_Reg"
-                placeholder="Please Input Password Again" />
+            <input type="text" name="input-reg-account" class="fontt box_input box_input_text_account_Reg"
+                placeholder=" Email address" />
+            <input type="password" name="input-reg-password" class="fontt box_input box_input_text_password_Reg"
+                placeholder=" Please Input Password" />
+                <p class="fontt pass_validate"><span style="color: red;">*</span> Your password can’t be too similar to your other personal information.</p>
+                <p class="fontt pass_validate"><span style="color: red;">*</span> Your password must contain at least 8 characters.</p>
+                <p class="fontt pass_validate"><span style="color: red;">*</span> Your password can't be a commonly used password.</p>
+                <p class="fontt pass_validate"><span style="color: red;">*</span> Your password can’t be entirely numeric.</p>
+            <input type="password" name="input-reg-repassword" class="fontt box_input box_input_text_password_Reg"
+                placeholder=" Please Input Password Again" />
             {% if error_message_reg_1 %}
             <p class="error">{{ error_message_reg_1 }}</p>
             {% elif error_message_reg_2 %}
