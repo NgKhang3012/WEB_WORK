@@ -86,9 +86,7 @@ def whilelogin(request, user_id):
             form = PostForm(request.POST, request.FILES)
             if form.is_valid():
                 post = form.save()
-                # Tạo URL động cho trang chi tiết của bài viết mới tạo
-                post_url = reverse('post', kwargs={'post_id': post.id})  # Đặt tên cho tham số post_id
-                # return redirect(post_url)
+                return redirect('/post/{}/'.format(post.id))
         return render(request,'index_login.html', {'form': form,'top_posts': top_posts, 'other_posts': other_posts, 'userinfo': userinfo})
     else:
         if request.user.is_authenticated:
@@ -153,7 +151,8 @@ def editprofile(request, user_id):
             return redirect('/usr/{}/'.format(request.user.id))
         else:
             return redirect('index')
-@login_required
+
 def post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    return render(request, 'index-post.html', {'post': post}) 
+    userinfo = post.idUser
+    return render(request, 'index_post.html', {'post': post, 'userinfo': userinfo})
