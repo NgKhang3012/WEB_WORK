@@ -91,14 +91,17 @@
                 <input type="text" name="address" alt="Địa chỉ" placeholder="Địa chỉ" required>
             </div>
             <div id="starField" style="display: none;">
-                <input type="number" name="star" placeholder="Star" min="0" max="5" required>
+                <input type="text" name="star" placeholder="Star" pattern="[0-9]+(\.[0-9]+)?" required>
             </div>
             <div id="tagField" style="display: none;">
-                <input type="checkbox"  name="doChay" placeholder="Đồ chay">
-                <label for="vehicle1"> I have a bike</label><br>
-                <input type="checkbox" name="thucAnNhanh" placeholder="Thức ăn nhanh">
-                <input type="checkbox" name="traSua" placeholder="Trà sữa">
-                <input type="checkbox" name="anSang" placeholder="Ăn sáng">
+                <input type="checkbox" id="monChay" name="món chay" placeholder="Món chay">
+                <label for="monChay"> Món chay </label><br>
+                <input type="checkbox" id="thucanNhanh" name="thức ăn nhanh" placeholder="Thức ăn nhanh">
+                <label for="thucanNhanh"> Thức ăn nhanh </label><br>
+                <input type="checkbox" id="traSua" name="trà sữa" placeholder="Trà sữa">
+                <label for="traSua"> Trà sữa </label><br>
+                <input type="checkbox" id="anSang" name="ăn sáng" placeholder="Ăn sáng">
+                <label for="anSang"> Ăn sáng </label><br>
             </div>
             <br><br>
             <div class="Add_To_Content">
@@ -111,7 +114,8 @@
                         style="color: #cf6d17;"></i></a>
                 <!-- Trường star -->
                 <a href="#" onclick="toggleStarField()"><i class="fa-solid fa-star" style="color: yellow;"></i></a>
-
+                <!-- Tag -->
+                <a href="#" onclick="toggleTagField()"><i class="fa-solid fa-hashtag" style="color: #cf6d17;"></i></a>
             </div>
             <br>
             <div class="rel_btn_post">
@@ -136,11 +140,11 @@
     
 
     function toggleAddressField() {
-        var starField = document.getElementById('addressField');
-        if (starField.style.display === 'none') {
-            starField.style.display = 'block';
+        var addressField = document.getElementById('addressField');
+        if (addressField.style.display === 'none') {
+            addressField.style.display = 'block';
         } else {
-            starField.style.display = 'none';
+            addressField.style.display = 'none';
         }
     }
 
@@ -150,6 +154,15 @@
             starField.style.display = 'block';
         } else {
             starField.style.display = 'none';
+        }
+    }
+
+    function toggleTagField() {
+        var tagField = document.getElementById('tagField');
+        if (tagField.style.display === 'none') {
+            tagField.style.display = 'block';
+        } else {
+            tagField.style.display = 'none';
         }
     }
 
