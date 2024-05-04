@@ -1,12 +1,25 @@
 <aside>
     <div class="box_aside">
-        <a href="#">
+        <button class="Click_ontop">
+            <a href="#"><i class="fa-sharp fa-solid fa-arrow-up" style="color: #cf7207;"></i></a>
+            
+        </button>
 
-            <button class="Click_ontop">
-                <i class="fa-sharp fa-solid fa-arrow-up" style="color: #cf7207;"></i>
-            </button>
-        </a>
+        <button class="Asisstant_box">
+        <i id="chat-icon" class="fa-regular fa-comments ui-draggable ui-draggable-handle" style="
+        z-index: 11111;
+        cursor: pointer;
+        color: rgb(203 65 55);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: #e7a414;
+
+        "></i>
+        </button>
     </div>
+
 </aside>
 <!--  xong phan ben phai -->
 <!-- ===========vertical tab left ==================== -->
@@ -69,6 +82,19 @@
             const sidebar = document.querySelector(".modal_Post");
             sidebar.style.display = "none";
         }
+
     </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#chat-icon").draggable({
+                containment: ".box_aside" // Giới hạn di chuyển của icon trong khu vực box_aside
+            });
+        });
+
+    </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
 </div>
 <!-- xong phan vertical tab left  -->
