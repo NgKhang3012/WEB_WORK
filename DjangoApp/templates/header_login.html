@@ -10,7 +10,7 @@
         </button>
 
         <div class="navbar_logo_web">
-            <a href="#">
+            <a href="/">
                 <img src="/static/Image_web_offical/LOGO_OFFICIAL.jpg" alt="logoweb" />
             </a>
         </div>
@@ -83,19 +83,19 @@
         </div>
         <form method=POST enctype="multipart/form-data" id="postForm" name="form" action = "{% url 'whilelogin' user_id=request.user.id %}">
             {% csrf_token %}
-            <input class="input_textbox" type="text" name="title" placeholder=" Title" required><br><br>
-            <textarea class="box_input_content" placeholder="  Content" name="content"></textarea>
+            <input type="text" name="title" placeholder="Title" required><br><br>
+            <textarea class="box_input_content" placeholder="Content" name="content"></textarea>
             <!-- Hình ảnh xem trước -->
             <div id="imagePreview" style="display: none;">
-                <img id="preview" src="#" alt="Ảnh xem trước" style="max-width: 50%; max-height: 200px;">
+                <img id="preview" src="#" alt="Ảnh xem trước" style="max-width: 100%; max-height: 200px;">
             </div>
             <div id="addressField" style="display: none;">
-                <input class="input_textbox" type="text" name="address" alt="Địa chỉ" placeholder="Địa chỉ" required>
+                <input type="text" name="address" alt="Địa chỉ" placeholder="Địa chỉ" required>
             </div>
             <div id="starField" style="display: none;">
                 <input type="text" name="star" placeholder="Star" pattern="[0-9]+(\.[0-9]+)?" required>
             </div>
-            <div class="input_textbox" id="tagField" style="display: none;">
+            <div id="tagField" style="display: none;">
                 <input type="checkbox" id="monChay" name="món_chay" placeholder="Món chay">
                 <label for="monChay"> Món chay </label><br>
                 <input type="checkbox" id="thucAnNhanh" name="thức_ăn_nhanh" placeholder="Thức ăn nhanh">

@@ -21,7 +21,7 @@
 <!-- Các trường dữ liệu khác của bài đăng -->
 <section class="container">
     {% for post in other_posts %}
-    <a href="#">
+    <a href="{% url 'post' post_id=post.id %}">
         <img src="{{ post.image.url }}" alt="{{ post.title }}">
         <h3>{{ post.title }}</h3>
         <p>{{ post.address }}</p>
