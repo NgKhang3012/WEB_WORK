@@ -10,7 +10,7 @@
         </button>
 
         <div class="navbar_logo_web">
-            <a href="#">
+            <a href="/">
                 <img src="/static/Image_web_offical/LOGO_OFFICIAL.jpg" alt="logoweb" />
             </a>
         </div>
@@ -21,8 +21,9 @@
         </h3>
         <div class="navbar_body flex_Search_center">
             <div>
-                <div class="Search_Wrapper flex_Search_center">
-                    <div class="Search_SearchIcon">
+                <form class="Search_Wrapper flex_Search_center" role="search" method=POST action = "{% url 'search' %}">
+                    {% csrf_token %}
+                    <button class="Search_SearchIcon" style="display: block" type="submit">
                         <a href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20"
                                 height="20">
@@ -30,11 +31,11 @@
                                     d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
                             </svg>
                         </a>
-                    </div>
+                    </button>
 
-                    <input class="Search_input" spellcheck="false"
-                        placeholder="Tìm kiếm địa điểm món ăn bạn yêu thích" value="" />
-                </div>
+                    <input class="Search_input" spellcheck="false" type="search"
+                                placeholder="Tìm kiếm địa điểm món ăn bạn yêu thích" value="" name="searched" />
+                </form>
             </div>
         </div>
         
@@ -55,7 +56,7 @@
 <div class="modal">
     <div class="body_modal">
         <p>Đăng nhập vào Làng</p>
-        <form class="input_text_login" method="POST" action="">
+        <form class="input_text_login" method="POST" action="{% url 'index' %}">
             {% csrf_token %}
             <input type="text" name="input-login-account" class="box_input_text_account"
                 placeholder="Email address" />
@@ -88,7 +89,7 @@
 <div class="modal_Reg" >
     <div class="body_modal_Reg">
         <p>Đăng Ký vào Làng</p>
-        <form class="input_text_Reg" method="POST" action="">
+        <form class="input_text_Reg" method="POST" action="{% url 'index' %}">
             {% csrf_token %}
             <input type="text" name="input-reg-account" class="fontt box_input box_input_text_account_Reg"
                 placeholder=" Email address" />

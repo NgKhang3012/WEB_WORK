@@ -21,26 +21,29 @@
         </h3>
         <div class="navbar_body flex_Search_center">
             <div>
-                <div class="Search_Wrapper flex_Search_center">
-                    <div class="Search_SearchIcon">
+                <form class="Search_Wrapper flex_Search_center" role="search" method=POST action = "{% url 'search' %}">
+                    {% csrf_token %}
+                    <button class="Search_SearchIcon" style="display: block" type="submit">
                         <a href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20" height="20">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20"
+                                height="20">
                                 <path fill="#da9a72"
                                     d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
                             </svg>
                         </a>
-                    </div>
-                    <input class="Search_input" spellcheck="false" placeholder="Tìm kiếm địa điểm món ăn bạn yêu thích"
-                        value="" />
-                </div>
+                    </button>
+
+                    <input class="Search_input" spellcheck="false" type="search"
+                                placeholder="Tìm kiếm địa điểm món ăn bạn yêu thích" value="" name="searched" />
+                </form>
             </div>
         </div>
-
+        
         <div class="navbar_action">
 
-            <button onclick="Open_Post()" class="btn_upfile">
-                POST
-            </button>
+                <button onclick="Open_Post()" class="btn_upfile">
+                    POST
+                </button>
             <!-- phan thong bao va ICON avatar -->
             <div>
             </div>
@@ -50,24 +53,23 @@
                 </button>
             </div>
             <div class="div_avatar">
-
-                    <button onclick=show_profile_on_avatar() class="btn_avatar">
+                    <button onclick=show_profile_on_avatar() class="btn_avatar"> 
                         <div class="avatar_user_page">
                             <img src="{{userinfo.avatar.url}}" alt="Avatar User">
                         </div>
                     </button>
                     <ul id="dropdownMenu" class="dropdown-menu" style="display: none;">
                         
-                        <li><a href="#">Profile</a></li>
+                        <li><a href="editprofile">Profile</a></li>
                         <li><a href="#">Settings</a></li>
-                        <li><a href="#">Logout</a></li>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
                     </ul>
             </div>
             <p class='hello_tag'> {{ userinfo.firstname }} {{userinfo.lastname}} </p>
 
 
 
-        </div>
+    </div>
 
 </header> <!-- xong phan header -->
 
@@ -79,7 +81,7 @@
             <img src="{{userinfo.avatar.url}}" alt="avatar_user">
             <p>{{ userinfo.firstname }} {{userinfo.lastname}}</p>
         </div>
-        <form method="post" enctype="multipart/form-data" id="postForm" name="form">
+        <form method=POST enctype="multipart/form-data" id="postForm" name="form" action = "{% url 'whilelogin' user_id=request.user.id %}">
             {% csrf_token %}
             <input type="text" name="title" placeholder="Title" required><br><br>
             <textarea class="box_input_content" placeholder="Content" name="content"></textarea>
@@ -94,13 +96,13 @@
                 <input type="text" name="star" placeholder="Star" pattern="[0-9]+(\.[0-9]+)?" required>
             </div>
             <div id="tagField" style="display: none;">
-                <input type="checkbox" id="monChay" name="món chay" placeholder="Món chay">
+                <input type="checkbox" id="monChay" name="món_chay" placeholder="Món chay">
                 <label for="monChay"> Món chay </label><br>
-                <input type="checkbox" id="thucanNhanh" name="thức ăn nhanh" placeholder="Thức ăn nhanh">
-                <label for="thucanNhanh"> Thức ăn nhanh </label><br>
-                <input type="checkbox" id="traSua" name="trà sữa" placeholder="Trà sữa">
+                <input type="checkbox" id="thucAnNhanh" name="thức_ăn_nhanh" placeholder="Thức ăn nhanh">
+                <label for="thucAnNhanh"> Thức ăn nhanh </label><br>
+                <input type="checkbox" id="traSua" name="trà_sữa" placeholder="Trà sữa">
                 <label for="traSua"> Trà sữa </label><br>
-                <input type="checkbox" id="anSang" name="ăn sáng" placeholder="Ăn sáng">
+                <input type="checkbox" id="anSang" name="ăn_sáng" placeholder="Ăn sáng">
                 <label for="anSang"> Ăn sáng </label><br>
             </div>
             <br><br>
@@ -110,8 +112,7 @@
                 <!-- Biểu tượng icon hình ảnh -->
                 <a href="#" onclick="openFileExplorer()"><i class="fa-solid fa-image" style="color: #cf6d17;"></i></a>
                 <!-- Biểu tượng icon address -->
-                <a href="#" onclick="toggleAddressField()"><i class="fa-solid fa-location-dot"
-                        style="color: #cf6d17;"></i></a>
+                <a href="#" onclick="toggleAddressField()"><i class="fa-solid fa-location-dot" style="color: #cf6d17;"></i></a>
                 <!-- Trường star -->
                 <a href="#" onclick="toggleStarField()"><i class="fa-solid fa-star" style="color: yellow;"></i></a>
                 <!-- Tag -->
